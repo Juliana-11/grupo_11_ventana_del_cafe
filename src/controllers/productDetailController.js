@@ -27,8 +27,8 @@ const productDetailController = {
                 productsImage: req.file? req.file.filename : 'defaultImage.png'
             }
             products.push(newProduct);
-            res.send('Producto guardado')
-            fs.writeFileSync(productsDataPath,JSON.stringify(products));
+            fs.writeFileSync(productsDataPath,JSON.stringify(products),'utf-8');
+            res.render('products/productCreateForm')
         }else {
             let oldData = req.body;
             res.render('productCreateForm', {errors: errors.mapped(), oldData});
