@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const methodOverride = require('method-override');
 
 //Rutas
 const mainRouter = require('./src/routes/mainRouters'); 
@@ -15,6 +16,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, './public')));
+app.use(methodOverride('_method'));
 
 /*Codigo*/
 app.use('/', mainRouter);

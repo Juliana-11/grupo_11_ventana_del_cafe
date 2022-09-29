@@ -4,9 +4,10 @@ const express = require('express');
 const router = express.Router();
 const {check} = require('express-validator');
 const multer = require('multer');
+const path = require('path');
 const multerDiskStorage = multer.diskStorage({
     destination: (req, file, callback) => {
-        let folder = path.resolve(__dirname, '.../public/imag/productImages')
+        let folder = path.resolve('../grupo_11_ventana_del_cafe/public/imag/productImages')
         callback(null, folder);
     },
     filename: (req, file, callback) => {

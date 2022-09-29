@@ -19,7 +19,7 @@ const productDetailController = {
         let errors = validationResult(req);
         if(errors.isEmpty){
             let newProduct = {
-                id: products[products.length - 1].id + 1,
+                id: products.length == 0? 1 : products[products.length - 1].id + 1,
                 productName: req.body.name,
                 productPrice: req.body.price,
                 productDiscount: req.body.discount,
@@ -28,10 +28,10 @@ const productDetailController = {
             }
             products.push(newProduct);
             res.send('Producto guardado')
-            fs.appendFileSync(JSON.stringify(productsDataPath, null, ' '));
+            fs.writeFileSync(productsDataPath,JSON.stringify(products));
         }else {
             let oldData = req.body;
-            res.render('product-create-form', {errors: errors.mapped(), oldData});
+            res.render('productCreateForm', {errors: errors.mapped(), oldData});
         }
         
     },
