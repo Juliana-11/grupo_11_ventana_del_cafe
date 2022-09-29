@@ -1,0 +1,13 @@
+/*Requerir*/
+//Express
+const express = require('express');
+const router = express.Router()
+
+//controlador
+const registerController = require('../controllers/registerController');
+const loginController = require('../controllers/loginController');
+
+router.get('/register', registerController.index);
+router.get('/login', loginController.index); 
+
+module.exports = router; 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {title: "Registro"}) %>
+<body class="body-style">
+    <%- include('../partials/header') %>
+    <main>
+        <div class="logo">
+            <p>logo</p>
+        </div>
+        <div id="registrarse">
+            <hr>
+            <h1>Crear una cuenta</h1>
+            <form action="#" method="post">
+                <div class="fila-arriba">
+                    <div class="contenedor-input">
+                        <label>
+                            Nombre <span class="req"></span>
+                        </label><br>
+                        <input type="text" required>
+                    </div>
+                    <div class="contenedor-input">
+                        <label>
+                            Apellido <span class="req"></span>
+                        </label><br>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <div class="contenedor-input">
+                    <label>
+                        Usuario <span class="req"></span>
+                    </label><br>
+                    <input type="text" required>
+                </div>
+                <div class="contenedor-input">
+                    <label>
+                        Email <span class="req"></span>
+                    </label><br>
+                    <input type="email" required>
+                </div>
+                <div class="contenedor-input">
+                    <label>
+                        Contraseña <span class="req"></span>
+                    </label><br>
+                    <input type="password" required>
+                </div>
+                <br><input type="submit" class="button button-block" value="Continuar">
+            </form>
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

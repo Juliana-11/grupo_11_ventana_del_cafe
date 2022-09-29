@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+ <%- include('../partials/head', {title: "Carrito de compra"}) %>
+<body class="body-style">
+    <%- include('../partials/header') %>
+
+    <div class="ocultar">
+        <div class="shopping-cart-table-names">
+        <p class="product">Producto</p>
+        <div class="part-2-body">
+            <p class="price">Precio unitario</p>
+            <p class="amount">Cantidad</p>
+            <p class="subtotal">Subtotal</p>
+        </div>
+        </div>
+    </div>
+
+    <main>
+        <article class="product-car-option-1">
+        <div class="container-img-1">                    
+            <img src="/imag/Café Especial Hilo.webp" class="img-Car">
+        </div>       
+        <div class="container-info-product-car-1">
+            <h2 class="title-article-car-1">Cafe especial Hilo</h2>
+            <h3 class="price-article-car-1">$42,000</h3>
+            <div class="container-quantity-1">
+                <i class="fas fa-minus"></i>
+                <input  type="text" name="cantidad" id="cantidad" value="1" class="number">
+                <i class="fas fa-plus"></i>
+            </div>                        
+        </div>
+        </article>
+
+        <article class="product-car-option-2">
+            <div class="container-name-product-car">
+                <div class="container-img">                    
+                    <img src="/imag/Café Especial Hilo.webp" class="img-Car">
+                </div>
+                <div class="container-title-product">
+                    <h2 class="title-article-car">Cafe especial Hilo</h2>
+                </div>
+            </div>            
+            <div class="container-info-product-car">
+                <h3 class="price-article-car">$42,000</h3>
+
+                <div class="container-quantity">
+                    <form action="">
+                        <button>
+                            <i class="fas fa-minus"></i>                        
+                        </button>
+                        <input  type="text" name="cantidad" id="cantidad" value="1" class="number">
+                        <button>
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="container-price-button">
+                    <h3 class="subtotal-article-car">$42,000</h3>
+                    <form action="">
+                        <button class="botton-subtotal-article-car">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </article>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

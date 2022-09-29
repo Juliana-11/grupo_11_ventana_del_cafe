@@ -1,0 +1,170 @@
+Paleta de colores
+    - Header: #FFC56A
+    A. Cafe: #B3844F
+    B. Beige: #EDC990
+    C. Azul: #42C6ED
+    D. Menta: #68E8AD
+    E. Gris: #A6A6A6
+    F. Gris claro: rgba(244, 239, 239, 0.917) 
+
+Productos
+1.  -Nombre: 
+        Café Especial Q.coffee Gran Reserva Luxury
+    -Descripción:
+        Café Q.coffee Gran Reserva Luxury edition es un café especiales insignia Colombiano. Sus atributos destacan por balances sensoriales logrados mediante el proceso de selección hecho grano a grano.Es sometido a un riguroso examen por parte de un panel de 5 Q Graders, exigiendo un estándar de calidad por encima de 88 en la escala de la Specialty Coffee Association of America.
+    -Origen:
+        Antioquia, urrao
+    -Nivel de tostado:
+        Media
+    -Sabor: 
+        Chocolate, Notas Frutales, Piña y Naranja
+    -Precio: 
+        $76,755
+
+2.  -Nombre:
+        Café Especial Hilo
+    -Descripción:
+        Café Hilo es un café especial que crea conexiones únicas con los caficulores y sus familias. Por medio de prácticas de comercio justo se genera un impacto positivo en la calidad de vida de la comunidad.
+        Sus características diferenciadoras recaen, sobre todo, en un sistema de renta fija, donde los caficultores reciben un ingreso básico mensual que no se ve afectado por cambios internacionales en el precio del café.
+        Además, parte de las ganancias por la venta del café son destinadas a proyectos sociales como Jardín, municipio lector.
+        ¡Cómpralo y deléitate con un café de altísima calidad mientras descubres una nueva forma de relacionarte con los caficultores!
+    -Origen:
+        Antioquia, Jardin
+    -Nivel de tostado: 
+        Media
+    -Sabor:
+        Panela, Frutos Verdes, Chocolate Negro y Jugo de Caña.
+    -Precio:
+        $ 42,000
+
+3.  -Nombre:
+        Juan valdez café
+    -Descripción:
+        Café intenso con notas a nuez de avellana y residual cremoso a chocolate. Es la montaña costera más alta del mundo, un lugar único que contiene selva, bosque y páramo al mismo tiempo, donde se cultiva café bajo la sombra de los árboles nativos.
+    -Origen:
+        Origen sierra nevada
+    -Nivel de tostado:
+        Oscuro
+    -Sabor:
+        Chocolate
+    -Precio: 
+        $ 34,950
+
+4.  -Nombre: 
+        Cafe Ginerbras
+    -Descripción:
+        Café Mujeres Cafeteras Ginebras, es un café excelso tipo exportación. Origen Valle del Cauca. Cultivado por nuestras mujeres caficultoras hoy nos entregan una cosecha colmada de vivencias enmarcadas en diversas circunstancias que, finalmente, las condujo por los hermosos caminos del café.
+    -Origen: 
+        Valle del Cauca
+    -Nivel de tostado:
+        Medio
+    -Sabor:
+        Florales, dulce, frutales
+    -Precio:
+        $ 28,679
+
+
+Noticias
+1.  -Titulo: 
+        Datos curiosos
+    -Contenido:
+        -La palabra café, proviene del árabe "qahhwat al-bun" y significa "vino del grano".
+        -Antiguamente los europeos llamaban al café ‘vino árabe’, ya que llegó a Europa a través de Turquía.
+        -El árbol del café, llamado cafeto, mide entre 2 y 5 metros.
+        -Es la segunda bebida más consumida del mundo, la primera es el agua.
+        -El país del mundo que consume más café es Estados Unidos.
+    -Resumen:
+
+
+2.  -Titulo:
+        Beneficios
+    -Contenido:
+        -Ayuda al dolor de cabeza   
+            La cafeína es un gran analgésico para las migrañas. Por lo que el café es un gran aliado para ayudarte a reducir el dolor o la inflamación. Sin embargo no se puede abusar de su consumo.
+
+        -Fuente de antioxidantes
+            El café es una de las principales fuentes de antioxidantes que tu cuerpo necesita para evitar su oxidación y prevenir algunas enfermedades cardiovasculares. Además, aporta nutrientes esenciales como vitamina B2, B5, potasio, magnesio, entre otros.
+
+        -Reduce la depresión
+            Muchos estudios han revelado que la depresión disminuye al consumir café a diario que no sea descafeinado, debido a que sus componentes pueden reducir la inflamación de células nerviosas de personas que la sufren. Así que disfruta una buena taza al día, sin consumir con exceso.
+
+        -Aumenta el rendimiento físico
+            La cafeína da energía y aumenta la adrenalina por lo que te ayuda a tener un buen rendimiento físico, resistencia y recuperación muscular. Además de ayudarte a quemar grasa. Pero no lo puedes consumir en exceso.
+
+            ¿Conocías estas cosas que aportan el café? Por supuesto la única forma no es solo en el tradicional tinto. Puedes explorar diversas recetas como tortas, postres, bebidas y mucho más. En Tupperware te acompañamos con los aliados perfectos para que prepares tus recetas en casa de forma rápida y sorprendiendo a tu familia.
+    -Resumen:
+
+3.  -Titulo:
+        Receta
+    -Contenido:
+        Ingredientes
+            -2 cucharadas de CAFÉ NESCAFÉ® TRADICIÓN (20 g)
+            -1 taza de agua caliente (250 ml)
+            -4 cucharadas de CREMA DE LECHE NESTLÉ® Light (60 g)
+            -4 bolas de helado de vainilla (240 g)
+            -2 cucharadas de chips de chocolate (30 g)
+
+        Instrucciones
+            -PASO 1 Prepara el café
+                Disuelve el café en la taza de agua caliente hasta integrar bien.
+
+            -PASO 2 Ensambla la preparación
+                Alista 4 vasos del mismo tamaño y sirve una bola de helado en cada uno ellos; encima añade el café en partes iguales. Por último, adiciona una cucharada de CREMA DE LECHE por vaso y decora con los chips de chocolate.
+    -Resumen:
+
+
+iconos
+    -Redes:
+        - Facebook
+            <i class="fab fa-facebook"></i>
+        - Instagram: 
+            <i class="fab fa-instagram"></i>
+        - Twitter
+            <i class="fab fa-twitter"></i>
+    - Souvenirs
+        <i class="far fa-gifts"></i>
+    - Estrellas
+        <i class="far fa-star"></i>
+    - Licores
+        <i class="far fa-beer"></i>
+    - Recetas
+        <i class="far fa-hat-chef"></i>
+    - Campana: 
+        <i class="far fa-bell"></i>
+    - Perfil: 
+        <i class="fas fa-user-circle"></i>
+    - Lupa: 
+        <i class="fas fa-search"></i>
+    - Consumo: 
+        <i class="far fa-mug-hot"></i>
+    - Belleza: 
+        <i class="fas fa-lips"></i>
+    - Servidore:
+        - Gmail: 
+            <i class="fab fa-google"></i>
+        - Microsoft: 
+            <i class="fab fa-windows"></i>
+    - más:
+        <i class="fa-solid fa-plus"></i>
+    - Like:
+        <i class="far fa-heart-circle"></i>
+    - Salir: 
+        <i class="fas fa-sign-out-alt"></i>
+    - Tostado:
+        <i class="fas fa-fireplace"></i>
+    - Origen: 
+        <i class="far fa-map-marker-alt"></i>
+    - Candado:
+        <i class="fas fa-lock"></i>
+    - Sabor:
+        <i class="fas fa-coffee-pot"></i>
+    - Flecha izquierda:
+        <i class="fas fa-arrow-alt-circle-left"></i>
+    - Flecha derecha:
+        <i class="fas fa-arrow-alt-circle-right"></i>
+    - Menos
+        <i class="fas fa-minus"></i>
+
+
+
+
