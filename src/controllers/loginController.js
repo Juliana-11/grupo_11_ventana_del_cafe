@@ -15,7 +15,6 @@ const loginController = {
         let usuUsuarioFind = req.body.usuario;
         let existeEmail = users.find(userMail => userMail.userEmail == usuUsuarioFind);
         let existeUsu = users.find(userUsu => userUsu.userUserDescrip == usuUsuarioFind);
-        let passValida = bcrypt.hashSync(req.body.password,12)
        
         if (existeEmail != undefined || existeUsu != undefined){
             let usuarioPos = 0;
@@ -24,12 +23,9 @@ const loginController = {
             }else{
                 usuarioPos = users.indexOf(existeUsu);
             }
-            let pruebaPass = bcrypt.compare(req.body.password,users[usuarioPos].userPassword)
-            console.log(pruebaPass)
-            console.log(users[usuarioPos].userEmail)
-            console.log(users[usuarioPos].userPassword)
-            console.log(passValida)
-            if (passValida == users[usuarioPos].userPassword)
+            let passValida = bcrypt.compareSync(req.body.password,users[usuarioPos].userPassword)
+           
+            if (passValida)
             {
                 res.send('Credenciales válidas. Usuario logueado');
             }else{
