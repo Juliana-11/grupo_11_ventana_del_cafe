@@ -5,10 +5,10 @@
     <%- include('../partials/header') %>
     <main>
        <section class="item-form">
-            <form action="">
+            <form action="/users/login" method="post">
                 <h5>Inicia Sesión</h5>
                 <input class="item-input" type="text" name="usuario" required placeholder="Nombre de usuario o correo electronico">
-                <input class="item-input" type="password" required name="Contraseña" placeholder="Contraseña">
+                <input class="item-input" type="password" name="password" placeholder="Contraseña" required>
                 <input class="item-buttom" type="submit" value="Ingresar">
                 <p><a href="#">¿Olvidaste tu contraseña?</a></p>
                 </form>
