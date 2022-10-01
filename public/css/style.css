@@ -362,41 +362,65 @@ input[type="radio"]:checked ~ label {
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< LOGIN >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
-.item-input{
-    width: 100%;
-    border: 1px solid #20ADFA;
-    margin-bottom: 15px;
-    padding: 11px 10px;
-    font-size: 14px;
+.containerLogin{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 
 }
 
-.item-buttom{
-    width: 100%;
-    height: 40px;
-    background-color: #0070AD;
-    border: none;
-    margin-bottom: 16px;
-    color: white;
-    font-family: 'Dosis';
+.contentLogin{
+    display: flex;
+    flex-wrap: wrap;
+    background: linear-gradient(#42C6ED, #68E8AD, #1259c3);
+    margin: 15px 25px;
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 8px 8px 8px 5px rgba(0, 0, 0, 0.2);
+    max-width: 320px;
 }
 
-.item-form p{
-    height: 40px;
+.contentLogin label, .containerOlvidasteCredenciales{
+    width: 100%;
     text-align: center;
-    border-bottom: 1px solid;
-    font-family: 'Dosis';
-    
 }
 
-.item-form a{
-    text-decoration: none; 
-    font-size: 14px;
-    color: #0070AD;;
+.itemLogin{
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
 }
 
-.item-form a:hover{
-    text-decoration: underline;
+.containerButtonLogin{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+.buttonLogin{
+    text-align: center;
+    width: 40%;
+    height: 30px;
+    background-color: var(--brown);
+    border-radius: 5px;
+    max-width: 200px;
+}
+
+.containerOlvidasteCredenciales{
+    margin: 10px;
+}
+
+.olvidasteCredenciales{
+    text-decoration: none;
+    color: black;
+}
+
+.containerImgDecoLogin{
+    display: none;
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PRODUCT CAR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
@@ -932,6 +956,25 @@ select{
         width: 22px;
         height: 22px;
         font-size: 12px;
+    }
+
+    /*Login*/
+    .containerImgDecoLogin{
+        display: block;
+        width: 20%;
+    }
+
+    .containerImgDecoLogin img{
+        width: 100%;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 20px;
+    }
+
+    .containerLogin{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     /*Register*/
