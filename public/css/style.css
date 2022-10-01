@@ -616,6 +616,91 @@ input[type="radio"]:checked ~ label {
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< REGISTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.tituloRegister{
+    text-align: center;
+}
+
+.containerh2Register{
+    border-bottom: 2px solid gray;
+    margin: 10px;
+    margin-top: 20px; 
+    width: 100%;
+}
+
+.containerh2Register h2{
+    color: gray;
+    text-align: center;
+}
+
+.datosPersonalesRegister, .datosDeEntrega{
+    display: flex;
+    flex-wrap: wrap;
+    background: linear-gradient(#42C6ED, #68E8AD, #1259c3);
+    margin: 15px 25px;
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 8px 8px 8px 5px rgba(0, 0, 0, 0.2);
+    max-width: 320px;
+}
+.itemRegister{
+    width: 95%;
+    text-align: center;
+}
+
+.itemRegister label{
+    display: none;
+}
+
+.itemRegister input{
+    text-align: center;
+    width: 75%;
+    height: 35px;
+    margin: 13px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.checkboxRegister{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5px 0px;
+}
+
+.checkboxRegister p{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.checkboxRegister label{
+    text-align: center;
+}
+
+.itemCheckboxRegister{
+    width: 40%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.containerButtonRegister{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+.buttonRegister{
+    text-align: center;
+    width: 40%;
+    height: 30px;
+    background-color: var(--brown);
+    border-radius: 5px;
+    max-width: 200px;
+}
+
+.imagenDecoRegister{
+    display: none;
+}
+
+
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FORMULARIO DE CREACION DE PRODUCTO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 
@@ -767,6 +852,51 @@ select{
     .ocultar{
         display: block;
     }
+
+    /*Register*/
+    .registerPartUno, .registerPartDos{
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: flex-start;
+        justify-content: center;
+    }
+
+    .imagenDecoRegister{
+        width: 45%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .imagenDecoRegister img{
+        width: 100%;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 5px;
+        max-width: 370px;
+    }
+
+    .containerRegister{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+
+@media(min-width: 650px){
+    /*Register*/
+    .itemRegister label{
+        display: block;
+        margin-bottom: -7px;
+    }
+    .containerRegister{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    
 }
 
 @media(min-width: 769px){
@@ -803,5 +933,9 @@ select{
         height: 22px;
         font-size: 12px;
     }
-    
+
+    /*Register*/
+    .imagenDecoRegister{
+        display: none;
+    }
 }

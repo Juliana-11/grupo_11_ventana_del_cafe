@@ -3,51 +3,143 @@
 <%- include('../partials/head', {title: "Registro"}) %>
 <body class="body-style">
     <%- include('../partials/header') %>
-    <main>
-        <div class="logo">
-            <p>logo</p>
-        </div>
-        <div id="registrarse">
-            <hr>
-            <h1>Crear una cuenta</h1>
-            <form action="#" method="post">
-                <div class="fila-arriba">
-                    <div class="contenedor-input">
-                        <label>
-                            Nombre <span class="req"></span>
-                        </label><br>
-                        <input type="text" required>
+
+<main>
+    <div class="registrarse">
+
+        <h1 class="tituloRegister">REGISTRATE</h1>
+
+        <form action="#" method="POST">
+
+            <div class="containerRegister">
+                <div class="registerPartUno">
+                    <div class="containerh2Register"><h2>Datos personales</h2></div>
+    
+                    <div class="datosPersonalesRegister">
+    
+                        <div class="itemRegister">
+                            <label for="nombreRegister">Nombre </label>
+                            <input type="text" id="nombreRegister" name="nombreRegister"  placeholder="Indicame tu nombre" required>
+                        </div>
+                        
+                        <div class="itemRegister">
+                            <label for="apellidoRegister">Apellido </label>
+                            <input type="text" id="apellidoRegister" name="apellidoRegister"  placeholder="Indicame tu apellido" required>
+                        </div>
+                        
+                        <div class="itemRegister">
+                            <label for="emailRegister">Email </label>
+                            <input type="email" id="emailRegister" name="emailRegister"  placeholder="Indicame tu email"required>
+                        </div>
+                        
+                        <div class="itemRegister">
+                            <label for="usuarioRegister">Nuevo usuario </label>
+                            <input type="text"  id="usuarioRegister" name="usuarioRegister" placeholder="Create un usuario" required>
+                        </div>
+    
+                        <div class="itemRegister">
+                            <label for="contraseñaRegister">Contraseña</label>
+                            <input type="password" id="contraseñaRegister" name="contraseñaRegister" placeholder="Crea una contraseña" required>
+                        </div>
+    
+                        <div class="itemRegister">
+                            <label for="confirmacionContraseñaRegister">Confirma contraseña </label>
+                            <input type="text" id="confirmacionContraseñaRegiste" name="confirmaciónContraseñaRegiste"  placeholder="Confirma tu contraseña" required>
+                        </div>
+    
+                        <div class="itemRegister">
+                            <label for="avatarRegister">Perfil</label>
+                            <input type="file" id="avatarRegister" name="avatarRegister"  placeholder="Indicame tu email"required>
+                        </div>
+
                     </div>
-                    <div class="contenedor-input">
-                        <label>
-                            Apellido <span class="req"></span>
-                        </label><br>
-                        <input type="text" required>
+                    
+                </div>
+
+                <div class="imagenDecoRegister">
+                    <img src="/imag/cafeColombiano.jpg" alt="cultivar_cafe">
+                </div>
+    
+                <div class="registerPartDos">
+                    <div class="containerh2Register"><h2>Datos de entrega</h2></div>
+                    
+                    <div class="datosDeEntrega">
+        
+                        <div class="itemRegister">
+                            <label for="direccionUnoRegister">Dirección 1</label>
+                            <input type="text" id="direccionUnoRegister" name="direccionUnoRegister" placeholder="Indicame tu dirección" required>
+                        </div>
+                        
+                        <div class="itemRegister">
+                            <label for="direccionDosRegister">Dirección 2 </label>
+                            <input type="text" id="direccionDosRegister" name="direccionDosRegister" placeholder="Indicame otra dirección" required>
+                        </div>
+        
+                        <div class="checkboxRegister">
+                            <p>¿Que días puede recibir envios?</p>
+                            
+                            <div class="itemCheckboxRegister">
+                                <input type="checkbox" id="ckeckboxUno" name="ckeckboxUno" required> 
+                                <label for="ckeckboxUno">Todos los días</label>
+                            </div>
+        
+                            <div class="itemCheckboxRegister">
+                                <input type="checkbox" id="ckeckboxDos" name="ckeckboxDos" required> 
+                                <label for="ckeckboxDos"> Lunes </label>
+                            </div>
+        
+                            <div class="itemCheckboxRegister">
+                                <input type="checkbox" id="ckeckboxTres" name="ckeckboxTres" required> 
+                                <label for="ckeckboxTres">Martes</label>
+                            </div>
+        
+                            <div class="itemCheckboxRegister">
+                                <input type="checkbox" id="ckeckboxCuatro" name="ckeckboxCuatro" required> 
+                                <label for="ckeckboxCuatro">Miercoles</label>
+                            </div>
+        
+                            <div class="itemCheckboxRegister">
+                                <input type="checkbox" id="ckeckboxCinco" name="ckeckboxCinco" required> 
+                                <label for="ckeckboxCinco">Jueves</label>
+                            </div>
+        
+                            <div class="itemCheckboxRegister">
+                                <input type="checkbox" id="ckeckboxSeis" name="ckeckboxSeis" required> 
+                                <label for="ckeckboxSeis">Viernes</label>
+                            </div>
+        
+                            <div class="itemCheckboxRegister">
+                                <input type="checkbox" id="ckeckboxSiete" name="ckeckboxSiete" required> 
+                                <label for="ckeckboxSiete">Sabado</label>
+                            </div>
+        
+                            <div class="itemCheckboxRegister">
+                                <input type="checkbox" id="ckeckboxOcho" name="ckeckboxOcho" required>  
+                                <label for="ckeckboxOcho">Domingo</label>
+                            </div>
+                        </div>
+                    
+                        <div class="itemRegister">
+                            <label for="telefonoRegister">Telefono / Celular </label>
+                            <input type="text" id="telefonoRegister" name="telefonoRegister" placeholder="Indicame tu celular" required>
+                        </div>
                     </div>
                 </div>
-                <div class="contenedor-input">
-                    <label>
-                        Usuario <span class="req"></span>
-                    </label><br>
-                    <input type="text" required>
+
+                <div class="imagenDecoRegister">
+                    <img src="/imag/cafeColombiano 2.png" alt="cultivar_cafe">
                 </div>
-                <div class="contenedor-input">
-                    <label>
-                        Email <span class="req"></span>
-                    </label><br>
-                    <input type="email" required>
-                </div>
-                <div class="contenedor-input">
-                    <label>
-                        Contraseña <span class="req"></span>
-                    </label><br>
-                    <input type="password" required>
-                </div>
-                <br><input type="submit" class="button button-block" value="Continuar">
-            </form>
-        </div>
-    </main>
-    <%- include('../partials/footer') %>
+
+            </div>
+        
+            <div class="containerButtonRegister">
+                <input type="submit" class="buttonRegister" value="Continuar">
+            </div>
+        </form>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
 </body>
 
 </html>
