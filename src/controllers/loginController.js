@@ -11,8 +11,8 @@ const loginController = {
         res.render('users/login')
     },
     checkLogin: (req,res)=>{
-        let usuEmailFind = req.body.email;
-        let usuUsuarioFind = req.body.usuario;
+        let usuEmailFind = req.body.userLogin;
+        let usuUsuarioFind = req.body.userLogin;
         let existeEmail = users.find(userMail => userMail.userEmail == usuUsuarioFind);
         let existeUsu = users.find(userUsu => userUsu.userUserDescrip == usuUsuarioFind);
        
@@ -20,14 +20,27 @@ const loginController = {
             let usuarioPos = 0;
             if (existeEmail != undefined ){
                  usuarioPos = users.indexOf(existeEmail);
+                 req.session.email = users[usuarioPos].userEmail;
             }else{
                 usuarioPos = users.indexOf(existeUsu);
+                req.session.user = users[usuarioPos].userUserDescrip;
             }
-            let passValida = bcrypt.compareSync(req.body.password,users[usuarioPos].userPassword)
-           
+            let passValida = bcrypt.compareSync(req.body.passwordLogin,users[usuarioPos].userPassword)
+            
+
             if (passValida)
             {
-                res.send('Credenciales válidas. Usuario logueado');
+                if (req.body.recuerdameLogin != undefined) {
+                   res.cookie('recordame',req.session.user,{maxAge:  600000})
+                }
+                //res.render('loginAcceso',{usuarioLogin: req.session})
+                /*
+                if (req.session.email != undefined){
+                    res.send('Usuario logueado:' +  req.session.email);
+                }else{
+                    res.send('Usuario logueado:' +  req.session.user);
+                }*/
+                
             }else{
                 res.send('Password inválida.');
             }
