@@ -21,6 +21,9 @@
                     <label for="passwordLogin">Indicame tu contraseña</label>
                         <input class="itemLogin" type="password" name="passwordLogin" id="passwordLogin" placeholder="Contraseña" required>
                     <label for="recuerdameLogin">
+                        <% if (locals.msgError) {%>
+                            <span style="color:red;"><%= msgError.mgs %></span><br>
+                        <%}%>
                         <input type="checkbox" name="recuerdameLogin" id="recuerdameLogin">¿Quieres que te recuerde?</label>
                     <div class="containerOlvidasteCredenciales"><a href="#" class="olvidasteCredenciales">¿Olvidaste tus credenciales?</a></div>     
                 </div>

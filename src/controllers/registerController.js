@@ -39,7 +39,6 @@ const registerController = {
                 userChecDomingo: req.body.ckeckboxOcho,
                 userTelefono: req.body.telefonoRegister
             }
-            console.log('pase el primer paso')
             let usuExiste = false ;
             let k = 0;
             while (k < users.length && usuExiste == false){
