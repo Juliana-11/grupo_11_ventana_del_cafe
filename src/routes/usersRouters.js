@@ -10,7 +10,8 @@ const loginController = require('../controllers/loginController');
 router.get('/register', registerController.index);
 router.post('/register', registerController.create);
 router.get('/login', loginController.index); 
-router.post('/login', loginController.checkLogin); 
+router.post('/login', loginController.checkLogin);
+router.get('/profile', loginController.profile)
 
 
 module.exports = router; 

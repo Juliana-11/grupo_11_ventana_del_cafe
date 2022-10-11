@@ -1,4 +1,4 @@
-const { Console } = require('console');
+const { Console, profile } = require('console');
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
@@ -36,6 +36,9 @@ const loginController = {
             res.send('Usuario no existe');
         }
 
+    },
+    profile: (req, res)=>{
+        res.render('users/profile')
     }
 }
 
