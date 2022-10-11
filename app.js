@@ -4,6 +4,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
+let session = require('express-session');
+const cookieParser = require('cookie-parser');
+const recordarmeMiddleware = require('./src/middleware/recordarmeMiddfleware')
 
 //Rutas
 const mainRouter = require('./src/routes/mainRouters'); 
@@ -17,6 +20,9 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, './public')));
 app.use(methodOverride('_method'));
+app.use(session({secret:"Shh,es un secreto!"}))
+app.use(cookieParser());
+app.use(recordarmeMiddleware);
 
 /*Codigo*/
 app.use('/', mainRouter);

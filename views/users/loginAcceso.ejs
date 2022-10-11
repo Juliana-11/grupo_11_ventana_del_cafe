@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: "Login"}) %>
+<body class="body-style">
+    <%- include('../partials/header') %>
+    
+<main>
+    <form action="#" method="post">
+        <h1 class="tituloRegister">SESIÓN LOGUEADA</h1>
+
+        <div class="containerLogin">
+            
+            <div class="containerImgDecoLogin">
+                <img src="/imag/cafeColombiano.jpg" alt="containerImgDecoLogin">
+            </div>
+    
+            <div class="containerLogin">
+                <div class="contentLogin">
+                    <label> Usuario logueado:  <%= usuarioLogin.email  %> </label>  
+                </div>
+                        
+                <div class="containerButtonLogin"><button class="buttonLogin" type="submit">Ingresar</button></div>
+            </div>
+    
+            <div class="containerImgDecoLogin">
+                <img src="/imag/cafeColombiano 2.png" alt="containerImgDecoLogin">
+            </div>
+        </div>
+        
+           
+    </form>
+</main>
+
+<%- include('../partials/footer') %>
+</body>
+</html>

@@ -11,29 +11,59 @@ const loginController = {
         res.render('users/login')
     },
     checkLogin: (req,res)=>{
-        let usuEmailFind = req.body.email;
-        let usuUsuarioFind = req.body.usuario;
-        let existeEmail = users.find(userMail => userMail.userEmail == usuUsuarioFind);
-        let existeUsu = users.find(userUsu => userUsu.userUserDescrip == usuUsuarioFind);
-       
-        if (existeEmail != undefined || existeUsu != undefined){
-            let usuarioPos = 0;
-            if (existeEmail != undefined ){
-                 usuarioPos = users.indexOf(existeEmail);
+        let usuEmailFind = req.body.userLogin;
+        let usuUsuarioFind = req.body.userLogin;
+        let existeEmail = false;
+        let existeUsuario = false
+        L = 0;
+        console.log('antes del while')
+        while ( L < users.length && existeEmail == false && existeUsuario == false){
+            L++;
+            console.log('antes del primer if')
+            if (users[L].userEmail == usuEmailFind){
+                existeEmail = true;
+                console.log('dentro de primer if')
             }else{
-                usuarioPos = users.indexOf(existeUsu);
+                if(users[L].userUserDescrip == usuUsuarioFind ){
+                    existeUsuario = true;
+                }
             }
-            let passValida = bcrypt.compareSync(req.body.password,users[usuarioPos].userPassword)
-           
+            
+        }
+        console.log(L)
+        console.log('despues del while');
+        console.log('existe email ?')
+        console.log(existeEmail)
+        console.log('existe usuario ?')
+        console.log(existeUsuario)
+        if (existeEmail == true || existeUsuario == true){
+        
+            
+            let passValida = bcrypt.compareSync(req.body.passwordLogin,users[L].userPassword)
+            console.log('comparacion de contraseña')
+            console.log(passValida)
             if (passValida)
             {
-                res.send('Credenciales válidas. Usuario logueado');
+                res.send('login correcto')    
             }else{
-                res.send('Password inválida.');
+                
+                let mensajeDeEnvio ={
+                    mgs: 'Password inválida'
+                }
+                res.render('users/login',{msgError: mensajeDeEnvio});
+                //res.send('Password inválida.');
             }
 
         }else{
-            res.send('Usuario no existe');
+           /* let msjError = {
+                msg: 'Usuario o correo electrónico inválido.'
+            }*/
+            //res.render('users/login',{errores: msjError})
+            //console.log('pase por usuario invalido')
+            let mensajeDeEnvio ={
+                mgs: 'Usuario o correo electrónico inválido.'
+            }
+            res.render('Usuario o correo electrónico inválido.');
         }
 
     },
