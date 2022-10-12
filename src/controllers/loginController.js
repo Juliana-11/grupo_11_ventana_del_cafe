@@ -1,4 +1,4 @@
-const { Console } = require('console');
+const { Console, profile } = require('console');
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
@@ -58,6 +58,9 @@ const loginController = {
             res.render('Usuario o correo electrónico inválido.');
         }
 
+    },
+    profile: (req, res)=>{
+        res.render('users/profile')
     }
 }
 
