@@ -20,10 +20,13 @@ var upload = multer({storage: multerDiskStorage});
 const registerController = require('../controllers/registerController');
 const loginController = require('../controllers/loginController');
 
+//middleware
+let recordarmeMiddleware = require('../middleware/recordarmeMiddfleware')
+
 router.get('/register', registerController.index);
 router.post('/register',upload.single('avatarRegister'), registerController.create);
-router.get('/login', loginController.index); 
-router.post('/login', loginController.checkLogin); 
+router.get('/login', recordarmeMiddleware,loginController.index); 
+router.post('/login',loginController.checkLogin); 
 
 
 module.exports = router; 
