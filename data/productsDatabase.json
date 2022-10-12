@@ -1,1 +1,50 @@
-[{"id":1,"productsCategory":"belleza","productsImage":"1664548478665.jpg"}]
+[
+    {
+        "id": 1,
+        "productName": "Café Especial Q.coffee Gran Reserva Luxury",
+        "productPrice": "76755",
+        "productDiscount": 0,
+        "category": "consumo",
+        "productImage": "Café Especial Q.coffee Gran Reserva Luxury.webp",
+        "description": "Café Q.coffee Gran Reserva Luxury edition es un café especiales insignia Colombiano. Sus atributos destacan por balances sensoriales logrados mediante el proceso de selección hecho grano a grano.Es sometido a un riguroso examen por parte de un panel de 5 Q Graders, exigiendo un estándar de calidad por encima de 88 en la escala de la Specialty Coffee Association of America.",
+        "origen": "Antioquia, urrao",
+        "nivelDeTostado": "Media",
+        "sabor": "Chocolate, Notas Frutales, Piña y Naranja"
+    },
+    {
+        "id": 2,
+        "productName": "Café Especial Hilo",
+        "productPrice": "42000",
+        "productDiscount": 0,
+        "category": "consumo",
+        "productImage": "Café Especial Hilo.webp",
+        "description": "Café Hilo es un café especial que crea conexiones únicas con los caficulores y sus familias. Por medio de prácticas de comercio justo se genera un impacto positivo en la calidad de vida de la comunidad. Sus características diferenciadoras recaen, sobre todo, en un sistema de renta fija, donde los caficultores reciben un ingreso básico mensual que no se ve afectado por cambios internacionales en el precio del café. Además, parte de las ganancias por la venta del café son destinadas a proyectos sociales como Jardín, municipio lector. ¡Cómpralo y deléitate con un café de altísima calidad mientras descubres una nueva forma de relacionarte con los caficultores!",
+        "origen": "Antioquia, Jardin",
+        "nivelDeTostado": "Media",
+        "sabor": "Panela, Frutos Verdes, Chocolate Negro y Jugo de Caña."
+    },
+    {
+        "id": 3,
+        "productName": "Juan valdez café",
+        "productPrice": "34950",
+        "productDiscount": 0,
+        "category": "consumo",
+        "productImage": "Juan Valdez café.jpg",
+        "description": "Café intenso con notas a nuez de avellana y residual cremoso a chocolate. Es la montaña costera más alta del mundo, un lugar único que contiene selva, bosque y páramo al mismo tiempo, donde se cultiva café bajo la sombra de los árboles nativos.",
+        "origen": "Sierra nevada",
+        "nivelDeTostado": "Oscuro",
+        "sabor": "Chocolate"
+    },
+    {
+        "id": 4,
+        "productName": "Cafe Ginerbras",
+        "productPrice": "28679",
+        "productDiscount": 0,
+        "category": "consumo",
+        "productImage": "Cafe Ginerbras.jpg",
+        "description": "Café Mujeres Cafeteras Ginebras, es un café excelso tipo exportación. Origen Valle del Cauca. Cultivado por nuestras mujeres caficultoras hoy nos entregan una cosecha colmada de vivencias enmarcadas en diversas circunstancias que, finalmente, las condujo por los hermosos caminos del café.",
+        "origen": "Valle del Cauca",
+        "nivelDeTostado": "Medio",
+        "sabor": "Florales, dulce, frutales"
+    }
+]

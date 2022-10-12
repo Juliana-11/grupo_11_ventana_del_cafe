@@ -37,10 +37,8 @@ const productDetailController = {
     },
     detail: (req, res)=>{
         let id = req.params.id
-        let product = products.filter(aProduct => aProduct.id == id)
-        res.render('productDetail', {
-            product, toThousand
-        })
+        let product = products.find(aProduct => aProduct.id == id)
+        res.render('products/detail', {product, toThousand})
     },
     delete: (req, res) =>{
         let id = req.params.id;

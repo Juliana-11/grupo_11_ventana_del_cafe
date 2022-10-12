@@ -592,51 +592,106 @@ input[type="radio"]:checked ~ label {
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PRODUCT DETAIL >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
-.product{
+.productDetail{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     height: 60%;
     color: black;
     padding: 20px;
     justify-content: space-around;
 }
+
+.buttonExit{
+    display: none;
+}
+
+.containerImgDetail{
+    width: 100%;
+}
+
 .productImage{
-    width: 400px;
+    width: 100%;
 }
-.bottom{
-    display: flex;
+
+.containerInfoDetail{
+    width: 100%;
 }
-.prop{
-    width: 50%;
-    background-color: grey;
+
+.productPrice{
+    font-weight: bold;
+    padding: 10px;
 }
-.sug{
-    width: 50%;
-    background-color: #FFC56A;
-}
-.properties{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    padding: 15px;
-}
-.property{
+
+.productName{
     text-align: center;
-    flex-grow: 0.3;
+    margin-bottom: 20px;
 }
-.property-icon{
-    color: black;
+
+.productDescription{
+    padding: 5px;
+    margin-bottom: 20px;
 }
-.suggestion{
-    display: flex;
-    flex-wrap: nowrap;
+
+.buttonCarDetail{
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+}
+
+.buttonLikeProductDetail{
+    margin: 5px;
+    padding: 5px;
+}
+
+.propertyIcon img, .productPrice img, .propertyIcon i{
+    width: 20px;
+    position: relative;
+    left: 20px;
+}
+
+.propertiesProduct{
+    background-color: var(--gray);
     padding: 15px;
+   
 }
-.suggestionImage{
-    width: 200px;
+
+.propertyTittle{
+    width: 100%;
+    text-align: center;
+    margin: 8px;
 }
-.arrow{
+
+.property{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    margin: 2px;
+    align-content: stretch;
+    justify-content: space-around;
     align-items: center;
+}
+
+.propertycontent{
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.propertycontent p{
+    font-size: 15px;
+    text-align: center;
+}
+
+.property h4{
+    width: 70%;
+}
+
+.propertyIcon{
+    width: 30%;
+}
+
+.lado{
+    border-right: solid 1px black;
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< REGISTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/

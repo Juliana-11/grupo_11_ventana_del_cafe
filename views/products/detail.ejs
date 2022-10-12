@@ -4,68 +4,51 @@
 <body>
     <%- include('../partials/header') %>
     <main>
-        <section class="product">
-            <img class="productImage" src="/imag/Café Especial Hilo.webp" alt="productImage">
-            <div>
-                <h2 class="productName">Café Especial Hilo</h2>
-                <p class="productDescription">Café Hilo es un café especial que crea conexiones únicas con los
-                    caficulores y sus familias. Por medio de prácticas de comercio justo se genera un impacto positivo
-                    en la calidad de vida de la comunidad. Sus características diferenciadoras recaen, sobre todo, en un
-                    sistema de renta fija, donde los caficultores reciben un ingreso básico mensual que no se ve
-                    afectado por cambios internacionales en el precio del café. Además, parte de las ganancias por la
-                    venta del café son destinadas a proyectos sociales como Jardín, municipio lector.
-                    ¡Cómpralo y deléitate con un café de altísima calidad mientras descubres una nueva forma de
-                    relacionarte con los caficultores!</p>
-                <p class="precio">$ 42,000</p>
-                <form class="buttons">
-                    <button>Carrito</button><button><i class="far fa-heart-circle"></i> Me gusta</button><button><i
-                            class="fas fa-sign-out-alt"></i> Salir</button>
+        <section class="productDetail">
+
+            <form action="#" class="buttonExit"><button><i class="fas fa-sign-out-alt"></i> Salir</button></form>
+
+            <div class="containerImgDetail">
+                <img class="productImage" src="/imag/<%=product.productImage%> " alt="productImage">
+            </div>
+
+            <div class="containerInfoDetail">
+                <p class="productPrice"><img src="/imag/pesos.png" alt=""><%=product.productPrice%> </p>
+                <h2 class="productName"><%=product.productName%></h2>
+                <p class="productDescription"><%=product.description%> </p>
+                <form action="#">
+                    <button class="buttonCarDetail"><i class="fas fa-shopping-cart"></i> Agregar al carrito</button>
+                    <button class="buttonLikeProductDetail"><i class="far fa-heart"></i> Mis favoritos </button>
                 </form>
             </div>
         </section>
-        <section class="bottom">
-            <article class="prop">
-                <h3 class="articleTitle">Propiedades del producto</h3>
-                <div class="properties">
-                    <div class="property">
-                        <div class="property-icon"><i class="fas fa-fireplace"></i></div>
-                        <h4>Tostado</h4>
-                        <p>Medio</p>
-                    </div>
-                    <div class="property">
-                        <div class="property-icon"><i class="far fa-map-marker-alt"></i></div>
-                        <h4>Origen</h4>
-                        <p>Antioquia, Jardin</p>
-                    </div>
-                    <div class="property">
-                        <div class="property-icon"><i class="fas fa-coffee-pot"></i></div>
-                        <h4>Sabor</h4>
-                        <p>Panela, Frutos Verdes, Chocolate Negro y Jugo de Caña.</p>
-                    </div>
+
+        <div class="propertiesProduct">
+
+            <h3 class="propertyTittle">Propiedades del producto</h3>
+            
+            <div class="propertycontent">
+                <div class="property lado">
+                    <div class="propertyIcon"><img src="/imag/fireplace.png" alt=""></div>
+                    <h4>Tostado</h4>
+                    <p><%=product.nivelDeTostado%> </p>
                 </div>
-            </article>
-            <article class="sug">
-                <h3 class="articleTitle">También te podría interesar</h3>
-                <div class="suggestion">
-                    <div class="arrow">
-                        <i class="fas fa-arrow-alt-circle-left"></i>
-                    </div>
-                    <img class="suggestionImage" src="/imag/Café Especial Q.coffee Gran Reserva Luxury.webp"
-                        alt="productImage">
-                    <div>
-                        <h4>Café Especial Q.coffee Gran Reserva Luxury</h4>
-                        <p>Café Q.coffee Gran Reserva Luxury edition es un café especiales insignia Colombiano. Sus
-                            atributos destacan por balances sensoriales logrados mediante el proceso de selección hecho
-                            grano a grano.Es sometido a un riguroso examen por parte de un panel de 5 Q Graders,
-                            exigiendo un estándar de calidad por encima de 88 en la escala de la Specialty Coffee
-                            Association of America.</p>
-                    </div>
-                    <div class="arrow">
-                        <i class="fas fa-arrow-alt-circle-right"></i>
-                    </div>
+                
+                <div class="property lado">
+                    <div class="propertyIcon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h4>Origen</h4>
+                    <p><%=product.origen%> </p>
                 </div>
-            </article>
-        </section>
+                
+                <div class="property">
+                    <div class="propertyIcon"><img src="/imag/coffe.png" alt=""></div>
+                    <h4>Sabor</h4>
+                    <p><%=product.sabor%> </p>
+                </div>
+            </div>
+            
+        </div>
+
     </main>
     <%- include('../partials/footer') %>
 </body>
