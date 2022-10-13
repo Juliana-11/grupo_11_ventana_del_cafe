@@ -17,8 +17,6 @@ const loginController = {
         let existeUsuario = false;
         var L = 1;
         var usuario;
-        console.log('Ingrese al checkLogin')
-        console.log(users.length)
         while ( L < users.length && (existeEmail == false && existeUsuario == false)){
             
             //console.log(L);
