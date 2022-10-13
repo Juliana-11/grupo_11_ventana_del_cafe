@@ -60,7 +60,7 @@ const loginController = {
             let mensajeDeEnvio ={
                 mgs: 'Usuario o correo electrónico inválido.'
             }
-            res.send('Usuario o correo electrónico inválido.');
+            res.render('users/login',{msgError: mensajeDeEnvio});
         }
 
     },
