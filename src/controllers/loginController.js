@@ -14,25 +14,32 @@ const loginController = {
         let usuEmailFind = req.body.userLogin;
         let usuUsuarioFind = req.body.userLogin;
         let existeEmail = false;
-        let existeUsuario = false
-        L = 0;
-        
-        while ( L < users.length && existeEmail == false && existeUsuario == false){
-            L++;
+        let existeUsuario = false;
+        var L = 1;
+        var usuario;
+        console.log('Ingrese al checkLogin')
+        console.log(users.length)
+        while ( L < users.length && (existeEmail == false && existeUsuario == false)){
+            
+            //console.log(L);
             if (users[L].userEmail == usuEmailFind){
                 existeEmail = true;
-            }else{
-                if(users[L].userUserDescrip == usuUsuarioFind ){
+                usuario = users[L]
+            }
+            if(users[L].userUserDescrip == usuUsuarioFind ){
                     existeUsuario = true;
-                }
+                    usuario = users[L]
             }
             
+            L++;
         }
+       
+
+
         
         if (existeEmail == true || existeUsuario == true){
         
-            
-            let passValida = bcrypt.compareSync(req.body.passwordLogin,users[L].userPassword)
+            let passValida = bcrypt.compareSync(req.body.passwordLogin,usuario.userPassword)
             
             if (passValida)
             {   
@@ -55,7 +62,7 @@ const loginController = {
             let mensajeDeEnvio ={
                 mgs: 'Usuario o correo electrónico inválido.'
             }
-            res.render('Usuario o correo electrónico inválido.');
+            res.send('Usuario o correo electrónico inválido.');
         }
 
     },
