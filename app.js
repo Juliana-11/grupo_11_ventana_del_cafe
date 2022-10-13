@@ -26,7 +26,7 @@ app.use(session({
     saveUninitialized: true,
     }));
 app.use(cookieParser());
-app.use(recordarmeMiddleware);
+//app.use(recordarmeMiddleware);
 
 /*Codigo*/
 app.use('/', mainRouter);
