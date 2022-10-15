@@ -4,8 +4,9 @@
 <body class="body-style">
     <%- include('../partials/header') %>
 <main>
-    <div>
-        hola
+    <div class="profileImg">
+        <%= user.userFirstName %> 
+        <img src="/imag/userAvatars/<%=user.userAvatar%>" alt="Avatar">
     </div>
 </main>
     <%- include('../partials/footer') %>

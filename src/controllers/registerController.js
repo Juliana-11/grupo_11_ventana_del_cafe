@@ -16,19 +16,18 @@ const registerController = {
     create: (req,res)=>{
         let errors = validationResult(req);
         if(errors.isEmpty){
-            let passNewUser = bcrypt.hashSync(req.body.contraRegister,10)
-            let passConfNewUser = bcrypt.hashSync(req.body.confirContraRegister,10);
+            let passNewUser = bcrypt.hashSync(req.body.userPassword, 10)
+            let passConfNewUser = bcrypt.hashSync(req.body.userPasswordConfirm, 10);
             let newUser = {
                 id: users.length == 0? 1 : users[users.length - 1].id + 1,
-                userFirstName: req.body.nombreRegister,
-                userLastName: req.body.apellidoRegister,
-                userEmail: req.body.emailRegister,
-                userUserDescrip: req.body.usuarioRegister,
+                userName: req.body.userName,
+                userLastName: req.body.userLastName,
+                userEmail: req.body.userEmail,
+                userAs: req.body.userAs,
                 userPassword: passNewUser,
                 userPasswordConfirm: passConfNewUser,
-                userAvatar: req.file != 'undefined'? req.file.filename : 'defaultImage.png',
-                userDirecUno: req.body.direccionUnoRegister,
-                userDirecDos: req.body.direccionDosRegister,
+                userAvatar: req.body.userAvatar != 'undefined'? req.file.userAvatar : 'defaultImage.png',
+                userAddress: req.body.userAddress,
                 userChecTodosDias: req.body.ckeckboxUno,
                 userChecLunes: req.body.ckeckboxDos,
                 userChecMartes: req.body.ckeckboxTres,
@@ -37,13 +36,14 @@ const registerController = {
                 userChecViernes: req.body.ckeckboxSeis,
                 userChecSabado: req.body.ckeckboxSiete,
                 userChecDomingo: req.body.ckeckboxOcho,
-                userTelefono: req.body.telefonoRegister
+                userPhone: req.body.userPhone
             }
             let usuExiste = false ;
             let k = 0;
+
             while (k < users.length && usuExiste == false){
                 console.log(users[k].userUserDescrip)
-                if (users[k].userUserDescrip == req.body.usuarioRegister ){
+                if (users[k].userAs == req.body.userAs ){
                     usuExiste = true;
                 }
                 k++;
@@ -52,7 +52,7 @@ const registerController = {
             if ( usuExiste == false){
                 users.push(newUser);
                 fs.writeFileSync(usersDataPath,JSON.stringify(users),'utf-8');
-                res.render('users/register')
+                res.render('users/confirm')
             }else{
                 res.send('Ya existe un usuario registrado con esa descripción')
                 
@@ -61,6 +61,9 @@ const registerController = {
             let oldData = req.body;
             res.render('users/register', {errors: errors.mapped(), oldData});
         }
+    },
+    confirm: (req, res)=>{
+        res.render('users/confirm')
     }
 }
 

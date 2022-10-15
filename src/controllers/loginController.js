@@ -15,8 +15,8 @@ const loginController = {
         let usuUsuarioFind = req.body.userLogin;
         let existeEmail = false;
         let existeUsuario = false;
-        var L = 1;
-        var usuario;
+        let L = 1;
+        let usuario;
         while ( L < users.length && (existeEmail == false && existeUsuario == false)){
             
             //console.log(L);
@@ -45,7 +45,7 @@ const loginController = {
                 if (req.body.recuerdameLogin != undefined){
                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                 }
-                res.send('login correcto')  
+                res.redirect('/users/profile')
                  
             }else{
                 
@@ -65,7 +65,9 @@ const loginController = {
 
     },
     profile: (req, res)=>{
-        res.render('users/profile')
+        let id = req.params.id
+        let user = users.find(aUser => aUser.id == id)
+        res.render('users/profile', {user: user})
     }
 }
 
