@@ -6,27 +6,28 @@ const users = JSON.parse(fs.readFileSync(usersDataPath, 'utf-8'))
 
 function recordarmeMiddleware (req,res,next){
     
-    if (req.cookies.recordarme != undefined && req.session.user == undefined){
+    
+    if (req.cookies.recordarme != undefined || req.session.user == undefined){
         let usuExistente = false;
-        let p = 0;
-        console.log('entre al if')
+        var p = 0;
         while (p < users.length && usuExistente == false){
-            if (users[p].userUserDescrip == req.cookies.recordarme || users[p].userEmail == req.cookies.recordarme){
+            if (users[p].userAs == req.cookies.recordarme || users[p].userEmail == req.cookies.recordarme){
                 usuExistente = true;
             }
             p++;
-        }
-        //console.log(users.length)
-        console.log(p)
+        }        
         if (usuExistente == true){
-            //req.session.user = users[p].userUserDescrip;
-            //res.send(req.session)
-            console.log(users[p].userUserDescrip)
+            req.session.user = users[p-1].userAs;
+            let usuario = req.session.user
+            res.render('users/loginAcceso',{user: usuario})
+            
         }else{
             res.send('Error al cargar cookie');
         }
+    }else{
+        next();
     }
-    //next();
+   //next();  
 }
 
 
