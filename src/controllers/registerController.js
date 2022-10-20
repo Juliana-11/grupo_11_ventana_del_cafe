@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const {validationResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 const { json } = require('express');
 const bcrypt = require('bcryptjs');
 
@@ -15,7 +15,7 @@ const registerController = {
     },
     create: (req,res)=>{
         let errors = validationResult(req);
-        if(errors.isEmpty){
+        if(errors.isEmpty()){
             let passNewUser = bcrypt.hashSync(req.body.userPassword, 10)
             let passConfNewUser = bcrypt.hashSync(req.body.userPasswordConfirm, 10);
             let newUser = {
@@ -43,7 +43,7 @@ const registerController = {
 
             while (k < users.length && usuExiste == false){
                 console.log(users[k].userUserDescrip)
-                if (users[k].userAs == req.body.userAs ){
+                if (users[k].userUserDescrip == req.body.usuarioRegister ){
                     usuExiste = true;
                 }
                 k++;
@@ -54,12 +54,16 @@ const registerController = {
                 fs.writeFileSync(usersDataPath,JSON.stringify(users),'utf-8');
                 res.render('users/confirm')
             }else{
-                res.send('Ya existe un usuario registrado con esa descripción')
+                //res.send('Ya existe un usuario registrado con esa descripción')
+                let mensajeDeEnvio ={
+                    mgs: 'Ya existe un usuario registrado con esa descripción'
+                }
+                let oldData = req.body;
+                res.render('users/register',{msgError: mensajeDeEnvio,oldData});
                 
             }
         }else {
-            let oldData = req.body;
-            res.render('users/register', {errors: errors.mapped(), oldData});
+            res.render('users/register', {errors: errors.mapped(), old: req.body});
         }
     },
     confirm: (req, res)=>{

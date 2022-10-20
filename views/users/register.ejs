@@ -19,39 +19,62 @@
     
                         <div class="itemRegister">
                             <label for="userName">Nombre </label>
-                            <input type="text" id="userName" name="userName"  placeholder="Indicame tu nombre" required>
+                            <input type="text" id="userName" name="userName"  placeholder="Indicame tu nombre"  value="<%= locals.old && old.userName %>">
+                            <br>
+                            <% if (locals.errors && errors.userName) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.userName.msg %></span>
+                            <% } %>
                         </div>
                         
                         <div class="itemRegister">
-                            <label for="userLastName">Apellido </label>
-                            <input type="text" id="userLastName" name="userLastName"  placeholder="Indicame tu apellido" required>
+                            <label for="apellidoRegister">Apellido </label>
+                            <input type="text" id="userLastName" name="userLastName"  placeholder="Indicame tu apellido"  value="<%= locals.old && old.userLastName %>">
+                            <br>
+                            <% if (locals.errors && errors.userLastName) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.userLastName.msg %></span>
+                            <% } %>
                         </div>
                         
                         <div class="itemRegister">
                             <label for="userEmail">Email </label>
-                            <input type="email" id="userEmail" name="userEmail"  placeholder="Indicame tu email"required>
+                            <input type="email" id="userEmail" name="userEmail"  placeholder="Indicame tu email" value="<%= locals.old && old.userEmail %>">
+                            <br>
+                            <% if (locals.errors && errors.userEmail) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.userEmail.msg %></span>
+                            <% } %>
                         </div>
                         
                         <div class="itemRegister">
                             <label for="userAs">Nuevo usuario </label>
-                            <input type="text"  id="userAs" name="userAs" placeholder="Create un usuario" required>
+                            <input type="text"  id="userAs" name="userAs" placeholder="Create un usuario" required value="<%= locals.old && old.userAs %>">
+                            <br>
+                            <% if (locals.errors && errors.userAs) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.userAs.msg %></span>
+                            <% } %>
                         </div>
     
                         <div class="itemRegister">
                             <label for="userPassword">Contraseña</label>
-                            <input type="password" id="userPassword" name="userPassword" placeholder="Crea una contraseña" required>
+                            <input type="password" id="userPassword" name="userPassword" placeholder="Crea una contraseña" required value="<%= locals.old && old.userPassword %>">
+                            <br>
+                            <% if (locals.errors && errors.userPassword) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.userPassword.msg %></span>
+                            <% } %>
                         </div>
     
                         <div class="itemRegister">
                             <label for="userPasswordConfirm">Confirma contraseña </label>
-                            <input type="password" id="userPasswordConfirm" name="userPasswordConfirm"  placeholder="Confirma tu contraseña" required>
+                            <input type="password" id="userPasswordConfirm" name="userPasswordConfirm"  placeholder="Confirma tu contraseña" required value="<%= locals.old && old.userPasswordConfirm %>">
+                            <br>
+                            <% if (locals.errors && errors.userPasswordConfirm) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.userPasswordConfirm.msg %></span>
+                            <% } %>
                         </div>
     
                         <div class="itemRegister">
                             <label for="userAvatar">Perfil</label>
-                            <input type="file" id="userAvatar" name="userAvatar"  placeholder="Indicame tu email"required>
-                        </div>
-
+                            <input type="file" id="userAvatar" name="userAvatar"  placeholder="Indicame tu email"  value="<%= locals.old && old.userAvatar %>">
+                        </div>                        
                     </div>
                     
                 </div>
@@ -67,56 +90,97 @@
         
                         <div class="itemRegister">
                             <label for="userAddress">Dirección 1</label>
-                            <input type="text" id="userAddress" name="userAddress" placeholder="Indicame tu dirección" required>
+                            <input type="text" id="userAddress" name="userAddress" placeholder="Indicame tu dirección" required value="<%= locals.old && old.userAddress %>">
+                        </div>
+                        
+                        <div class="itemRegister">
+                            <label for="direccionDosRegister">Dirección 2 </label>
+                            <input type="text" id="direccionDosRegister" name="direccionDosRegister" placeholder="Indicame otra dirección" required value="<%= locals.old && old.direccionDosRegister %>">
                         </div>
         
                         <div class="checkboxRegister">
                             <p>¿Que días puede recibir envios?</p>
                             
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxUno" name="ckeckboxUno" > 
+                                <% if (locals.old && old.ckeckboxUno) {%>
+                                    <input type="checkbox" id="ckeckboxUno" name="ckeckboxUno" value= "<% old.checkboxUno %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxUno" name="ckeckboxUno">
+                                <%}%>
                                 <label for="ckeckboxUno">Todos los días</label>
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxDos" name="ckeckboxDos"> 
+                                <% if (locals.old && old.ckeckboxDos) {%>
+                                    <input type="checkbox" id="ckeckboxDos" name="ckeckboxDos" value= "<% old.ckeckboxDos %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxDos" name="ckeckboxDos">
+                                <%}%>
                                 <label for="ckeckboxDos"> Lunes </label>
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxTres" name="ckeckboxTres"> 
+                                <% if (locals.old && old.ckeckboxTres) {%>
+                                    <input type="checkbox" id="ckeckboxTres" name="ckeckboxTres" value= "<% old.ckeckboxTres %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxTres" name="ckeckboxTres">
+                                <%}%>
                                 <label for="ckeckboxTres">Martes</label>
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxCuatro" name="ckeckboxCuatro"> 
+                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                    <input type="checkbox" id="ckeckboxCuatro" name="ckeckboxCuatro" value= "<% old.ckeckboxCuatro %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxCuatro" name="ckeckboxCuatro"> 
+                                <%}%>
                                 <label for="ckeckboxCuatro">Miercoles</label>
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxCinco" name="ckeckboxCinco"> 
+                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                    <input type="checkbox" id="ckeckboxCinco" name="ckeckboxCinco" value= "<% old.ckeckboxCinco %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxCinco" name="ckeckboxCinco"> 
+                                <%}%>
                                 <label for="ckeckboxCinco">Jueves</label>
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxSeis" name="ckeckboxSeis"> 
+                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                    <input type="checkbox" id="ckeckboxSeis" name="ckeckboxSeis" value= "<% old.ckeckboxSeis %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxSeis" name="ckeckboxSeis"> 
+                                <%}%>
                                 <label for="ckeckboxSeis">Viernes</label>
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxSiete" name="ckeckboxSiete"> 
+                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                    <input type="checkbox" id="ckeckboxSiete" name="ckeckboxSiete" value= "<% old.ckeckboxSiete %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxSiete" name="ckeckboxSiete"> 
+                                <%}%>
                                 <label for="ckeckboxSiete">Sabado</label>
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxOcho" name="ckeckboxOcho">  
+                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                    <input type="checkbox" id="ckeckboxOcho" name="ckeckboxOcho" value= "<% old.ckeckboxOcho %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxOcho" name="ckeckboxOcho"> 
+                                <%}%>
                                 <label for="ckeckboxOcho">Domingo</label>
                             </div>
                         </div>
                     
                         <div class="itemRegister">
-                            <label for="userPhone">Telefono / Celular </label>
-                            <input type="text" id="userPhone" name="userPhone" placeholder="Indicame tu celular" required>
+                            <label for="telefonoRegister">Telefono / Celular </label>
+                            <input type="text" id="telefonoRegister" name="telefonoRegister" placeholder="Indicame tu celular" required>
+                            <br>
+                            <% if (locals.errors && errors.userPhone) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.userPhone.msg %></span>
+                            <% } %>
                         </div>
                     </div>
                 </div>
