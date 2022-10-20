@@ -26,7 +26,7 @@ const registerController = {
                 userAs: req.body.userAs,
                 userPassword: passNewUser,
                 userPasswordConfirm: passConfNewUser,
-                userAvatar: req.body.userAvatar != 'undefined'? req.file.userAvatar : 'defaultImage.png',
+                userAvatar: req.file != 'undefined'? req.file.filename : 'defaultImage.png',
                 userAddress: req.body.userAddress,
                 userChecTodosDias: req.body.ckeckboxUno,
                 userChecLunes: req.body.ckeckboxDos,

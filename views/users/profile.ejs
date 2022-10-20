@@ -2,10 +2,9 @@
 <html lang="en">
     <%- include('../partials/head', {title: "Profile"}) %>
 <body class="body-style">
-    <%- include('../partials/header') %>
 <main>
     <div class="profileImg">
-        <%= user.userFirstName %> 
+        <%=user.userName%> 
         <img src="/imag/userAvatars/<%=user.userAvatar%>" alt="Avatar">
     </div>
 </main>
