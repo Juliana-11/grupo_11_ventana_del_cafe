@@ -33,7 +33,7 @@ const validateRegister = [
                                 let usuEmail = false ;
                                 let k = 0;
                                 while (k < users.length && usuEmail == false){
-                                    if (users[k].userEmail == req.body.emailRegister ){
+                                    if (users[k].userEmail == req.body.userEmail ){
                                         usuEmail = true;
                                     }
                                     k++;
