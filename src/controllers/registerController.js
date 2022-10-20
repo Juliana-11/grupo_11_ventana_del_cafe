@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const {validationResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 const { json } = require('express');
 const bcrypt = require('bcryptjs');
 
@@ -15,9 +15,10 @@ const registerController = {
     },
     create: (req,res)=>{
         let errors = validationResult(req);
-        if(errors.isEmpty){
+        if(errors.isEmpty()){
             let passNewUser = bcrypt.hashSync(req.body.contraRegister,10)
             let passConfNewUser = bcrypt.hashSync(req.body.confirContraRegister,10);
+            console.log(req.file)
             let newUser = {
                 id: users.length == 0? 1 : users[users.length - 1].id + 1,
                 userFirstName: req.body.nombreRegister,
@@ -26,7 +27,7 @@ const registerController = {
                 userUserDescrip: req.body.usuarioRegister,
                 userPassword: passNewUser,
                 userPasswordConfirm: passConfNewUser,
-                userAvatar: req.file != 'undefined'? req.file.filename : 'defaultImage.png',
+                userAvatar: req.file == undefined ? 'defaultImage.png': req.file,
                 userDirecUno: req.body.direccionUnoRegister,
                 userDirecDos: req.body.direccionDosRegister,
                 userChecTodosDias: req.body.ckeckboxUno,
@@ -42,7 +43,6 @@ const registerController = {
             let usuExiste = false ;
             let k = 0;
             while (k < users.length && usuExiste == false){
-                console.log(users[k].userUserDescrip)
                 if (users[k].userUserDescrip == req.body.usuarioRegister ){
                     usuExiste = true;
                 }
@@ -54,12 +54,16 @@ const registerController = {
                 fs.writeFileSync(usersDataPath,JSON.stringify(users),'utf-8');
                 res.render('users/register')
             }else{
-                res.send('Ya existe un usuario registrado con esa descripción')
+                //res.send('Ya existe un usuario registrado con esa descripción')
+                let mensajeDeEnvio ={
+                    mgs: 'Ya existe un usuario registrado con esa descripción'
+                }
+                let oldData = req.body;
+                res.render('users/register',{msgError: mensajeDeEnvio,oldData});
                 
             }
         }else {
-            let oldData = req.body;
-            res.render('users/register', {errors: errors.mapped(), oldData});
+            res.render('users/register', {errors: errors.mapped(), old: req.body});
         }
     }
 }
