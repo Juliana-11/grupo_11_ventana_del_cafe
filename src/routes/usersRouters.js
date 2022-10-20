@@ -9,11 +9,11 @@ const usersDataPath = path.join(__dirname, '../../data/usersDataBase.json')
 const users = JSON.parse(fs.readFileSync(usersDataPath, 'utf-8'))
 const multerDiskStorage = multer.diskStorage({
     destination: (req, file, callback) => {
-        let folder = path.resolve('../grupo_11_ventana_del_cafe/public/imag/userAvatars')
+        let folder = path.join('public/imag/userAvatars')
         callback(null, folder);
     },
     filename: (req, file, callback) => {
-        let imageName = Date.now() + path.extname(file.originalname)
+        let imageName = Date.now() + "_img_" + path.extname(file.originalname)
         callback(null, imageName);
     }
 });
@@ -92,7 +92,8 @@ router.get('/register', registerController.index);
 router.post('/register',upload.single('avatarRegister'),validateRegister, registerController.create);
 router.get('/login', loginController.index); 
 router.post('/login', loginController.checkLogin); 
-router.get('/profile', loginController.profile)
+router.get('/profile/confirm', registerController.confirm)
+router.get('/profile/:id', loginController.profile)
 
 
 module.exports = router; 
