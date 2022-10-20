@@ -843,6 +843,27 @@ select{
 .descriptionFormCreateProduct textarea{
     height: 50px;
 }
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PROFILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
+.styleMainProfile{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.containerPhoto{
+    width: 20%;
+    height: 20%;
+}
+
+.containerPhoto img{
+    width: 100%;
+}
+
+.infoUser{
+    width: 20%;
+    height: 20%;
+    background-color: var(--gray);
+}
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERY >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 
 @media (max-width: 608px){

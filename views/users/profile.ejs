@@ -2,12 +2,49 @@
 <html lang="en">
     <%- include('../partials/head', {title: "Profile"}) %>
 <body class="body-style">
-<main>
-    <div class="profileImg">
-        <%=user.userName%> 
-        <img src="/imag/userAvatars/<%=user.userAvatar%>" alt="Avatar">
-    </div>
-</main>
+    <%- include('../partials/header') %>
+
+    <main class="styleMainProfile">
+
+        <div class="containerPhoto">
+            <img src="/imag/userAvatars/<%=user.userAvatar%>" alt="Avatar">
+        </div>
+
+        <div class="infoUser">
+            <p><%=user.userName%></p>
+            <p><%=user.userLastName%></p>
+        </div>
+
+        <div class="infoUser">
+            <p><%=user.userAs%></p>
+            <p><%=user.userEmail%></p>
+            <p>*********</p>
+            <p><a href="users/formEditUser/<%=user.id%> ">Cambiar contraseña</a></p>
+        </div>
+
+        <div class="infoUser">
+            <h3>Días a recibir pedido</h3>
+            <p><%=user.userChecTodosDias%> </p>
+            <p><%=user.userChecLunes%>  </p>
+            <p><%=user.userChecMartes%>  </p>
+            <p><%=user.userChecMiercoles%> </p>
+            <p><%=user.userChecJueves%>  </p>
+            <p><%=user.userChecViernes%></p>
+            <p><%=user.userChecSabado%> </p>
+            <p><%=user.userChecDomingo%></p>
+        </div>
+
+        <div class="infoUser">
+            <p><%=user.userPhone%></p>
+            <p><%=user.userAddress%></p>
+        </div>
+
+        <div class="infoUser">
+            <h3>Favoritos</h3>
+        </div>
+
+    </main>
+
     <%- include('../partials/footer') %>
 </body>
 </html>
