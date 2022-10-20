@@ -7,6 +7,7 @@
         "userAs": "Susi",
         "userPassword": "$2a$10$YCC8PU7P6NtwfwTAoYgb9eHLxrDENVWtkuXBe4Mik1bL3JoIrONi.",
         "userPasswordConfirm": "$2a$10$3lLBeSw4B9faabC9lqoNpOBQgpU2W2ldRyTTD5O10VXf4Ubrg4fQa",
+        "userAvatar": "defaultImage.png",
         "userAddress": "s",
         "userChecMartes": "on",
         "userPhone": "310"

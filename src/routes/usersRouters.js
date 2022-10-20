@@ -89,7 +89,7 @@ const loginController = require('../controllers/loginController');
 let recordarmeMiddleware = require('../middleware/recordarmeMiddfleware')
 
 router.get('/register', registerController.index);
-router.post('/register',upload.single('avatarRegister'),validateRegister, registerController.create);
+router.post('/register',upload.single('userAvatar'),validateRegister, registerController.create);
 router.get('/login', loginController.index); 
 router.post('/login', loginController.checkLogin); 
 router.get('/profile/confirm', registerController.confirm)
