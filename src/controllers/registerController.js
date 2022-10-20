@@ -15,7 +15,7 @@ const registerController = {
     },
     create: (req,res)=>{
         let errors = validationResult(req);
-        if(errors.isEmpty){
+        if(errors.isEmpty()){
             let passNewUser = bcrypt.hashSync(req.body.userPassword, 10)
             let passConfNewUser = bcrypt.hashSync(req.body.userPasswordConfirm, 10);
             let newUser = {
