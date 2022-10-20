@@ -18,23 +18,18 @@ const loginController = {
         let L = 1;
         let usuario;
         while ( L < users.length && (existeEmail == false && existeUsuario == false)){
-            
-            //console.log(L);
             if (users[L].userEmail == usuEmailFind){
                 existeEmail = true;
                 usuario = users[L]
             }
-            if(users[L].userUserDescrip == usuUsuarioFind ){
+            if(users[L].userAs == usuUsuarioFind ){
                     existeUsuario = true;
                     usuario = users[L]
             }
             
             L++;
         }
-       
-
-
-        
+              
         if (existeEmail == true || existeUsuario == true){
         
             let passValida = bcrypt.compareSync(req.body.passwordLogin,usuario.userPassword)
