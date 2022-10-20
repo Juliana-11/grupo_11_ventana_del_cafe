@@ -40,15 +40,13 @@ const registerController = {
             }
             let usuExiste = false ;
             let k = 0;
-
+            
             while (k < users.length && usuExiste == false){
-                console.log(users[k].userUserDescrip)
-                if (users[k].userUserDescrip == req.body.usuarioRegister ){
+                if (users[k].userAs == req.body.userAs ){
                     usuExiste = true;
                 }
                 k++;
             }
-
             if ( usuExiste == false){
                 users.push(newUser);
                 fs.writeFileSync(usersDataPath,JSON.stringify(users),'utf-8');

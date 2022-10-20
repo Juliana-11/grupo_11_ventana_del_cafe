@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
     {
         "id": 1,
@@ -39,3 +40,6 @@
         "userPhone": "314"
     }
 ]
+=======
+[{"id":1,"userName":"PedroPiedra","userLastName":"Piedra","userEmail":"piedrita@gmail.com","userAs":"Piedra","userPassword":"$2a$10$kwFZGW8CHgJnudJe7PRLVe9BPqCQt9J1NMhr.32n/ivr0TznwkrPy","userPasswordConfirm":"$2a$10$GydHrwc6CTLjlXz9HqsPj.ff/27jj8L7nU.wFQW3j9MCBJ8J6zYdS","userAvatar":"defaultImage.png","userDirecDos":"Piedra","userChecTodosDias":"","userChecLunes":"","userChecMartes":"","userChecMiercoles":"","userChecJueves":"","userChecViernes":"","userChecSabado":"","userChecDomingo":""},{"id":2,"userName":"Generor","userLastName":"Pepe","userEmail":"prueba@gmail.com","userAs":"prueba","userPassword":"$2a$10$SqpRs.ttp4ksjaSWXf4UpudQHm.sIKNvtqFkTuNPUHAI19neaVlIG","userPasswordConfirm":"$2a$10$hqc4N0/Lf5YNR6QjX6z/k.j5llqnwqW1SQRRZZD9asBObdMlqbnpq","userAvatar":{"fieldname":"userAvatar","originalname":"hannah-montez-2VslRz5G8fo-unsplash.jpg","encoding":"7bit","mimetype":"image/jpeg","destination":"public\\imag\\userAvatars","filename":"1666285499049_img_.jpg","path":"public\\imag\\userAvatars\\1666285499049_img_.jpg","size":986216},"userDirecDos":"prueba"}]
+>>>>>>> 1f8446395a71ec9ca2a00f7cd3291ee460285e62

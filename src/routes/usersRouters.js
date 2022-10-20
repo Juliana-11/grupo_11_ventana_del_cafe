@@ -51,7 +51,7 @@ const validateRegister = [
                                 let usuUsuario = false ;
                                 let k = 0;
                                 while (k < users.length && usuUsuario == false){
-                                    if (users[k].userUserDescrip == req.body.usuarioRegister ){
+                                    if (users[k].userUserDescrip == req.body.userAs ){
                                         usuUsuario = true;
                                     }
                                     k++;
@@ -76,8 +76,8 @@ const validateRegister = [
                                 return true
                             } 
                         ),
-    check('userPhone')
-                        .isNumeric().withMessage('* Debe contener un número telefónica').bail()
+    /*check('userPhone')
+                        .isNumeric().withMessage('* Debe contener un número telefónica').bail()*/
 ];
 var upload = multer({storage: multerDiskStorage});
 
