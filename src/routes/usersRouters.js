@@ -19,13 +19,13 @@ const multerDiskStorage = multer.diskStorage({
 });
 const {check} = require('express-validator');
 const validateRegister = [
-    check('nombreRegister')
+    check('userName')
                         .notEmpty().withMessage('* Debe contener un nombre').bail()
                         .isLength({min:3}).withMessage('* Debe contener minimo 3 caracteres'),
-    check('apellidoRegister')
+    check('userLastName')
                         .notEmpty().withMessage('* Debe contener un apellido').bail()
                         .isLength({min:3}).withMessage('* Debe contener minimo 3 caracteres'),
-    check('emailRegister')
+    check('userEmail')
                         .notEmpty().withMessage('* Debe contener un email').bail()
                         .isEmail().withMessage('* Debe ingresar un correo válido')
                         .custom(
@@ -44,7 +44,7 @@ const validateRegister = [
                                 return true
                             } 
                         ),
-    check('usuarioRegister')
+    check('userAs')
                         .notEmpty().withMessage('* Debe contener un usuario').bail()
                         .custom(
                             (value,{req})=> {
@@ -62,21 +62,21 @@ const validateRegister = [
                                 return true
                             } 
                         ),
-    check('contraRegister')
+    check('userPassword')
                         .notEmpty().withMessage('* Debe contener un password').bail()
                         .isLength({min:2,max:15}).withMessage('* Debe contener mínimo 6 caracteres y máximo 15'),
-    check('confirContraRegister')
+    check('userPasswordConfirm')
                         .notEmpty().withMessage('* Debe contener un password').bail()
                         .isLength({min:2,max:15}).withMessage('* Debe contener mínimo 6 caracteres y máximo 15')
                         .custom(
                             (value,{req})=> {
-                                if (value != req.body.contraRegister){
+                                if (value != req.body.userPassword){
                                     throw new Error('* Passwords no coinciden');
                                 }
                                 return true
                             } 
                         ),
-    check('telefonoRegister')
+    check('userPhone')
                         .isNumeric().withMessage('* Debe contener un número telefónica').bail()
 ];
 var upload = multer({storage: multerDiskStorage});

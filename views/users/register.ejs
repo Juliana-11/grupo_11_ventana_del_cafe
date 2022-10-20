@@ -138,22 +138,38 @@
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxCinco" name="ckeckboxCinco" required> 
+                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                    <input type="checkbox" id="ckeckboxCinco" name="ckeckboxCinco" value= "<% old.ckeckboxCinco %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxCinco" name="ckeckboxCinco"> 
+                                <%}%>
                                 <label for="ckeckboxCinco">Jueves</label>
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxSeis" name="ckeckboxSeis" required> 
+                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                    <input type="checkbox" id="ckeckboxSeis" name="ckeckboxSeis" value= "<% old.ckeckboxSeis %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxSeis" name="ckeckboxSeis"> 
+                                <%}%>
                                 <label for="ckeckboxSeis">Viernes</label>
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxSiete" name="ckeckboxSiete" required> 
+                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                    <input type="checkbox" id="ckeckboxSiete" name="ckeckboxSiete" value= "<% old.ckeckboxSiete %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxSiete" name="ckeckboxSiete"> 
+                                <%}%>
                                 <label for="ckeckboxSiete">Sabado</label>
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <input type="checkbox" id="ckeckboxOcho" name="ckeckboxOcho" required>  
+                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                    <input type="checkbox" id="ckeckboxOcho" name="ckeckboxOcho" value= "<% old.ckeckboxOcho %>" checked>
+                                <%} else {%>
+                                    <input type="checkbox" id="ckeckboxOcho" name="ckeckboxOcho"> 
+                                <%}%>
                                 <label for="ckeckboxOcho">Domingo</label>
                             </div>
                         </div>
@@ -161,6 +177,10 @@
                         <div class="itemRegister">
                             <label for="telefonoRegister">Telefono / Celular </label>
                             <input type="text" id="telefonoRegister" name="telefonoRegister" placeholder="Indicame tu celular" required>
+                            <br>
+                            <% if (locals.errors && errors.userPhone) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.userPhone.msg %></span>
+                            <% } %>
                         </div>
                     </div>
                 </div>
