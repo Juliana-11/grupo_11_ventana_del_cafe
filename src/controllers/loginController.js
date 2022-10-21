@@ -36,7 +36,9 @@ const loginController = {
             
             if (passValida)
             {   
-                req.session.user = req.body.userLogin;
+                //console.log(req.body.recuerdameLogin)
+                //console.log(req.cookie)
+                //req.session.user = req.body.userLogin;
                 if (req.body.recuerdameLogin != undefined){
                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                 }
