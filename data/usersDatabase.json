@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [
     {
         "id": 1,
@@ -10,7 +9,9 @@
         "userPasswordConfirm": "$2a$10$3lLBeSw4B9faabC9lqoNpOBQgpU2W2ldRyTTD5O10VXf4Ubrg4fQa",
         "userAvatar": "defaultImage.png",
         "userAddress": "s",
-        "userChecMartes": "on",
+        "userChecTodosDias": "Todos los días",
+        "userChecMartes": "Martes",
+        "userChecJueves": "Jueves",
         "userPhone": "310"
     },
     {
@@ -23,7 +24,7 @@
         "userPasswordConfirm": "$2a$10$0r7pdRmpWZJGInNEhuq6ZeRyfASNyuJ9vGUr1hRWAPJb/3OJh.A5i",
         "userAvatar": "defaultImage.png",
         "userAddress": "s",
-        "userChecJueves": "on",
+        "userChecJueves": "Jueves",
         "userPhone": "310"
     },
     {
@@ -36,10 +37,31 @@
         "userPasswordConfirm": "$2a$10$SYPRuulEOqVoxKqkUJVCmOebKyqbp2w6Q.xUL7o/BB0ofjDBNL5sC",
         "userAvatar": "1665853842036_img_.gif",
         "userAddress": "v",
-        "userChecSabado": "on",
+        "userChecSabado": "Sábado",
         "userPhone": "314"
+    },
+    {
+        "id": 4,
+        "userName": "Maria",
+        "userLastName": "Bedoya",
+        "userEmail": "example@m.com",
+        "userAs": "Mari",
+        "userPassword": "$2a$10$fw5Wt5v7ymJjBHQLiw8gve4pasDlOeYVT9Nxo9/peLwOJ3KBBINPK",
+        "userPasswordConfirm": "$2a$10$jjmqV1968vT1QdCv0lhCDO674689bZARTEQm2iLuo2MHp5JXIY26K",
+        "userAvatar": "1666288603700_img_.webp",
+        "userAddress": "m",
+        "userChecLunes": "Lunes"
+    },
+    {
+        "id": 5,
+        "userName": "Diana",
+        "userLastName": "Ramirez",
+        "userEmail": "example@d.com",
+        "userAs": "Diana",
+        "userPassword": "$2a$10$80eX0oiHIv2jlHSMj51zWeHPLsAqVu7TmLYnDq.vYDfkG88ZMNsSy",
+        "userPasswordConfirm": "$2a$10$C8toPWIbtjTTUQIlq9tfH.7gfYVvSYnBuBrLT9q3Fi/yxHYhgAmd.",
+        "userAvatar": "1666288684428_img_.webp",
+        "userAddress": "d",
+        "userChecTodosDias": "Todos los días"
     }
 ]
-=======
-[{"id":1,"userName":"PedroPiedra","userLastName":"Piedra","userEmail":"piedrita@gmail.com","userAs":"Piedra","userPassword":"$2a$10$kwFZGW8CHgJnudJe7PRLVe9BPqCQt9J1NMhr.32n/ivr0TznwkrPy","userPasswordConfirm":"$2a$10$GydHrwc6CTLjlXz9HqsPj.ff/27jj8L7nU.wFQW3j9MCBJ8J6zYdS","userAvatar":"defaultImage.png","userDirecDos":"Piedra","userChecTodosDias":"","userChecLunes":"","userChecMartes":"","userChecMiercoles":"","userChecJueves":"","userChecViernes":"","userChecSabado":"","userChecDomingo":""},{"id":2,"userName":"Generor","userLastName":"Pepe","userEmail":"prueba@gmail.com","userAs":"prueba","userPassword":"$2a$10$SqpRs.ttp4ksjaSWXf4UpudQHm.sIKNvtqFkTuNPUHAI19neaVlIG","userPasswordConfirm":"$2a$10$hqc4N0/Lf5YNR6QjX6z/k.j5llqnwqW1SQRRZZD9asBObdMlqbnpq","userAvatar":{"fieldname":"userAvatar","originalname":"hannah-montez-2VslRz5G8fo-unsplash.jpg","encoding":"7bit","mimetype":"image/jpeg","destination":"public\\imag\\userAvatars","filename":"1666285499049_img_.jpg","path":"public\\imag\\userAvatars\\1666285499049_img_.jpg","size":986216},"userDirecDos":"prueba"}]
->>>>>>> 1f8446395a71ec9ca2a00f7cd3291ee460285e62

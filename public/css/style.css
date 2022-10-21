@@ -40,7 +40,8 @@ p{
 }
 
 .Title{
-    font-size: 20px;
+    font-size: 15px;
+    text-align: center;
 }
 
 .part-1-header{
@@ -48,7 +49,7 @@ p{
 }
 
 .part-2-header{
-    width: 30%;
+    width: 40%;
 }
 
 .part-4-header{
@@ -56,8 +57,12 @@ p{
     width: 100%;
 }
 
-.index-menu select option a i{
-    color: black;
+.index-menu select option {
+    text-align: center;
+}
+
+.index-menu select{
+    width: 85%;
 }
 
 .logos-header i{
@@ -68,6 +73,7 @@ p{
 
 .logos-header{
     display: none;
+    text-align: center;
 }
 
 .style-header{
@@ -89,6 +95,10 @@ p{
 
 }
 
+.navBar{
+    width: 100%;
+}
+
 .logo{
     max-width: 70px;
     width: 70%;
@@ -100,6 +110,7 @@ header .elements-header{
     flex-wrap: wrap;
     width: 70%;
     align-self: center;
+    font-size: 14px;
 }
 
 header div nav ul li{
@@ -111,7 +122,8 @@ header div nav ul li{
 header div nav ul li a{
     text-decoration: none;
     color: black;
-    font-size: 25px;
+    font-size: 18px;
+    margin-right: 25px;
 }
 
 header div nav{
@@ -125,6 +137,7 @@ header div nav{
     flex-wrap: wrap;
     padding: 10px;
     justify-content: center;
+    font-size: 10px;
 }
 
 .politicas-footer{
@@ -846,13 +859,24 @@ select{
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PROFILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 .styleMainProfile{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(205.2px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
+    grid-auto-flow: dense;
+    gap: 5px;
+    justify-items: center;
+
+    border: solid 2px black;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 12px;
 }
 
 .containerPhoto{
-    width: 20%;
-    height: 20%;
+    width: 65%;
+    margin: 2px;
+    
 }
 
 .containerPhoto img{
@@ -860,16 +884,81 @@ select{
 }
 
 .infoUser{
+    width: 100%;
+    background-color: var(--beige);
+    margin: 0px 2px;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+
+}
+
+.infoUser h3{
+    width: 100%;
+    text-align: center;
+}
+
+.TopProfile{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bienvenidaProfile{
+    width: 80%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.settingsProfile{
     width: 20%;
-    height: 20%;
-    background-color: var(--gray);
+    text-align: center;
+}
+
+.settingsProfile a{
+    text-decoration: none;
+    color: black;
+}
+
+.nameDate{
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.containerdateProfile{
+    width: 33%;
+    text-align: center;
+}
+
+.containerdateProfile2{
+    width: 50%;
+    text-align: center;
+}
+
+.containerdateProfile3{
+    width: 100%;
+    text-align: center;
+    margin: 2px;
+}
+
+.change{
+    font-size: 10px;
+    width: 100%;
+    text-align: end;
+}
+
+.change a{
+    text-decoration: none;
+    color: black;
+    margin: 2px;
+    padding: 2px;
 }
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERY >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 
 @media (max-width: 608px){
     /*Header*/
     header div nav ul li a{
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .botton-subtotal-article-car{
@@ -899,6 +988,9 @@ select{
     }
     .subscription{
         height: 30px;
+    }
+    .Title{
+        font-size: 20px;
     }
 
     /*Home*/
@@ -938,7 +1030,7 @@ select{
 
     header div nav{
         display: flex; 
-        justify-content: space-between;
+        justify-content: center;
     }
 
     .part-4-header{
@@ -982,6 +1074,19 @@ select{
         display: flex;
         flex-wrap: wrap;
     }
+
+    /*Profile*/
+    .styleMainProfile{
+        font-size: 14px;
+    } 
+
+    .infoPersonal{
+        grid-column: span 2;
+    }
+
+    .daysReceiveOrder{
+        grid-row: span 2;
+    }
 }
 
 
@@ -996,6 +1101,15 @@ select{
         flex-wrap: wrap;
     }
 
+    /*Profile*/
+    .daysReceiveOrder{
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+
+    .infoContact{
+        grid-column: span 2
+    }
     
 }
 
@@ -1056,5 +1170,12 @@ select{
     /*Register*/
     .imagenDecoRegister{
         display: none;
+    }
+}
+
+@media(min-width: 860px){
+    /*profile*/
+    .infoContact{
+        grid-column: span 1;
     }
 }
