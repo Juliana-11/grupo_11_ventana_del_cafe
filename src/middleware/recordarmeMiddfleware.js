@@ -22,7 +22,7 @@ function recordarmeMiddleware (req,res,next){
             res.render('users/loginAcceso',{user: usuario})
             
         }else{
-            res.send('Error al cargar cookie');
+            next()
         }
     }else{
         next();
