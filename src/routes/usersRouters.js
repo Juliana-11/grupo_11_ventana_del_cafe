@@ -7,6 +7,8 @@ const multer = require('multer');
 const path = require('path');
 const usersDataPath = path.join(__dirname, '../../data/usersDataBase.json')
 const users = JSON.parse(fs.readFileSync(usersDataPath, 'utf-8'))
+
+//config multer
 const multerDiskStorage = multer.diskStorage({
     destination: (req, file, callback) => {
         let folder = path.join('public/imag/userAvatars')
@@ -51,7 +53,7 @@ const validateRegister = [
                                 let usuUsuario = false ;
                                 let k = 0;
                                 while (k < users.length && usuUsuario == false){
-                                    if (users[k].userUserDescrip == req.body.userAs ){
+                                    if (users[k].userAs == req.body.userAs ){
                                         usuUsuario = true;
                                     }
                                     k++;

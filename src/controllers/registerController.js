@@ -47,6 +47,7 @@ const registerController = {
                 }
                 k++;
             }
+            
             if ( usuExiste == false){
                 users.push(newUser);
                 fs.writeFileSync(usersDataPath,JSON.stringify(users),'utf-8');

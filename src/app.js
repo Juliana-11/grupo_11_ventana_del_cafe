@@ -6,19 +6,19 @@ const path = require('path');
 const methodOverride = require('method-override');
 let session = require('express-session');
 const cookieParser = require('cookie-parser');
-const recordarmeMiddleware = require('./src/middleware/recordarmeMiddfleware')
+const recordarmeMiddleware = require('./middleware/recordarmeMiddfleware')
 
 //Rutas
-const mainRouter = require('./src/routes/mainRouters'); 
-const productRouters = require('./src/routes/productRouters');
-const usersRouters = require('./src/routes/usersRouters');
+const mainRouter = require('./routes/mainRouters'); 
+const productRouters = require('./routes/productRouters');
+const usersRouters = require('./routes/usersRouters');
 
 /*Configuraciones*/
 app.set('views', __dirname + '/views');
 app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.use(express.static(path.resolve(__dirname, './public')));
+app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(methodOverride('_method'));
 app.use(session({
     secret: 'Nombre del sitio',
