@@ -1,16 +1,30 @@
 const fs = require('fs');
 const path = require('path');
 const {validationResult} = require('express-validator');
-const { json } = require('express');
+const { json, raw } = require('express');
+const db =  require('../../database/models')
 
 //data
 const productsDataPath = path.join(__dirname, '../../data/productsDataBase.json')
 const products = JSON.parse(fs.readFileSync(productsDataPath, 'utf-8'))
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const productDetailController = {
+//Modelos
+const Product = db.Product;
+
+const productController = {
     index: (req, res)=>{
-        res.send('listar')
+        Product.findAll({
+            include:["associateCategory"] ,
+            raw: true,
+            nest: true
+        })
+        .then(productsResolve => {
+            res.render('products/products', {productsResolve})
+        })
+    },
+    car: (req, res)=>{
+        res.render('products/cart')
     },
     create: (req, res)=>{
         res.render('products/productCreateForm');
@@ -34,11 +48,6 @@ const productDetailController = {
             res.render('productCreateForm', {errors: errors.mapped(), oldData});
         }
         
-    },
-    detail: (req, res)=>{
-        let id = req.params.id
-        let product = products.find(aProduct => aProduct.id == id)
-        res.render('products/detail', {product, toThousand})
     },
     delete: (req, res) =>{
         let id = req.params.id;
@@ -75,9 +84,12 @@ const productDetailController = {
 		res.redirect('/products/');
         
         res.render('products/detail')
+    },
+    detail: (req, res)=>{
+        let id = req.params.id
+        let product = products.find(aProduct => aProduct.id == id)
+        res.render('products/detail', {product, toThousand})
     }
 }
 
-
-
-module.exports = productDetailController;
+module.exports = productController;

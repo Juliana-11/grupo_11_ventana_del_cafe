@@ -1,8 +1,4 @@
-const path = require('path');
-const Sequelize = require('sequelize');
-const { sequelize } = require('.');
-const db = db.Sequelize();
-
+//Modelo
 module.exports = (Sequelize,DataTypes)=>{
     let alias = 'User';
     let cols = {
@@ -40,9 +36,22 @@ module.exports = (Sequelize,DataTypes)=>{
     }
     let config = {
         tableName: 'user',
-        timestamps: false,
-        };
-    const User = sequelize.define(alias,cols,config)
+        timestamps: false
+    };
+
+    const User = Sequelize.define(alias,cols,config)
+
+    /*User.associate = function(models){ 
+        User.belongsToMany(models.Daysreceive, {
+            as: "Day_user",
+            through: "Day_user",
+            foreignKey: "iduser",
+            otherKey: "iddaysreceive",
+            timestamps: false
+        })
+    }*/
+    
     return User;
 }
+
 

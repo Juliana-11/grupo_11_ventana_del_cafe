@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {title: "Home"}) %>
+
+<body class="body-style">
+    <%- include('../partials/header') %>
+
+    <% for( let i = 0; i < productsResolve.length; i++ ) { %>
+        <%= productsResolve[i].productname %> <br>
+    <% } %>
+
+    <br>
+
+    <div class="url">
+        url
+    </div>
+    <div class="container-products">
+        <div class="filter-products">
+            filter
+        </div>
+        <div class="result-products">
+            products
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

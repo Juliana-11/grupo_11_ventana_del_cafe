@@ -16,6 +16,7 @@
 :root {
     --black:  rgb(49, 47, 47);
     --tono5:  #8e582c;
+    --brown: #d3a168;
     --gray:   rgba(223, 219, 219, 0.923);
 }
 
@@ -62,7 +63,7 @@ p{
     object-fit: cover;
 }
 
-.logo:hover{
+.container-logo:hover .logo{
     transform: scale(2.5);
 }
 
@@ -222,10 +223,10 @@ header div nav{
 }
 
 /*suscription*/
-.suscription-footer{
+.suscription{
     display: flex;
     flex-wrap: wrap;
-    background-color: var(--dark-blue);
+    background-color: var(--brown);
     margin: 5px;
     position: relative;
     height: 65px;
@@ -233,58 +234,52 @@ header div nav{
     border-radius: 15px;
 }
 
-.parrafo-suscription-footer{
-    width: 50%;
+.parrafo-suscription{
+    width: 35%;
+    max-width: 300px;
 }
 
-.suscription-footer p{
-    font-size: 10px;
-    width: 80%;
+.parrafo-suscription p{
+    width: 90%;
     text-align: center;
     color: white;
-    font-size: 15px;
+    font-size: 10px;
     position: relative;
     right: -20px;
 }
 
-.suscription-footer form {
-    width: 50%;
+.form-suscription{
+    width: 55%;
 }
 
-.input-footer{
-    width: 49%;
+.form-suscription input{
+    width: 50%;
+    max-width: 300px;
     position: relative;
+    padding: 5px;
     left: 20px;
     height: 30px;
     border-radius: 5px;
+    font-size: 10px;
 }
 
 .button-footer{
-    width: 30%;
+    width: 40%;
+    max-width: 100px;
+    padding: 3px;
     position: relative;
-    left: 40px;
+    left: 20px;
     border-radius: 8px;
-    background-color: var(--light-blue);
-}
-
-.subscription{
-    background-color: #42C6ED;
+    background-color: var(--tono5);
+    font-size: 10px;
     text-align: center;
-    width: 100%;
-    height: 50px;
-    
 }
 
-.subscription a{
-    text-decoration: none;
-    color: black;
+.button-footer img{
+    width: 20px;
+    position: relative;
+    left: 5px;
 }
-
-.subscription-icon{
-    width: 25px;
-    height: 25px;
-}
-
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< HOME >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 
 /*main*/
@@ -307,10 +302,11 @@ header div nav{
     margin: 0.5px;
 }
 
-.imgBannerOne, .imgBannerTwo, .imgBannerThree, .imgBannerFour, .imgBannerFive, .imgBannerSix, .imgBannerSeven .imgBannerEight, .imgBannerNine, .imgBannerTen, .imgBannerEleven, .imgBannerTwelve, .imgBannerThirteen, .imgBannerFourteen, .imgBannerFifteen{
+.imgBannerOne, .imgBannerTwo, .imgBannerThree, .imgBannerFour, .imgBannerFive, .imgBannerSix, .imgBannerSeven, .imgBannerEight, .imgBannerNine, .imgBannerTen, .imgBannerEleven, .imgBannerTwelve, .imgBannerThirteen, .imgBannerFourteen, .imgBannerFifteen{
     width: 99%;
     margin: 1px;
     overflow: hidden;
+    
 }
 
 .imgBannerOne img,  .imgBannerSix img,  .imgBannerEleven img, .imgBannerFourteen img{
@@ -345,7 +341,7 @@ header div nav{
     border: 2px solid black;
 }
 
-.imgBannerOne img:hover,  .imgBannerSix img:hover,  .imgBannerEleven img:hover, .imgBannerFourteen img:hover, .imgBannerTwo img:hover, .imgBannerFive img:hover, .imgBannerTen img:hover,  .imgBannerFifteen img:hover, .imgBannerThree img:hover, .imgBannerFour img:hover,  .imgBannerTwelve img:hover, .imgBannerThirteen img:hover, .imgBannerSeven img:hover, .imgBannerEight img:hover, .imgBannerNine img:hover{
+.imgBannerOne img:hover, .imgBannerTwo img:hover,  .imgBannerThree img:hover, .imgBannerFour img:hover, .imgBannerFive img:hover, .imgBannerSix img:hover, .imgBannerSeven img:hover, .imgBannerEight img:hover, .imgBannerNine img:hover, .imgBannerTen img:hover, .imgBannerEleven img:hover, .imgBannerTwelve img:hover, .imgBannerThirteen img:hover, .imgBannerFourteen img:hover, .imgBannerFifteen img:hover{
     transform: scale(1.2);
     border-radius: 20px;
 }
@@ -372,15 +368,59 @@ header div nav{
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
-}
+}   
 
 .item-features-section{
-    background-color: #B3844F;
+    background-color: var(--tono5);
     width: 60%;
-    padding: 5px;
+    padding: 15px;
     box-shadow: 0px 0px 10px rgb(103, 94, 94);
     text-align: center;
+    border-radius: 8px;
+}
+
+.imag-features-section{
+    width: 100%;
+    height: 90px;
+    border-radius: 20px;
+    border: 3px solid black;
+}
+
+.abstract-features-section{
+    font-size: 11px;
+    height: 60px;
+}
+
+.information-item-features-section{
+    text-align: center;
+}
+
+.title-features-section{
+    width: 100%;
+    font-size: 13px;
+    margin: 10px 0px;
+}
+
+.button-features-section a{
+    text-decoration: none;
+    color: white;
+    font-size: 10px;
+}
+
+.container-button-features-section{
+    width: 100%;
+    text-align: end;
+}
+
+.button-features-section{
+    background-color: var(--black);
+    padding: 2px;
+    margin: 10px 0px;
     border-radius: 5px;
+    width: 50%;
+    position: relative;
+    top: 15px;
+    left: 5px;
 }
 
 .title-e-commerce--description{
@@ -392,31 +432,14 @@ header div nav{
     text-align: center;
 }
 
-
-
-.title-features-section{
-    width: 90%;
-    font-size: 13px;
-}
-
-
-
 .features-two, .features-three, .score-two, .score-three, .score-four{
     display: none;
 }
 
-.imag-features-section{
-    width: 90%;
-    border-radius: 20px;
-    border: 3px solid black;
-}
+
 
 main section div .features-section i{
     align-self: center;
-}
-
-.information-item-features-section{
-    text-align: center;
 }
 
 .container-best-score-section{
@@ -426,7 +449,7 @@ main section div .features-section i{
 }
 
 .item-best-score{
-    background-color: #B3844F;
+    background-color: var(--tono5);
     width: 90%;
     padding: 5px;
     box-shadow: 0px 0px 10px rgb(103, 94, 94);
@@ -1072,6 +1095,24 @@ select{
     margin: 2px;
     padding: 2px;
 }
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PRODUCTS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
+.container-products{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter-products{
+    width: 30%;
+    margin: 5px;
+    border: 2px solid black;
+}
+
+.result-products{
+    width: 66%;
+    margin: 5px;
+    border: 2px solid black;
+}
+
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERY >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 
 @media (max-width: 608px){
@@ -1121,6 +1162,12 @@ select{
     }
     .Title{
         font-size: 20px;
+    }
+
+    /*suscription*/
+
+    .button-footer{
+        left: 35px;
     }
 
     /*Home*/
@@ -1267,6 +1314,19 @@ select{
         font-size: 13px;
     }
 
+    .redes-footer i{
+        font-size: 15px;
+    }
+
+    /*suscription*/
+    .parrafo-suscription p{
+        font-size: 12px;
+    }
+
+    .button-footer{
+        left: 80px;
+    }
+
     /*Profile*/
     .daysReceiveOrder{
         grid-row: span 1;
@@ -1291,6 +1351,15 @@ select{
 
     .navBar ul li a {
         font-size: 25px;
+    }
+
+    /*suscription*/
+    .parrafo-suscription p{
+        font-size: 13px;
+    }
+
+    .button-footer{
+        left: 160px;
     }
 
     /*home*/
@@ -1348,6 +1417,12 @@ select{
     .elements-header{
         width: 80%;
     }
+
+    /*suscription*/
+    .button-footer{
+        left: 160px;
+    }
+
     /*profile*/
     .infoContact{
         grid-column: span 1;
