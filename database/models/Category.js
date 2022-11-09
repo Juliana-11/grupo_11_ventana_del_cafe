@@ -23,7 +23,12 @@ module.exports = (Sequelize,DataTypes)=>{
         Category.hasMany(models.Product, {
             as: "associateProduct",
         })
+<<<<<<< HEAD
     }*/
+=======
+
+    }
+>>>>>>> 80ce229923ad7bf08e95f442dcdef8285954a0f9
 
     return Category;
 }

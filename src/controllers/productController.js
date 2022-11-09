@@ -22,7 +22,8 @@ const productController = {
             nest: true*/
         })
         .then(productsResolve => {
-            res.render('products/products', {productsResolve})
+           
+            res.render('products/products', {productsResolve:productsResolve})
         })
     },
     car: (req, res)=>{
