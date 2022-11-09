@@ -82,8 +82,10 @@
 
                     <div class="info-money">
                         <p><%= productsResolve[i].productprice %> </p> /
-                        <p><%= productsResolve[i].productdiscount %> % off</p>
+                        <p><%= productsResolve[i].productdiscount %> % off</p> <br>
+                        
                     </div>
+                    <h2><%= productsResolve[i].associateCategory.categoryname %> </h2>
                 </div>
                 <% } %>
             </div>
