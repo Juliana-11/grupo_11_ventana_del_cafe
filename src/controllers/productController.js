@@ -15,9 +15,11 @@ const Product = db.Product;
 const productController = {
     index: (req, res)=>{
         Product.findAll({
-            include:["associateCategory"] ,
+            /*include:{
+                model: db.Category, as: "associateCategory"
+            } ,
             raw: true,
-            nest: true
+            nest: true*/
         })
         .then(productsResolve => {
             res.render('products/products', {productsResolve})

@@ -5,23 +5,91 @@
 <body class="body-style">
     <%- include('../partials/header') %>
 
-    <% for( let i = 0; i < productsResolve.length; i++ ) { %>
-        <%= productsResolve[i].productname %> <br>
-    <% } %>
-
-    <br>
-
-    <div class="url">
-        url
-    </div>
-    <div class="container-products">
-        <div class="filter-products">
-            filter
-        </div>
-        <div class="result-products">
-            products
+    <div>
+        <div class="url-background-image"></div>
+        <div class="url-text">
+            <h2>Consumo</h2>
+            <h3><a href="/">Home</a> <a href="/product">Productos</a></h3>
         </div>
     </div>
+
+    <div class="content-products">
+        <div class="container-products">
+            <div class="element-filter-one">
+                <form action="#">
+                    <input type="text" id="search" placeholder="Buscar">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="element-filter-two">
+                <div class="element-filter">
+                    <div class="title-filter-products">
+                        <h4>Filtrar por categoria</h4>
+                    </div>
+                    <form action="#">
+                        <div class="item-filter-products">
+                            <input type="checkbox" name="consumo" id="consumo" >
+                            <label for="consumo">Consumo</label>
+                        </div>
+                        <div class="item-filter-products">
+                            <input type="checkbox" name="belleza" id="belleza" >
+                            <label for="belleza">Belleza</label>
+                        </div>
+                        <div class="item-filter-products">
+                            <input type="checkbox" name="licores" id="licores" >
+                            <label for="licores">Licores</label>
+                        </div>
+                        <div class="item-filter-products">
+                            <input type="checkbox" name="souvenirs" id="souvenirs" >
+                            <label for="souvenirs">Souvenirs</label>
+                        </div>
+                        <div class="item-filter-products">
+                            <input type="checkbox" name="all" id="all" >
+                            <label for="all">Todos</label>
+                        </div>
+                    </form>
+                </div> 
+                
+                <div class="element-filter">
+                    <div class="title-filter-products">
+                        <h4>Filtrar por precio</h4>
+                        <div class="range">
+                            <input type="range" class="slider" min="10" max="200" value="50" step="1">
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="element-filter">
+                    <div class="title-filter-products">
+                        <h4>Filtrar por características</h4>
+                        
+                        tostado
+                    </div>
+                </div> 
+                
+            </div>
+            <% console.log(productsResolve) %>
+            <div class="result-products">
+                <% for( let i = 0; i < productsResolve.length; i++ ) { %>
+                <div class="item-result-products">
+                    <div class="container-imag-item-result-products">
+                        <img src="/imag/products/fondoBanner.jpg " alt="" srcset="">
+                    </div>
+
+                    <div class="name-item-result-products">
+                        <h3><%= productsResolve[i].productname %> </h3>
+                    </div>
+
+                    <div class="info-money">
+                        <p><%= productsResolve[i].productprice %> </p> /
+                        <p><%= productsResolve[i].productdiscount %> % off</p>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    
 
     <%- include('../partials/footer') %>
 </body>
