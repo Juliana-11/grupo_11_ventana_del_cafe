@@ -7,7 +7,7 @@ module.exports = (Sequelize,DataTypes)=>{
             primaryKey: true,
             auntoincremente: true
         },
-        productimageaddress:{
+        productimagename:{
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -22,13 +22,12 @@ module.exports = (Sequelize,DataTypes)=>{
     }
     
     const Productimage = Sequelize.define(alias, cols, config);
-    /*Productimage.associate = function(models){ 
-        Productimage.hasMany(models.Product, {
+    Productimage.associate = function(models){ 
+        Productimage.belongsTo(models.Product, {
             as: "Productimage",
-            foreignKey: "product_id",
-            Sourcekey : "idproduct"
+            foreignKey: "product_id"
         })
-    }*/
+    }
     
     return Productimage;
 }

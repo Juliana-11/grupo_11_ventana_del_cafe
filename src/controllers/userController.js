@@ -5,6 +5,7 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const { json } = require('express');
+const db = require('../../database/models')
 
 //data
 const usersDataPath = path.join(__dirname, '../../data/usersDataBase.json');
@@ -128,9 +129,11 @@ const userController = {
 
     },
     profile: (req, res)=>{
-        let id = req.params.id
-        let user = users.find(aUser => aUser.id == id)
-        res.render('users/profile', {user: user})
+        db.User.findByPk(req.params.id,
+            {include: {model: db.Daysreceive, as:"associateDay_user" }})
+        .then(user => {
+            res.render('users/profile', {user})
+        })
     }
 }
 
