@@ -38,20 +38,17 @@ module.exports = (Sequelize,DataTypes)=>{
     
     const Product = Sequelize.define(alias, cols, config);
 
-    /*Product.associate = function(models){ 
+    Product.associate = function(models){ 
         Product.belongsTo(models.Category, {
             as: "associateCategory",
-<<<<<<< HEAD
-=======
             foreignKey: "category_id"
->>>>>>> 80ce229923ad7bf08e95f442dcdef8285954a0f9
         })
-        Product.belongsTo(models.Productimage, {
+        /*Product.belongsTo(models.Productimage, {
             as: "Productimage_id",
             foreignKey: "idproduct",
             targetId: "product_id"
-        })
-    }*/
+        })*/
+    }
 
     return Product;
 }
