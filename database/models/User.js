@@ -41,15 +41,15 @@ module.exports = (Sequelize,DataTypes)=>{
 
     const User = Sequelize.define(alias,cols,config)
 
-    /*User.associate = function(models){ 
+    User.associate = function(models){ 
         User.belongsToMany(models.Daysreceive, {
-            as: "Day_user",
+            as: "associateDay_user",
             through: "Day_user",
-            foreignKey: "iduser",
-            otherKey: "iddaysreceive",
+            foreignKey: "id_user",
+            otherKey: "id_day",
             timestamps: false
         })
-    }*/
+    }
     
     return User;
 }

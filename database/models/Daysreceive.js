@@ -19,14 +19,14 @@ module.exports = (Sequelize,DataTypes)=>{
     
     const Daysreceive = Sequelize.define(alias, cols, config);
 
-    /*Daysreceive.associate = function(models){ 
+    Daysreceive.associate = function(models){ 
         Daysreceive.belongsToMany(models.User, {
             as: "Daysreceive",
             through: "Day_user",
-            foreignKey: "iddaysreceive",
-            otherKey: "iduser",
+            foreignKey: "id_day",
+            otherKey: "id_user",
             timestamps: false
         })
-    }*/
+    }
     return Daysreceive;
 }

@@ -43,11 +43,10 @@ module.exports = (Sequelize,DataTypes)=>{
             as: "associateCategory",
             foreignKey: "category_id"
         })
-        /*Product.belongsTo(models.Productimage, {
-            as: "Productimage_id",
-            foreignKey: "idproduct",
-            targetId: "product_id"
-        })*/
+        Product.hasMany(models.Productimage, {
+            as: "associateImage",
+            foreignKey: "product_id"
+        })
     }
 
     return Product;

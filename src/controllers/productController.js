@@ -15,9 +15,10 @@ const Product = db.Product;
 const productController = {
     index: (req, res)=>{
         Product.findAll({
-            include:{
-                model: db.Category, as: "associateCategory"
-            } ,
+            include:[
+                {model: db.Category, as: "associateCategory"},
+                {model: db.Productimage, as: "associateImage"}
+            ],
             raw: true,
             nest: true
         })
