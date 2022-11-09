@@ -24,6 +24,7 @@ module.exports = (Sequelize,DataTypes)=>{
             as: "associateProduct",
             foreignKey: "category_id"
         })
+
     }
 
     return Category;
