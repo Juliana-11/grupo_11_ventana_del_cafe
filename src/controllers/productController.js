@@ -11,6 +11,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 //Modelos
 const Product = db.Product;
+const Image = db.Productimage;
 
 const productController = {
     index: (req, res)=>{
@@ -35,7 +36,26 @@ const productController = {
     },
     save: (req, res)=>{
         let errors = validationResult(req);
-        if(errors.isEmpty){
+        if(errors.isEmpty()){
+            Product.create({
+                productname: req.body.name,
+                productprice: req.body.price,
+                productdiscount: req.body.discount,
+                productdescription: req.body.description,
+                stock: req.body.stock,
+                category_id: req.body.category
+            })
+            .then( product => {
+                Image.create({
+                    productimagename: req.file ? req.file.filename : 'defaultImage.png',
+                    product_id: product.idproduct
+                })
+                .then( () => res.redirect('products/products'))
+            });
+
+            
+            /*
+
             let newProduct = {
                 id: products.length == 0? 1 : products[products.length - 1].id + 1,
                 productName: req.body.name,
@@ -46,7 +66,7 @@ const productController = {
             }
             products.push(newProduct);
             fs.writeFileSync(productsDataPath,JSON.stringify(products),'utf-8');
-            res.render('products/productCreateForm')
+            res.render('products/productCreateForm')*/
         }else {
             let oldData = req.body;
             res.render('productCreateForm', {errors: errors.mapped(), oldData});

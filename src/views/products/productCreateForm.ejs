@@ -3,7 +3,7 @@
 <%- include('../partials/head', {title: "Creación de producto"}) %> 
 <body class="bodyStyleFormCreateProduct">
     <%- include('../partials/header') %> 
-        <form action="/product/save" method="POST" enctype="multipart/form-data" class="containerFormCreateProduct">
+        <form action="/product/create" method="POST" enctype="multipart/form-data" class="containerFormCreateProduct">
 
             <div class="itemFormCreateProduct">
                 <label for="name" class="labelFormCreateProduct">Nombre de producto</label>
@@ -16,6 +16,10 @@
             <div class="itemFormCreateProduct">
                 <label for="discount" class="labelFormCreateProduct">Descuento</label>
                 <input type="text" name="productDiscount" id="discount">
+            </div>
+            <div class="itemFormCreateProduct">
+                <label for="stock" class="labelFormCreateProduct">Stock</label>
+                <input type="text" name="productStock" id="stock">
             </div>
             <div class="categoryFormCreateProduct">
                 <label for="category">Categoria</label>
