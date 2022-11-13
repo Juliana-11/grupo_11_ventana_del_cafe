@@ -36,22 +36,24 @@ const productController = {
     },
     save: (req, res)=>{
         let errors = validationResult(req);
+       
         if(errors.isEmpty()){
+            console.log(req.body)
             Product.create({
-                productname: req.body.name,
-                productprice: req.body.price,
-                productdiscount: req.body.discount,
+                productname: req.body.productName,
+                productprice: req.body.productPrice,
+                productdiscount: req.body.productDiscount,
                 productdescription: req.body.description,
-                stock: req.body.stock,
+                stock: req.body.productStock,
                 category_id: req.body.category
             })
             .then( product => {
                 Image.create({
-                    productimagename: req.file ? req.file.filename : 'defaultImage.png',
-                    product_id: product.idproduct
+                    productimageaddress: req.file ? req.file.filename : 'defaultImage.png',
+                    product_id: product.null
                 })
                 .then( () => res.redirect('products/products'))
-            });
+            })
 
             
             /*
@@ -75,20 +77,53 @@ const productController = {
     },
     delete: (req, res) =>{
         let id = req.params.id;
-        let finalProducts = products.filter((product) => product.id != id);
-        fs.writeFileSync(productsDataPath, JSON.stringify(finalProducts, null, ' '));
+        Image.destroy({
+            where:{product_id: id}
+        })
+        .then(() => {console.log('Elimine imagen')})
+        Product.destroy({
+            where:{idproduct: id}
+        })
+        .then(() => {console.log('Elimine producto')})
+        /*let finalProducts = products.filter((product) => product.id != id);
+        fs.writeFileSync(productsDataPath, JSON.stringify(finalProducts, null, ' '));*/
         res.redirect('/')
     },
     edit: (req, res) =>{
         let id = req.params.id
+        Product.findByPk(id)
+            .then(resultado => {
+                res.render('product-edit-form', {
+                    resultado, toThousand
+                })
+            })
+        /*
         let product = products.filter(aProduct => aProduct.id == id)
         res.render('product-edit-form', {
             product, toThousand
-        })
+        })*/
     },
     update: (req, res) =>{
         let id = req.params.id
-		let producToEdit = products.find(product => product.id == id)
+		//let producToEdit = products.find(product => product.id == id)
+        Image.update({
+            productimageaddress: req.file ? req.file.filename : 'defaultImage.png'
+        },{
+            where: {product_id: id}  
+        })
+
+        Product.update({
+            productname: req.body.productName,
+            productprice: req.body.productPrice,
+            productdiscount: req.body.productDiscount,
+            productdescription: req.body.description,
+            stock: req.body.productStock,
+            category_id: req.body.category
+        },
+        {
+            where: {idproduct: id}
+        })
+        /*
 
 		producToEdit ={
 			id: producToEdit.id,
@@ -104,10 +139,10 @@ const productController = {
 		})
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-		products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));*/
 		res.redirect('/products/');
         
-        res.render('products/detail')
+        //res.render('products/detail')
     },
     detail: (req, res)=>{
         let id = req.params.id

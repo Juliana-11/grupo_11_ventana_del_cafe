@@ -7,7 +7,7 @@ module.exports = (Sequelize,DataTypes)=>{
             primaryKey: true,
             auntoincremente: true
         },
-        productimagename:{
+        productimageaddress:{
             type: DataTypes.STRING,
             allowNull: false
         },

@@ -46,7 +46,7 @@
                         
                         <div class="itemRegister">
                             <label for="userAs">Nuevo usuario </label>
-                            <input type="text"  id="userAs" name="userAs" placeholder="Create un usuario" required value="<%= locals.old && old.userAs %>">
+                            <input type="text"  id="userAs" name="userAs" placeholder="Create un usuario"  value="<%= locals.old && old.userAs %>">
                             <br>
                             <% if (locals.errors && errors.userAs) { %>
                                 <span style="color:red;font-size: 1vw;"><%= errors.userAs.msg %></span>

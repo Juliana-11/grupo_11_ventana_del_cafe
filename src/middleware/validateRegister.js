@@ -1,3 +1,5 @@
+const db = require('../../database/models')
+const User = db.User;
 const {check} = require('express-validator');
 const validateRegister = [
     check('userName')
@@ -9,7 +11,7 @@ const validateRegister = [
     check('userEmail')
                         .notEmpty().withMessage('* Debe contener un email').bail()
                         .isEmail().withMessage('* Debe ingresar un correo válido')
-                        .custom(
+                        /*.custom(
                             (value,{req})=> {
                                 let usuEmail = false ;
                                 let k = 0;
@@ -24,10 +26,11 @@ const validateRegister = [
                                 }
                                 return true
                             } 
-                        ),
+                        )*/
+                        ,
     check('userAs')
                         .notEmpty().withMessage('* Debe contener un usuario').bail()
-                        .custom(
+                        /*.custom(
                             (value,{req})=> {
                                 let usuUsuario = false ;
                                 let k = 0;
@@ -42,7 +45,7 @@ const validateRegister = [
                                 }
                                 return true
                             } 
-                        ),
+                        )*/,
     check('userPassword')
                         .notEmpty().withMessage('* Debe contener un password').bail()
                         .isLength({min:2,max:15}).withMessage('* Debe contener mínimo 6 caracteres y máximo 15'),

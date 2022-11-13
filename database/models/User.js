@@ -24,14 +24,41 @@ module.exports = (Sequelize,DataTypes)=>{
         password: {
             type: DataTypes.STRING
         },
+        passwordConfirm: {
+            type: DataTypes.STRING
+        },
         useravatar:{
+            type: DataTypes.STRING
+        },
+        useraddress: {
+            type: DataTypes.STRING
+        },
+        checkTodos:{
+            type: DataTypes.STRING
+        },
+        checkLunes:{
+            type: DataTypes.STRING
+        },
+        checkMartes:{
+            type: DataTypes.STRING
+        },
+        checkMiercoles:{
+            type: DataTypes.STRING
+        },
+        checkJueves:{
+            type: DataTypes.STRING
+        },
+        checkViernes:{
+            type: DataTypes.STRING
+        },
+        checkSabado:{
+            type: DataTypes.STRING
+        },
+        checkDomingo:{
             type: DataTypes.STRING
         },
         userphone: {
             type: DataTypes.INTEGER
-        },
-        useraddress: {
-            type: DataTypes.STRING
         }
     }
     let config = {
