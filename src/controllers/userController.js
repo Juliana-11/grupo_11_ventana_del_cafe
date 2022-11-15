@@ -133,11 +133,11 @@ const userController = {
                 }else{
                     if (resultEmail.length > 0){
                         let passValida = bcrypt.compareSync(req.body.passwordLogin,resultEmail[0].dataValues.password)
-                        if (passValida){   
+                        if (!passValida){   
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
-                                res.redirect('/users/profile')
+                                res.redirect('/users/profile'+'/'+resultEmail[0].id)
                             }else{
                                 
                                 let mensajeDeEnvio ={
@@ -148,11 +148,11 @@ const userController = {
                     }
                     if (resultUsu.length > 0){
                         let passValida = bcrypt.compareSync(req.body.passwordLogin,resultUsu[0].dataValues.password)
-                        if (passValida){   
+                        if (!passValida){   
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
-                                res.redirect('/users/profile')
+                                res.redirect('/users/profile/'+resultUsu[0].id)
                             }else{
                                 
                                 let mensajeDeEnvio ={

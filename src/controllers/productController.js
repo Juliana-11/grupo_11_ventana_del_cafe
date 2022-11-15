@@ -38,7 +38,6 @@ const productController = {
         let taste = Taste.findAll();
         let toastlevel = Toastlevel.findAll();
         let category = Category.findAll()
-
         Promise.all([taste, toastlevel, category])
         .then(([tastes, toastlevels, categories]) => {
             res.render('products/create', {tastes, toastlevels, categories})
