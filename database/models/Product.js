@@ -2,7 +2,7 @@
 module.exports = (Sequelize,DataTypes)=>{
     let alias = "Product";
     let cols = {
-        idproduct:{
+        id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
             auntoincremente: true
@@ -22,13 +22,19 @@ module.exports = (Sequelize,DataTypes)=>{
             type: DataTypes.STRING,
             allowNull: false
         },
+        productorigin: {
+            type: DataTypes.STRING
+        },
         stock:{
             type: DataTypes.INTEGER,
             allowNull: false
         },
         category_id:{
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false
+        },
+        toastlevel_id:{
+            type: DataTypes.INTEGER,
         }
     };
     let config = {
@@ -46,6 +52,17 @@ module.exports = (Sequelize,DataTypes)=>{
         Product.hasMany(models.Productimage, {
             as: "associateImage",
             foreignKey: "product_id"
+        })
+        Product.belongsToMany(models.Taste, {
+            as: "associateProduct_taste",
+            through: "product_taste",
+            foreignKey: "product_id",
+            otherKey: "taste_id",
+            timestamps: false
+        })
+        Product.belongsTo(models.Toastlevel, {
+            as: "associateToastlevelP",
+            foreignKey: "toastlevel_id"
         })
     }
 

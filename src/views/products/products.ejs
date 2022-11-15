@@ -69,14 +69,17 @@
                 
             </div>
             <% console.log(productsResolve) %>
+            
             <div class="result-products">
                 <% for( let i = 0; i < productsResolve.length; i++ ) { %>
                 <div class="item-result-products">
                     <div class="container-imag-item-result-products">
-                        <img src="/imag/products/fondoBanner.jpg " alt="" srcset="">
+                        <% if (productsResolve[i].associateImage.productimagename != null) { %>
+                            <img src="/imag/products/<%= productsResolve[i].associateImage.productimagename %> "  alt="" srcset="">
+                        <% }else {%>
+                            <img src="/imag/products/fondoBanner.jpg "  alt="" srcset="">
+                        <% } %>
                     </div>
-
-                    <p>imagen <%= productsResolve[i].associateImage.productimagename %> </p>
 
                     <div class="name-item-result-products">
                         <h3><%= productsResolve[i].productname %> </h3>
@@ -85,9 +88,11 @@
                     <div class="info-money">
                         <p><%= productsResolve[i].productprice %> </p> /
                         <p><%= productsResolve[i].productdiscount %> % off</p> <br>
-                        
                     </div>
-                    <h2><%= productsResolve[i].associateCategory.categoryname %> </h2>
+                    <div class="button-item-result-products">
+                        <button><a href="/product/<%= productsResolve[i].idproduct%>">Ver detalles</a></button>
+                        <button><i class="fas fa-shopping-cart"></i></button>
+                    </div>
                 </div>
                 <% } %>
             </div>

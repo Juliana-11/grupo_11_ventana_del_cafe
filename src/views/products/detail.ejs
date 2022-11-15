@@ -4,18 +4,19 @@
 <body>
     <%- include('../partials/header') %>
     <main>
+        <% console.log(product) %> 
         <section class="productDetail">
 
             <form action="#" class="buttonExit"><button><i class="fas fa-sign-out-alt"></i> Salir</button></form>
 
             <div class="containerImgDetail">
-                <img class="productImage" src="/imag/<%=product.productImage%> " alt="productImage">
+                <img class="productImage" src="/imag/products/<%= product.associateImage.productimagename%> " alt="productImage">
             </div>
 
             <div class="containerInfoDetail">
-                <p class="productPrice"><img src="/imag/pesos.png" alt=""><%=product.productPrice%> </p>
-                <h2 class="productName"><%=product.productName%></h2>
-                <p class="productDescription"><%=product.description%> </p>
+                <h2 class="productName"><%=product.productname%></h2>
+                <p class="productPrice"> <%=product.productprice%> <img src="/imag/pesos.png" alt=""></p>
+                <p class="productDescription"><%=product.productdescription%> </p>
                 <form action="#">
                     <button class="buttonCarDetail"><i class="fas fa-shopping-cart"></i> Agregar al carrito</button>
                     <button class="buttonLikeProductDetail"><i class="far fa-heart"></i> Mis favoritos </button>
@@ -37,13 +38,13 @@
                 <div class="property lado">
                     <div class="propertyIcon"><i class="fas fa-map-marker-alt"></i></div>
                     <h4>Origen</h4>
-                    <p><%=product.origen%> </p>
+                    <p><%=product.productorigin%> </p>
                 </div>
                 
                 <div class="property">
                     <div class="propertyIcon"><img src="/imag/coffe.png" alt=""></div>
                     <h4>Sabor</h4>
-                    <p><%=product.sabor%> </p>
+                    <p><%=product.producttaste%> </p>
                 </div>
             </div>
             

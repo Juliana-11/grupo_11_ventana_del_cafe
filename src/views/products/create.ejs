@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {title: "Creación de producto"}) %> 
+<body class="bodyStyleFormCreateProduct">
+    <%- include('../partials/header') %> 
+    <h1 class="titleCreateProduct">Registro de productos</h1>
+        <form action="/product/create" method="POST" enctype="multipart/form-data" class="containerFormCreateProduct">
+
+            <div class="infogeneralCreate">
+                <h3 class="tittleh3create">Información general</h3>
+
+                <div class="itemFormCreateProduct">
+                    <label for="name" class="labelFormCreateProduct">Nombre de producto</label>
+                    <input type="text" name="productName" id="name">
+                </div>
+    
+                <div class="itemFormCreateProduct">
+                    <label for="price" class="labelFormCreateProduct">Precio</label>
+                    <input type="text" name="productPrice" id="price">
+                </div>
+    
+                <div class="itemFormCreateProduct">
+                    <label for="discount" class="labelFormCreateProduct">Descuento</label>
+                    <input type="text" name="productDiscount" id="discount">
+                </div>
+    
+                <div class="itemFormCreateProduct">
+                    <label for="stock" class="labelFormCreateProduct">Cantidad dispobible</label>
+                    <input type="text" name="productStock" id="stock">
+                </div>
+    
+                <div class="itemFormCreateProduct">
+                    <label for="origin" class="labelFormCreateProduct">Origen del producto</label>
+                    <input type="text" name="productOrigin" id="origin">
+                </div>
+    
+            </div>
+            
+            <div class="containerFeaturesCreate">
+                <h3 class="tittleh3create">Caracteristicas</h3>
+
+                <div class="itemFormCreateProduct2">
+                    <label for="taste">Sabor</label>
+                    <div class="containerSelectCreate">
+                        <select name="taste">
+                            <option selected="true" disabled="disabled" >Selecciona ...</option>
+                            <% for( let i = 0; i < tastes.length; i++ ) { %>
+                                <option value="<%= tastes[i].id %>"><%= tastes[i].tastename %></option>        
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="itemFormCreateProduct2">
+                    <label for="taste">Nivel de tostado</label>
+                    <div class="containerSelectCreate">
+                        <select name="toastlevel">
+                            <option selected="true" disabled="disabled" >Selecciona ...</option>
+                            <% for( let i = 0; i < toastlevels.length; i++ ) { %>
+                                <option value="<%= toastlevels[i].id %>"><%= toastlevels[i].toastlevelname %></option>        
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="itemFormCreateProduct2">
+                    <label for="category">Categoria</label>
+                    <div class="containerSelectCreate">
+                        <select name="category" id="category">
+                            <option selected="true" disabled="disabled" >Selecciona ...</option>
+                            <% for( let i = 0; i < categories.length; i++ ) { %>
+                                <option value="<%= categories[i].id %> "><%= categories[i].categoryname %> </option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="itemFormCreateProduct2">
+                    <label for="image">Imagen</label>
+                    <div class="containerSelectCreate">
+                        <input type="file" name="productImage" id="image">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="descriptionFormCreateProduct">
+                <label for="description">Descripción del producto</label>
+                <div class="containerTextareaCreate">
+                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="buttonCreate">
+                <button type="submit">guardar</button>
+            </div>
+        </form>    
+    
+</body>
+</html>
+
+

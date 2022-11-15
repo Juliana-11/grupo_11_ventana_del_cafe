@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {title: "Home"}) %>
+
+<body class="body-style ">
+    <%- include('../partials/header') %>
+
+    <h2 class="titleretrieve">Recuperar cuenta</h2>
+
+    <div class="formretrieve">
+        <div class="containerretrieve">
+            <form action="#">
+                <label for="emailretrieve">Ingrea tu email registrado</label>
+                <input type="email" name="emailretrieve" id="emailretrieve">
+                <button type="submit" class="buttonretrieve">¡Recuperar!</button>
+            </form>
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>

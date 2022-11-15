@@ -2,7 +2,7 @@
 module.exports = (Sequelize,DataTypes)=>{
     let alias = 'User';
     let cols = {
-        iduser: {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoincrement: true
@@ -24,16 +24,16 @@ module.exports = (Sequelize,DataTypes)=>{
         password: {
             type: DataTypes.STRING
         },
-        passwordConfirm: {
+        /*passwordConfirm: {
             type: DataTypes.STRING
-        },
+        },*/
         useravatar:{
             type: DataTypes.STRING
         },
         useraddress: {
             type: DataTypes.STRING
         },
-        checkTodos:{
+        /*checkTodos:{
             type: DataTypes.STRING
         },
         checkLunes:{
@@ -56,7 +56,7 @@ module.exports = (Sequelize,DataTypes)=>{
         },
         checkDomingo:{
             type: DataTypes.STRING
-        },
+        },*/
         userphone: {
             type: DataTypes.INTEGER
         }

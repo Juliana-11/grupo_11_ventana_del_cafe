@@ -1,26 +1,27 @@
 //Modelo
 module.exports = (Sequelize,DataTypes)=>{
-    let alias = "Day_user";
+    let alias = "Product_taste";
     let cols = {
         id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoincremente: true
         },
-        id_user: {
-            type: DataTypes.INTEGER,
+        taste_id: {
+            type: DataTypes.STRING,
             allowNull: false
         },
-        id_day: {
-            type: DataTypes.INTEGER,
+        product_id: {
+            type: DataTypes.STRING,
             allowNull: false
         }
     };
     let config = {
-        tableName: 'day_user',
+        tableName: 'product_taste',
         timestamps: false
     }
     
-    const Day_user = Sequelize.define(alias, cols, config);
-    return Day_user;
+    const Product_taste = Sequelize.define(alias, cols, config);
+
+    return Product_taste;
 }

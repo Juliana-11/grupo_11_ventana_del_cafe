@@ -4,9 +4,9 @@
 <body class="body-style">
     <%- include('../partials/header') %>
 
-    <% console.log(user.associateDay_user) %> 
+    
     <div class="TopProfile">
-        <h1 class="bienvenidaProfile">Hola <%= user.userName %> </h1>
+        <h1 class="bienvenidaProfile">Hola <%= user.username %> </h1>
         <div class="settingsProfile">
             <a href="/formEdit"><i class="fas fa-user-cog"></i></a>
             <a href="/formEdit"><i class="fas fa-times-circle"></i></a>
@@ -16,7 +16,7 @@
     <main class="styleMainProfile">
 
         <div class="containerPhoto">
-            <img src="/imag/userAvatars/<%=user.userAvatar%>" alt="Avatar">
+            <img src="/imag/userAvatars/<%=user.useravatar%>" alt="Avatar">
         </div>
 
         <div class="infoUser infoPersonal">
@@ -24,12 +24,12 @@
 
             <div class="containerdateProfile">
                 <P class="nameDate">Nombre</P>
-                <p><%=user.userName%></p>
+                <p><%=user.username%></p>
             </div>
 
             <div class="containerdateProfile">
                 <P class="nameDate">Apellido</P>
-                <p><%=user.userLastName%></p>
+                <p><%=user.userlastname%></p>
             </div>
 
             <div class="containerdateProfile">
@@ -43,7 +43,7 @@
 
             <div class="containerdateProfile3">
                 <P class="nameDate">Email</P>
-                <p><%=user.userEmail%></p>
+                <p><%=user.useremail%></p>
             </div>
 
             <div class="containerdateProfile3">
@@ -57,81 +57,83 @@
         <div class="infoUser daysReceiveOrder">
             <h3>Días a recibir pedido</h3>
 
-            <% if (user.userChecTodosDias === "Todos los días"){%>
+            <% if (user.associateDay_user.iddaysreceive == 8){%>
                 <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;"><%=user.userChecTodosDias%></p>
+                    <p style="color: #1376ab; font-weight: bold;">Todos los días</p>
+                    
                 </div>
-            <% } else if ( user.userChecTodosDias != "Todos los días"){%>
+            <% } else if ( user.associateDay_user.iddaysreceive  != 8){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Todos los días</p>
                 </div>
             <% } %> 
 
-            <% if (user.userChecLunes === "Lunes"){%>
-                <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;"><%=user.userChecLunes%></p>
-                </div>
-            <% } else if ( user.userChecLunes != "Lunes"){%>
+            <% if (user.associateDay_user.iddaysreceive  != 1){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Lunes</p>
+                    <% console.log('pase') %> 
+                </div>
+            <% } else {%>
+                <div class="containerdateProfile">
+                    <p style="color: red; font-weight: bold;">Lunes</p>
                 </div>
             <% } %> 
 
-            <% if (user.userChecMartes === "Martes"){%>
+            <% if (user.associateDay_user.iddaysreceive  === 2){%>
                 <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;"><%=user.userChecMartes%></p>
+                    <p style="color: #1376ab; font-weight: bold;">Martes</p>
                 </div>
-            <% } else if ( user.userChecMartes != "Martes"){%>
+            <% } else if (user.associateDay_user.iddaysreceive  != 2){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Martes</p>
                 </div>
             <% } %> 
 
-            <% if (user.userChecMiercoles === "Miércoles"){%>
+            <% if (user.associateDay_user.iddaysreceive  === 3){%>
                 <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;"><%=user.userChecMiercoles%></p>
+                    <p style="color: #1376ab; font-weight: bold;">Miércoles</p>
                 </div>
-            <% } else if ( user.userChecMiercoles != "Miércoles"){%>
+            <% } else if ( user.associateDay_user.iddaysreceive != 3){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Miércoles</p>
                 </div>
             <% } %> 
 
-            <% if (user.userChecJueves === "Jueves"){%>
+            <% if (user.associateDay_user.iddaysreceive  === 4){%>
                 <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;"><%=user.userChecJueves%></p>
+                    <p style="color: #1376ab; font-weight: bold;">Jueves</p>
                 </div>
-            <% } else if ( user.userChecJueves != "Jueves"){%>
+            <% } else if ( user.associateDay_user.iddaysreceive  != 4){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Jueves</p>
                 </div>
             <% } %> 
 
-            <% if (user.userChecViernes === "Viernes"){%>
+            <% if (user.associateDay_user.iddaysreceive  === 5){%>
                 <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;"><%=user.userChecViernes%></p>
+                    <p style="color: #1376ab; font-weight: bold;">Viernes</p>
                 </div>
-            <% } else if ( user.userChecViernes != "Viernes"){%>
+            <% } else if ( user.associateDay_user.iddaysreceive  != 5){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Viernes</p>
                 </div>
             <% } %> 
 
-            <% if (user.userChecSabado === "Sábado"){%>
+            <% if (user.associateDay_user.iddaysreceive  === 6){%>
                 <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;"><%=user.userChecSabado%></p>
+                    <p style="color: #1376ab; font-weight: bold;">Sábado</p>
                 </div>
-            <% } else if ( user.userChecSabado != "Sábado"){%>
+            <% } else if ( user.associateDay_user.iddaysreceive  != 6){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Sábado</p>
                 </div>
             <% } %> 
 
-            <% if (user.userChecDomingo === "Domingo"){%>
+            <% if (user.associateDay_user.iddaysreceive  == 7){%>
                 <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;"><%=user.userChecDomingo%></p>
+                    <p style="color: #1376ab; font-weight: bold;">Domingo</p>
                 </div>
-            <% } else if ( user.userChecDomingo != "Domingo"){%>
+            <% } else if ( user.associateDay_user.iddaysreceive  != 7){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Domingo</p>
                 </div>
@@ -144,12 +146,12 @@
 
             <div class="containerdateProfile3">
                 <P class="nameDate">Teléfono</P>
-                <p><%=user.userPhone%></p>
+                <p><%=user.userphone%></p>
             </div>
             
             <div class="containerdateProfile3">
                 <P class="nameDate">Dirección</P>
-                <p><%=user.userAddress%></p>            
+                <p><%=user.useraddress%></p>            
             </div>
 
             <div class="containerdateProfile3">
