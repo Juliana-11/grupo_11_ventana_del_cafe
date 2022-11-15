@@ -25,7 +25,9 @@ router.get('/profile/confirm', userController.confirm);
     //login: muestra el formulario de login
 router.get('/login',recordarmeMiddleware, userController.login); 
     //session: procesa el inicio de sesion
-router.post('/login', userController.session); 
+router.post('/login', userController.session);
+    //retrieve: Recupera session
+router.get('/recuperarsession', userController.retrieve)
     //Profile: renderiza el perfil
 router.get('/profile/:id', userController.profile)
 

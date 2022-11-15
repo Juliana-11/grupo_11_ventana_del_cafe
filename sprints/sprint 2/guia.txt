@@ -164,18 +164,5 @@ iconos
         <i class="fas fa-arrow-alt-circle-right"></i>
     - Menos
         <i class="fas fa-minus"></i>
-
-//Profile
-infoPersonal = informacion personal
-infoAccess = informacio de acceso
-daysReceiveOrder = dias a recibir 
-infoContact = informacion de contacto
-favorites = favoritos
-
- .wide{
-        grid-column: span 2;
-    }
-    
-    .tall{
-        grid-row: span 2;
-    }
+    - carro
+        <i class="fas fa-shopping-cart"></i>

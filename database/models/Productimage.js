@@ -2,12 +2,12 @@
 module.exports = (Sequelize,DataTypes)=>{
     let alias = "Productimage";
     let cols = {
-        idproductimage:{
+        id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
             auntoincremente: true
         },
-        productimageaddress:{
+        productimagename:{
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -17,7 +17,7 @@ module.exports = (Sequelize,DataTypes)=>{
         
     };
     let config = {
-        tableName: 'Productimage',
+        tableName: 'productimage',
         timestamps: false
     }
     

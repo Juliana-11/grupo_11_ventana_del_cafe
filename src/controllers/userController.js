@@ -211,6 +211,9 @@ const userController = {
         }*/
 
     },
+    retrieve:(req, res) => {
+        res.render('users/retrieve')
+    },
     profile: (req, res)=>{
         db.User.findByPk(req.params.id,
             {include: {model: db.Daysreceive, as:"associateDay_user" }})

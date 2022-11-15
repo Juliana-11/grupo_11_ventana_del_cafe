@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const {validationResult} = require('express-validator');
 const { json, raw } = require('express');
-const db =  require('../../database/models')
+const db=  require('../../database/models');
 
 //data
 const productsDataPath = path.join(__dirname, '../../data/productsDataBase.json')
@@ -11,7 +11,10 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 //Modelos
 const Product = db.Product;
+const Category = db.Category; 
 const Image = db.Productimage;
+const Taste = db.Taste;
+const Toastlevel = db.Toastlevel;
 
 const productController = {
     index: (req, res)=>{
@@ -32,7 +35,15 @@ const productController = {
         res.render('products/cart')
     },
     create: (req, res)=>{
-        res.render('products/productCreateForm');
+        let taste = Taste.findAll();
+        let toastlevel = Toastlevel.findAll();
+        let category = Category.findAll()
+
+        Promise.all([taste, toastlevel, category])
+        .then(([tastes, toastlevels, categories]) => {
+            res.render('products/create', {tastes, toastlevels, categories})
+        })
+       
     },
     save: (req, res)=>{
         let errors = validationResult(req);
@@ -90,12 +101,9 @@ const productController = {
         res.redirect('/')
     },
     edit: (req, res) =>{
-        let id = req.params.id
-        Product.findByPk(id)
-            .then(resultado => {
-                res.render('product-edit-form', {
-                    resultado, toThousand
-                })
+        Product.findByPk(req.params.id)
+            .then(product => {
+                res.render('products/edit', {product, toThousand})
             })
         /*
         let product = products.filter(aProduct => aProduct.id == id)
@@ -145,9 +153,17 @@ const productController = {
         //res.render('products/detail')
     },
     detail: (req, res)=>{
-        let id = req.params.id
-        let product = products.find(aProduct => aProduct.id == id)
-        res.render('products/detail', {product, toThousand})
+        Product.findByPk(req.params.id, {
+            include:[
+                {model: db.Category, as: "associateCategory"},
+                {model: db.Productimage, as: "associateImage"}
+            ],
+            raw: true,
+            nest: true
+        })
+        .then(product => {
+            res.render('products/detail', {product, toThousand})
+        })
     }
 }
 

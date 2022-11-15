@@ -30,9 +30,12 @@ app.use(cookieParser());
 
 /*Codigo*/
 app.use('/', mainRouter);
-app.use('/product', productRouters)
-app.use('/users', usersRouters)
+app.use('/product', productRouters);
+app.use('/users', usersRouters);
+app.use((req, res, next) => { res.status(404).render('main/error404') });
 
 app.listen(3000, ()=>console.log('Puerto 3000 corriendo'));
+
+
 
 
