@@ -24,9 +24,6 @@ module.exports = (Sequelize,DataTypes)=>{
         password: {
             type: DataTypes.STRING
         },
-        /*passwordConfirm: {
-            type: DataTypes.STRING
-        },*/
         useravatar:{
             type: DataTypes.STRING
         },
