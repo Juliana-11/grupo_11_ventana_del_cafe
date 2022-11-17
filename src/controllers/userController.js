@@ -6,6 +6,7 @@ const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const { json } = require('express');
 const db = require('../../database/models')
+const {Op} = require("sequelize");
 
 //data
 const usersDataPath = path.join(__dirname, '../../data/usersDataBase.json');
@@ -25,12 +26,13 @@ const userController = {
         if(errors.isEmpty()){
             let passNewUser = bcrypt.hashSync(req.body.userPassword, 10)
             let passConfNewUser = bcrypt.hashSync(req.body.userPasswordConfirm, 10);
-            /*User.findAll({
-                where: {userEmail: req.body.userEmail, userAs: req.body.userAs}
+            User.findAll({
+                where: { [Op.or]: [{userEmail: req.body.userEmail}, {userAs: req.body.userAs}]}
             })
-                .then (result => {
-                    if ( result == null){
-                        console.log('entre')*/
+                .then (function(result) {
+                    console.log(result)
+                })
+            /*
             User.create({
                 username: req.body.userName,
                 userlastname: req.body.userLastName,
@@ -50,7 +52,7 @@ const userController = {
                 checkDomingo: req.body.ckeckboxOcho,
                 userphone: req.body.telefonoRegister
             }
-            )
+            )^*/
                 res.render('users/confirm')
                     /*}else{
                         let mensajeDeEnvio ={
@@ -131,11 +133,11 @@ const userController = {
                 }else{
                     if (resultEmail.length > 0){
                         let passValida = bcrypt.compareSync(req.body.passwordLogin,resultEmail[0].dataValues.password)
-                        if (passValida){   
+                        if (!passValida){   
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
-                                res.redirect('/users/profile')
+                                res.redirect('/users/profile'+'/'+resultEmail[0].id)
                             }else{
                                 
                                 let mensajeDeEnvio ={
@@ -146,11 +148,15 @@ const userController = {
                     }
                     if (resultUsu.length > 0){
                         let passValida = bcrypt.compareSync(req.body.passwordLogin,resultUsu[0].dataValues.password)
-                        if (passValida){   
+                        if (!passValida){   
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
+<<<<<<< HEAD
                                 res.redirect('/users/profile/')
+=======
+                                res.redirect('/users/profile/'+resultUsu[0].id)
+>>>>>>> bc098260419c362b8ce6b7407f99db3b4976eb67
                             }else{
                                 
                                 let mensajeDeEnvio ={
@@ -161,55 +167,6 @@ const userController = {
                     }
                 }
             })
-        /*let usuEmailFind = req.body.userLogin;
-        let usuUsuarioFind = req.body.userLogin;
-        let existeEmail = false;
-        let existeUsuario = false;
-        let L = 1;
-        let usuario;
-        while ( L < users.length && (existeEmail == false && existeUsuario == false)){
-            if (users[L].userEmail == usuEmailFind){
-                existeEmail = true;
-                usuario = users[L]
-            }
-            if(users[L].userAs == usuUsuarioFind ){
-                    existeUsuario = true;
-                    usuario = users[L]
-            }
-            
-            L++;
-        }*/
-        /*      
-        if (existeEmail == true || existeUsuario == true){
-        
-            let passValida = bcrypt.compareSync(req.body.passwordLogin,usuario.userPassword)
-            
-            if (passValida)
-            {   
-                //console.log(req.body.recuerdameLogin)
-                //console.log(req.cookie)
-                //req.session.user = req.body.userLogin;
-                if (req.body.recuerdameLogin != undefined){
-                    res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
-                }
-                res.redirect('/users/profile')
-                 
-            }else{
-                
-                let mensajeDeEnvio ={
-                    mgs: 'Password inválida'
-                }
-                res.render('users/login',{msgError: mensajeDeEnvio});
-            }
-            
-        }else{
-           
-            let mensajeDeEnvio ={
-                mgs: 'Usuario o correo electrónico inválido.'
-            }
-            res.render('users/login',{msgError: mensajeDeEnvio});
-        }*/
-
     },
     retrieve:(req, res) => {
         res.render('users/retrieve')
