@@ -150,7 +150,7 @@ const userController = {
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
-                                res.redirect('/users/profile')
+                                res.redirect('/users/profile/')
                             }else{
                                 
                                 let mensajeDeEnvio ={
@@ -220,6 +220,9 @@ const userController = {
         .then(user => {
             res.render('users/profile', {user})
         })
+    },
+    edit: (req, res) => {
+        res.render('users/edit')
     }
 }
 

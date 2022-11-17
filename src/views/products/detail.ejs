@@ -16,6 +16,9 @@
             <div class="containerInfoDetail">
                 <h2 class="productName"><%=product.productname%></h2>
                 <p class="productPrice"> <%=product.productprice%> <img src="/imag/pesos.png" alt=""></p>
+                <p>Descuento: <%= product.productdiscount %> </p>
+                <p>Cantidades disponibles: <%= product.stock %> </p>
+                <p>categoria de producto: <%= product.associateCategory.categoryname %> </p>
                 <p class="productDescription"><%=product.productdescription%> </p>
                 <form action="#">
                     <button class="buttonCarDetail"><i class="fas fa-shopping-cart"></i> Agregar al carrito</button>
@@ -32,7 +35,7 @@
                 <div class="property lado">
                     <div class="propertyIcon"><img src="/imag/fireplace.png" alt=""></div>
                     <h4>Tostado</h4>
-                    <p><%=product.nivelDeTostado%> </p>
+                    <p><%=product.associateToastlevelP.toastlevelname%> </p>
                 </div>
                 
                 <div class="property lado">
@@ -44,7 +47,7 @@
                 <div class="property">
                     <div class="propertyIcon"><img src="/imag/coffe.png" alt=""></div>
                     <h4>Sabor</h4>
-                    <p><%=product.producttaste%> </p>
+                    <p><%=product.associateProduct_taste.tastename%> </p>
                 </div>
             </div>
             

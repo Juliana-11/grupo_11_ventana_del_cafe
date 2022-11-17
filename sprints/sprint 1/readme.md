@@ -22,14 +22,7 @@
     - Equipo de trabajo:
         + Juliana Restrepo Ramírez
             Hola, me presento, soy Juliana, tengo 17 años, Colombiana, y más que por mi nombre quiero que me conozcas como una persona responsable, comprometida, disciplina y sensible, que cada día va en busca de mejorar el ser un mejor ser humano.
-        + Edilberto Junior Julio Teran
-            Hola soy Edilberto soy una persona optimista y calculadora, pero me puedes recordar como BETO.
-        + Jerónimo Aristizábal Ramírez
-            Soy Jerónimo Aristizábal, tengo 27 años, estudiante de música y piano profesional. Apasionado por la programación y el arte
-        + Juan Camilo Diez Muñeton 
-            Soy Juan Camilo Díez, un joven de 22 años curioso por la programación, abierto a nuevos aprendizajes y  en busca constante de ellos.. estoy dispuesto a esforzarme y dar todo de mi para sacar este proyecto adelante.
-        + Jacobo Giraldo Zuluaga
-            Mi nombre es Jacobo y soy estudiante de programación, un entusiasta de la computación enérgico y siempre ávido de aprendizaje. 
+        
 
 3. Referencias:
      - https://www.cafemulato.com/

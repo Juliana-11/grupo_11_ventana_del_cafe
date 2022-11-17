@@ -1,0 +1,9 @@
+<<<<<<<<< Colores >>>>>>>>>>
+Paleta de colores
+    - Header
+    A. Blanco: #ffffff
+    B. Negro: #000
+    C. Cafe oscuro:
+    D. Cafe claro: 
+    
+<<<<<<<<< Tipografias >>>>>>>>>>

@@ -30,5 +30,7 @@ router.post('/login', userController.session);
 router.get('/recuperarsession', userController.retrieve)
     //Profile: renderiza el perfil
 router.get('/profile/:id', userController.profile)
+    //Profile: renderiza el perfil
+router.get('/edit/:id', userController.edit)
 
 module.exports = router; 
