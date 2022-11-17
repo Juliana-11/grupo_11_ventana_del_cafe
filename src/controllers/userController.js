@@ -26,34 +26,40 @@ const userController = {
         if(errors.isEmpty()){
             let passNewUser = bcrypt.hashSync(req.body.userPassword, 10)
             let passConfNewUser = bcrypt.hashSync(req.body.userPasswordConfirm, 10);
-            User.findAll({
+            /*User.findAll({
                 where: { [Op.or]: [{userEmail: req.body.userEmail}, {userAs: req.body.userAs}]}
             })
                 .then (function(result) {
-                    console.log(result)
-                })
-            /*
+                    console.log(result.length)
+                    if (result.length > 0){
+                        console.log(req.body)
+                        let mensajeDeEnvio ={
+                            mgs: 'Ya existe un usuario registrado con esa descripción'
+                        }
+                        let oldData = req.body;
+                        res.render('users/register',{msgError: mensajeDeEnvio,oldData});
+                    }
+                })*/
+
+            
             User.create({
                 username: req.body.userName,
                 userlastname: req.body.userLastName,
                 useremail: req.body.userEmail,
                 userAs: req.body.userAs,
                 password: passNewUser,
-                passwordConfirm: passConfNewUser,
                 useravatar: req.file == undefined ? 'defaultImage.png': req.file.filename,
                 useraddress: req.body.userAddress,
-                checkTodos: req.body.ckeckboxUno,
-                checkLunes: req.body.ckeckboxDos,
-                checkMartes: req.body.ckeckboxTres,
-                checkMiercoles: req.body.ckeckboxCuatro,
-                checkJueves: req.body.ckeckboxCinco,
-                checkViernes: req.body.ckeckboxSeis,
-                checkSabado: req.body.ckeckboxSiete,
-                checkDomingo: req.body.ckeckboxOcho,
-                userphone: req.body.telefonoRegister
+                userphone: req.body.telefonoRegister,
+                Day_user: {
+                    id_user: 1,
+                    id_day: 3
+                }
+            },{
+                include:[ {association: associateDay_user},{association: Daysreceive}]
             }
-            )^*/
-                res.render('users/confirm')
+            )
+                //res.render('users/confirm')
                     /*}else{
                         let mensajeDeEnvio ={
                             mgs: 'Ya existe un usuario registrado con esa descripción'
