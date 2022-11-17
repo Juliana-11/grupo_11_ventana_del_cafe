@@ -15,6 +15,7 @@ const Category = db.Category;
 const Image = db.Productimage;
 const Taste = db.Taste;
 const Toastlevel = db.Toastlevel;
+const Product_taste = db.Product_taste
 
 const productController = {
     index: (req, res)=>{
@@ -48,42 +49,55 @@ const productController = {
         let errors = validationResult(req);
        
         if(errors.isEmpty()){
-            console.log(req.body)
+            /*<<<<<<<<<<<<<<<PROMESAS INDEPENDIENTES>>>>>>>>>>>>>>>*/
             Product.create({
                 productname: req.body.productName,
                 productprice: req.body.productPrice,
                 productdiscount: req.body.productDiscount,
                 productdescription: req.body.description,
+                productorigin: req.body.productOrigin,
                 stock: req.body.productStock,
-                category_id: req.body.category
+                category_id: req.body.category,
+                toastlevel_id: req.body.toastlevel
             })
-            .then( product => {
+
+            /*<<<<<<<<<<<<<<<PROMESAS DEPENDIENTES>>>>>>>>>>>>>>>*/
+            //Guardar la promesa padre
+            let products = Product.findAll();
+
+            //Se atiende a la respuesta de busqueda de id
+            const ultimoId = products .then(products => {
+                /*Cantidad de elementos*/
+                const largor = products.length
+                /*Busqueda de último elemento*/
+                const ultimoElemento = products[largor - 1]
+                /*Acceso al último elemento*/
+                const analicis = ultimoElemento.dataValues.id
+                
+                return analicis
+            })
+
+            ultimoId .then( id => {
                 Image.create({
-                    productimageaddress: req.file ? req.file.filename : 'defaultImage.png',
-                    product_id: product.null
+                    productimagename: req.file ? req.file.filename : 'defaultImage.png',
+                    product_id: id + 1
                 })
-                .then( () => res.redirect('products/products'))
+
+            ultimoId .then(id => {
+                Product_taste.create({
+                    taste_id: req.body.taste,
+                    product_id: id + 1
+                })
+            })
+            
+            .then( () => res.redirect('/product'))
+
             })
 
-            
-            /*
-
-            let newProduct = {
-                id: products.length == 0? 1 : products[products.length - 1].id + 1,
-                productName: req.body.name,
-                productPrice: req.body.price,
-                productDiscount: req.body.discount,
-                productsCategory: req.body.category,
-                productsImage: req.file? req.file.filename : 'defaultImage.png'
-            }
-            products.push(newProduct);
-            fs.writeFileSync(productsDataPath,JSON.stringify(products),'utf-8');
-            res.render('products/productCreateForm')*/
         }else {
             let oldData = req.body;
             res.render('productCreateForm', {errors: errors.mapped(), oldData});
         }
-        
     },
     delete: (req, res) =>{
         let id = req.params.id;
@@ -155,7 +169,9 @@ const productController = {
         Product.findByPk(req.params.id, {
             include:[
                 {model: db.Category, as: "associateCategory"},
-                {model: db.Productimage, as: "associateImage"}
+                {model: db.Productimage, as: "associateImage"},
+                {model: db.Toastlevel, as: "associateToastlevelP"},
+                {model: db.Taste, as: "associateProduct_taste"}
             ],
             raw: true,
             nest: true

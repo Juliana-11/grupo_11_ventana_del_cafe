@@ -13,7 +13,7 @@ module.exports = (Sequelize,DataTypes)=>{
         },
         product_id: {
             type: DataTypes.STRING,
-            allowNull: false
+
         }
     };
     let config = {

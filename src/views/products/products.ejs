@@ -66,6 +66,10 @@
                         tostado
                     </div>
                 </div> 
+
+                <div class="element-filter">
+                    <a href="/product/create">Nuevo producto</a>
+                </div> 
                 
             </div>
             <% console.log(productsResolve) %>
@@ -90,7 +94,7 @@
                         <p><%= productsResolve[i].productdiscount %> % off</p> <br>
                     </div>
                     <div class="button-item-result-products">
-                        <button><a href="/product/<%= productsResolve[i].idproduct%>">Ver detalles</a></button>
+                        <button><a href="/product/<%= productsResolve[i].id%>">Ver detalles</a></button>
                         <button><i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
