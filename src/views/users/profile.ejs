@@ -58,19 +58,6 @@
             <h3>Días a recibir pedido</h3>
             
 
-<<<<<<< HEAD
-            <% for( let i = 0; i < user.associateDay_user.length; i++ ) { %>
-                <% if (user.associateDay_user[i].dataValues.id ) { %>
-                    <div class="containerdateProfile">
-                        <p style="color: #1376ab; font-weight: bold;"><%= user.associateDay_user[i].dataValues.dayname %> </p>
-                    </div>
-                <% } else { %>
-                    <div class="containerdateProfile">
-                        <p style="color: black;"><%= user.associateDay_user[i].dataValues.dayname %> </p>
-                    </div>
-                <% } %>
-            <% } %>
-=======
             <% if (user.associateDay_user[0].dataValues.id == 8){%>
                 <div class="containerdateProfile">
                     <p style="color: #1376ab; font-weight: bold;">Todos los días</p>
@@ -152,7 +139,6 @@
                     <p style="color: black;">Domingo</p>
                 </div>
             <% } %> 
->>>>>>> bc098260419c362b8ce6b7407f99db3b4976eb67
 
         </div>
 

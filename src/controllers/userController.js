@@ -138,7 +138,7 @@ const userController = {
                 }else{
                     if (resultEmail.length > 0){
                         let passValida = bcrypt.compareSync(req.body.passwordLogin,resultEmail[0].dataValues.password)
-                        if (!passValida){   
+                        if (passValida){   
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
