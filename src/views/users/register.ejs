@@ -55,6 +55,7 @@
                             <% if (locals.msgError) {%>
                                 <span style="color:red;"><%= msgError.mgs %></span><br>
                             <%}%>
+                           
                         </div>
     
                         <div class="itemRegister">
@@ -78,7 +79,8 @@
                         <div class="itemRegister">
                             <label for="userAvatar">Perfil</label>
                             <input type="file" id="userAvatar" name="userAvatar"  placeholder="Indicame tu email"  value="<%= locals.old && old.userAvatar %>">
-                        </div>                        
+                        </div>        
+                       
                     </div>
                     
                 </div>
