@@ -15,7 +15,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 //Modelos
 const User = db.User;
-
+const Day = db.Day_user;
 const userController = {
     register: (req, res)=>{
         res.render('users/register')
@@ -26,7 +26,7 @@ const userController = {
         if(errors.isEmpty()){
             let passNewUser = bcrypt.hashSync(req.body.userPassword, 10)
             let passConfNewUser = bcrypt.hashSync(req.body.userPasswordConfirm, 10);
-            /*User.findAll({
+            User.findAll({
                 where: { [Op.or]: [{userEmail: req.body.userEmail}, {userAs: req.body.userAs}]}
             })
                 .then (function(result) {
@@ -36,84 +36,83 @@ const userController = {
                         let mensajeDeEnvio ={
                             mgs: 'Ya existe un usuario registrado con esa descripción'
                         }
-                        let oldData = req.body;
-                        res.render('users/register',{msgError: mensajeDeEnvio,oldData});
-                    }
-                })*/
-
-            
-            User.create({
-                username: req.body.userName,
-                userlastname: req.body.userLastName,
-                useremail: req.body.userEmail,
-                userAs: req.body.userAs,
-                password: passNewUser,
-                useravatar: req.file == undefined ? 'defaultImage.png': req.file.filename,
-                useraddress: req.body.userAddress,
-                userphone: req.body.telefonoRegister,
-                Day_user: {
-                    id_user: 1,
-                    id_day: 3
-                }
-            },{
-                include:[ {association: associateDay_user},{association: Daysreceive}]
-            }
-            )
-                //res.render('users/confirm')
-                    /*}else{
-                        let mensajeDeEnvio ={
-                            mgs: 'Ya existe un usuario registrado con esa descripción'
+                        let old = req.body
+                        res.render('users/register',{msgError: mensajeDeEnvio, old});
+                    }else{
+                        User.create({
+                            username: req.body.userName,
+                            userlastname: req.body.userLastName,
+                            useremail: req.body.userEmail,
+                            userAs: req.body.userAs,
+                            password: passNewUser,
+                            useravatar: req.file == undefined ? 'defaultImage.png': req.file.filename,
+                            useraddress: req.body.userAddress,
+                            userphone: req.body.telefonoRegister,
+                        
                         }
-                        let oldData = req.body;
-                        res.render('users/register',{msgError: mensajeDeEnvio,oldData});
+                        )
+                            .then (function (result){
+            
+                                if (req.body.ckeckboxUno){
+                                    Day.create({
+                                        id_user: result.null,
+                                        id_day: 8
+                                    })
+                                }
+            
+                                if (req.body.ckeckboxDos){
+                                    Day.create({
+                                        id_user: result.null,
+                                        id_day: 1
+                                    })
+                                }
+            
+                                if (req.body.ckeckboxTres){
+                                    Day.create({
+                                        id_user: result.null,
+                                        id_day: 2
+                                    })
+                                }
+            
+                                if (req.body.ckeckboxCuatro){
+                                    Day.create({
+                                        id_user: result.null,
+                                        id_day: 3
+                                    })
+                                }
+            
+                                if (req.body.ckeckboxCinco){
+                                    Day.create({
+                                        id_user: result.null,
+                                        id_day: 4
+                                    })
+                                }
+            
+                                if (req.body.ckeckboxSeis){
+                                    Day.create({
+                                        id_user: result.null,
+                                        id_day: 5
+                                    })
+                                }
+            
+                                if (req.body.ckeckboxSiete){
+                                    Day.create({
+                                        id_user: result.null,
+                                        id_day: 6
+                                    })
+                                }
+            
+                                if (req.body.ckeckboxOcho){
+                                    Day.create({
+                                        id_user: result.null,
+                                        id_day: 7
+                                    })
+                                }
+                            })
+                            res.render('users/confirm')
                     }
-                })*/
+                })
 
-        
-            /*
-            let newUser = {
-                id: users.length == 0? 1 : users[users.length - 1].id + 1,
-                userName: req.body.userName,
-                userLastName: req.body.userLastName,
-                userEmail: req.body.userEmail,
-                userAs: req.body.userAs,
-                userPassword: passNewUser,
-                userPasswordConfirm: passConfNewUser,
-                userAvatar: req.file == undefined ? 'defaultImage.png': req.file,
-                userAddress: req.body.userAddress,
-                userChecTodosDias: req.body.ckeckboxUno,
-                userChecLunes: req.body.ckeckboxDos,
-                userChecMartes: req.body.ckeckboxTres,
-                userChecMiercoles: req.body.ckeckboxCuatro,
-                userChecJueves: req.body.ckeckboxCinco,
-                userChecViernes: req.body.ckeckboxSeis,
-                userChecSabado: req.body.ckeckboxSiete,
-                userChecDomingo: req.body.ckeckboxOcho,
-                userPhone: req.body.userPhone
-            }
-            let usuExiste = false ;
-            let k = 0;
-            
-            while (k < users.length && usuExiste == false){
-                if (users[k].userAs == req.body.userAs ){
-                    usuExiste = true;
-                }
-                k++;
-            }
-            
-            if ( usuExiste == false){
-                users.push(newUser);
-                fs.writeFileSync(usersDataPath,JSON.stringify(users),'utf-8');
-                res.render('users/confirm')
-            }else{
-                //res.send('Ya existe un usuario registrado con esa descripción')
-                let mensajeDeEnvio ={
-                    mgs: 'Ya existe un usuario registrado con esa descripción'
-                }
-                let oldData = req.body;
-                res.render('users/register',{msgError: mensajeDeEnvio,oldData});
-                
-            }*/
         }else {
             res.render('users/register', {errors: errors.mapped(), old: req.body});
         }
@@ -154,7 +153,9 @@ const userController = {
                     }
                     if (resultUsu.length > 0){
                         let passValida = bcrypt.compareSync(req.body.passwordLogin,resultUsu[0].dataValues.password)
-                        if (!passValida){   
+                        
+
+                        if (passValida){   
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
