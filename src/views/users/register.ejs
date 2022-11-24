@@ -51,6 +51,11 @@
                             <% if (locals.errors && errors.userAs) { %>
                                 <span style="color:red;font-size: 1vw;"><%= errors.userAs.msg %></span>
                             <% } %>
+
+                            <% if (locals.msgError) {%>
+                                <span style="color:red;"><%= msgError.mgs %></span><br>
+                            <%}%>
+                           
                         </div>
     
                         <div class="itemRegister">
@@ -74,7 +79,8 @@
                         <div class="itemRegister">
                             <label for="userAvatar">Perfil</label>
                             <input type="file" id="userAvatar" name="userAvatar"  placeholder="Indicame tu email"  value="<%= locals.old && old.userAvatar %>">
-                        </div>                        
+                        </div>        
+                       
                     </div>
                     
                 </div>
@@ -132,7 +138,7 @@
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                <% if (locals.old && old.ckeckboxCinco) {%>
                                     <input type="checkbox" id="ckeckboxCinco" name="ckeckboxCinco" value= "<% old.ckeckboxCinco %>" checked>
                                 <%} else {%>
                                     <input type="checkbox" id="ckeckboxCinco" name="ckeckboxCinco" value="Jueves"> 
@@ -141,7 +147,7 @@
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                <% if (locals.old && old.ckeckboxSeis) {%>
                                     <input type="checkbox" id="ckeckboxSeis" name="ckeckboxSeis" value= "<% old.ckeckboxSeis %>" checked>
                                 <%} else {%>
                                     <input type="checkbox" id="ckeckboxSeis" name="ckeckboxSeis" value="Viernes"> 
@@ -150,7 +156,7 @@
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                <% if (locals.old && old.ckeckboxSiete) {%>
                                     <input type="checkbox" id="ckeckboxSiete" name="ckeckboxSiete" value= "<% old.ckeckboxSiete %>" checked>
                                 <%} else {%>
                                     <input type="checkbox" id="ckeckboxSiete" name="ckeckboxSiete" value="Sábado"> 
@@ -159,7 +165,7 @@
                             </div>
         
                             <div class="itemCheckboxRegister">
-                                <% if (locals.old && old.ckeckboxCuatro) {%>
+                                <% if (locals.old && old.ckeckboxOcho) {%>
                                     <input type="checkbox" id="ckeckboxOcho" name="ckeckboxOcho" value= "<% old.ckeckboxOcho %>" checked>
                                 <%} else {%>
                                     <input type="checkbox" id="ckeckboxOcho" name="ckeckboxOcho" value="Domingo"> 

@@ -22,5 +22,13 @@ module.exports = (Sequelize,DataTypes)=>{
     }
     
     const Day_user = Sequelize.define(alias, cols, config);
+
+    Day_user.associate = function(models){ 
+        Day_user.belongsTo(models.User, {
+            as: 'Days',
+            foreignKey: 'id_user'
+        })
+    }
+
     return Day_user;
 }
