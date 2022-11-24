@@ -773,17 +773,81 @@ input[type="radio"]:checked ~ label {
     width: 80%;
 }
 
+.containerInfoMoney{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.productPriceSigno{
+    width: 5%;
+    height: 18px;
+}
+
+.discount{
+    color: rgb(128, 29, 29);
+}
+
 .containerInfoDetail{
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.containerInfoMoney{
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.elementDetail{
+    margin: 0px 8px;
+}
+
+.tittleDetail{
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .productPrice{
-    font-weight: bold;
-    padding: 10px;
+    text-decoration: line-through;
+    color: gray;
 }
 
+.divIconoDetail{
+    width: 30%; 
+}
 
-
+.hovertext {
+    position: relative;
+    border-bottom: 1px dotted black;
+  }
+  
+  .hovertext:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    width: 140px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    transition: opacity 1s ease-in-out;
+  
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 110%;
+  }
+  
+  .hovertext:hover:before {
+    opacity: 1;
+    visibility: visible;
+  }
+ 
 .productName{
     text-align: center;
     margin-bottom: 20px;
@@ -799,6 +863,7 @@ input[type="radio"]:checked ~ label {
     margin: 5px;
     padding: 5px;
 }
+
 
 .buttonLikeProductDetail{
     margin: 5px;

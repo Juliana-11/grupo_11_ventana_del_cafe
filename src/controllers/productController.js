@@ -177,7 +177,17 @@ const productController = {
             nest: true
         })
         .then(product => {
-            res.render('products/detail', {product, toThousand})
+            console.log(product)
+            let newPrice = 0;
+
+            if(product.productdiscount != 0){
+                console.log('entre')
+                let calculatePrice = ((product.productprice * product.productdiscount) / 100);
+                let rest = product.productprice - calculatePrice;
+                newPrice = rest;
+            }
+            
+            res.render('products/detail', {product, newPrice, toThousand})
         })
     }
 }

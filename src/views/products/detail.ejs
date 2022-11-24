@@ -15,16 +15,41 @@
 
             <div class="containerInfoDetail">
                 <h2 class="productName"><%=product.productname%></h2>
-                <p class="productPrice"> <%=product.productprice%> <img src="/imag/pesos.png" alt=""></p>
-                <p>Descuento: <%= product.productdiscount %> </p>
-                <p>Cantidades disponibles: <%= product.stock %> </p>
+                <div class="containerInfoMoney">
+                    <img class="productPriceSigno" src="/imag/pesos.png" alt=""> 
+
+                    <% if (product.productdiscount != 0) { %>
+                        <p class="elementDetail"><%= newPrice %> </p>
+                        <p class="productPrice "> <%=product.productprice%> </p>
+                    <% } else{ %>
+                        <p class="elementDetail"> <%=product.productprice%> </p>
+                    <% } %>
+                                        
+                    <% if (product.productdiscount != 0) { %>
+                        <p class="elementDetail">/</p>
+                        <p class="discount"><%= product.productdiscount %> % off</p>
+                    <% } %>
+
+                </div>
+
+
+                <!--<div class="divIconoDetail">
+                    <p class="divIconoDetailtittle">Cantidades disponibles</p>
+                    <p class="divIconoDetailcontent"> <%# product.stock %> </p>
+                </div>-->
+                <div>
+                    <span class="hovertext" data-hover="<%= product.stock %> ">
+                    <p class="divIconoDetailtittle">Cantidad disponible</p>
+                    </span>
+                </div>
                 <p>categoria de producto: <%= product.associateCategory.categoryname %> </p>
+                <h4 class="tittleDetail">Descripción</h4>
                 <p class="productDescription"><%=product.productdescription%> </p>
                 <form action="#">
                     <button class="buttonCarDetail"><i class="fas fa-shopping-cart"></i> Agregar al carrito</button>
                     <button class="buttonLikeProductDetail"><i class="far fa-heart"></i> Mis favoritos </button>
                 </form>
-            </div>
+            </div> 
         </section>
 
         <div class="propertiesProduct">
