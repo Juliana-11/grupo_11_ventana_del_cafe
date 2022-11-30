@@ -34,6 +34,8 @@ router.post('/login', userController.session);
 router.get('/recuperarsession', userController.retrieve)
     //Profile: renderiza el perfil
 router.get('/profile/:id',userLoggedMiddleware, userController.profile)
+    //Profile: eliminar session
+router.delete('/:id', userController.destroy);
     //Profile: renderiza el perfil
 router.get('/edit/:id', userController.edit)
 

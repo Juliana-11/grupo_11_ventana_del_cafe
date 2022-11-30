@@ -187,6 +187,9 @@ const userController = {
     },
     edit: (req, res) => {
         res.render('users/edit')
+    },
+    destroy:(req, res) => {
+        req.session.user = undefined
     }
 }
 
