@@ -1,6 +1,6 @@
 //Modelo
 module.exports = (Sequelize,DataTypes)=>{
-    let alias = "Product_taste";
+    let alias = "Shoppingcart";
     let cols = {
         id:{
             type: DataTypes.INTEGER,
@@ -8,21 +8,21 @@ module.exports = (Sequelize,DataTypes)=>{
             allowNull: false,
             autoIncrement: true
         },
-        taste_id: {
+        productbuy_id: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        product_id: {
+        userbuy_id: {
             type: DataTypes.STRING,
             allowNull: false
         }
     };
     let config = {
-        tableName: 'product_taste',
+        tableName: 'shoppingcart',
         timestamps: false
     }
     
-    const Product_taste = Sequelize.define(alias, cols, config);
+    const Shoppingcart = Sequelize.define(alias, cols, config);
 
-    return Product_taste;
+    return Shoppingcart;
 }

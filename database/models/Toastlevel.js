@@ -5,7 +5,8 @@ module.exports = (Sequelize,DataTypes)=>{
         id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
-            auntoincremente: true
+            allowNull: false,
+            autoIncremente: true
         },
         toastlevelname:{
             type: DataTypes.STRING,
@@ -23,7 +24,7 @@ module.exports = (Sequelize,DataTypes)=>{
     Toastlevel.associate = function(models){ 
         Toastlevel.hasMany(models.Product, {
             as: "associateToastlevel",
-            foreignKey: "id"
+            foreignKey: "toastlevel_id"
         })
     }
     

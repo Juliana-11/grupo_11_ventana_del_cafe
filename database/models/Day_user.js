@@ -5,7 +5,8 @@ module.exports = (Sequelize,DataTypes)=>{
         id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoincremente: true
+            allowNull: false,
+            autoIncremente: true
         },
         id_user: {
             type: DataTypes.INTEGER,
@@ -22,13 +23,6 @@ module.exports = (Sequelize,DataTypes)=>{
     }
     
     const Day_user = Sequelize.define(alias, cols, config);
-
-    Day_user.associate = function(models){ 
-        Day_user.belongsTo(models.User, {
-            as: 'Days',
-            foreignKey: 'id_user'
-        })
-    }
 
     return Day_user;
 }

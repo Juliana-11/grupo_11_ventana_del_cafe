@@ -5,58 +5,45 @@ module.exports = (Sequelize,DataTypes)=>{
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoincrement: true
+            allowNull: false,
+            autoIncrement: true
         },
         username: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         },
         userlastname:{
             type: DataTypes.STRING,
-
+            allowNull: false
         },
         useremail:{
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
         },
         userAs:{
             type: DataTypes.STRING,
+            allowNull: false,
             unique: true
         },
         password: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull:false
         },
         useravatar:{
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull:false
+        },
+        userphone: {
+            type: DataTypes.INTEGER,
+            allowNull:false
         },
         useraddress: {
-            type: DataTypes.STRING
-        },
-        /*checkTodos:{
-            type: DataTypes.STRING
-        },
-        checkLunes:{
-            type: DataTypes.STRING
-        },
-        checkMartes:{
-            type: DataTypes.STRING
-        },
-        checkMiercoles:{
-            type: DataTypes.STRING
-        },
-        checkJueves:{
-            type: DataTypes.STRING
-        },
-        checkViernes:{
-            type: DataTypes.STRING
-        },
-        checkSabado:{
-            type: DataTypes.STRING
-        },
-        checkDomingo:{
-            type: DataTypes.STRING
-        },*/
-        userphone: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING,
+            allowNull:false
         }
+    
+        
     }
     let config = {
         tableName: 'user',
@@ -71,6 +58,13 @@ module.exports = (Sequelize,DataTypes)=>{
             through: "Day_user",
             foreignKey: "id_user",
             otherKey: "id_day",
+            timestamps: false
+        }),
+        User.belongsToMany(models.Product, {
+            as: "associateUserbuy",
+            through: "shoppingcart",
+            foreignKey: "userbuy_id",
+            otherKey: "productbuy_id",
             timestamps: false
         })
     }

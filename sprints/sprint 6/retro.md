@@ -1,14 +1,11 @@
 ¿Qué hicimos bien?
-- Desde un inicio hemos decidido rápidamente con que proyecto ibamos a seguir adelante. Esto nos permitió
-  rápidamente dividir tareas y coordinar facilmente las mismas para obtener buenos resultados.
-  Asimismo, en la consolidación del equipo hemos notado que ambos nos teniamos mayor confort en determinada area. Por lo cual,
-  nos asignamos tareas en la cual podiamos efectuarla a termino y sin demoras para seguir adelante con el proyecto integrador.
+- A este punto del desarrollo del proyecto, ya este, está al día en relacion con los avences de los sprints, esto evidencia el gran trabajo en equipo. 
 
 ¿Qué hicimos mal?
-- Observandoló quizás cada uno se dedicó en el area donde tiene más confort y no hemos implementado cambio de roles en dicha etapa.
+- Cada uno tiene sus puntos de vista pero consideramos que para este sprint no tenemos nada nuevo que recalcar para cambiar.
 
 ¿Qué debeneriamos empezar a hacer?
-- Empezar a resolver juntos y reunirnos más seguido..
+- Comunicar necesidades de tiempo.
 
 ¿Qué deberiamos dejar de hacer?
-- Exigirnos y resolver cada error por separado.
+- Trabajo independiente.

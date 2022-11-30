@@ -5,7 +5,8 @@ module.exports = (Sequelize,DataTypes)=>{
         id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoincremente: true
+            allowNull: false,
+            autoIncremente: true
         },
         dayname: {
             type: DataTypes.STRING,

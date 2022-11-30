@@ -5,11 +5,13 @@ module.exports = (Sequelize,DataTypes)=>{
         id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoincremente: true
+            allowNull: false,
+            autoIncremente: true
         },
         categoryname: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         }
     };
     let config = {

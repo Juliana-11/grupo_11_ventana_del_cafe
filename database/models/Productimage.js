@@ -5,7 +5,8 @@ module.exports = (Sequelize,DataTypes)=>{
         id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
-            auntoincremente: true
+            allowNull: false,
+            autoIncremente: true
         },
         productimagename:{
             type: DataTypes.STRING,
@@ -13,6 +14,7 @@ module.exports = (Sequelize,DataTypes)=>{
         },
         product_id:{
             type: DataTypes.INTEGER,
+            allowNull:false
         }
         
     };

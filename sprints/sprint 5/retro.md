@@ -1,14 +1,11 @@
 ¿Qué hicimos bien?
-- Desde un inicio hemos decidido rápidamente con que proyecto ibamos a seguir adelante. Esto nos permitió
-  rápidamente dividir tareas y coordinar facilmente las mismas para obtener buenos resultados.
-  Asimismo, en la consolidación del equipo hemos notado que ambos nos teniamos mayor confort en determinada area. Por lo cual,
-  nos asignamos tareas en la cual podiamos efectuarla a termino y sin demoras para seguir adelante con el proyecto integrador.
+- Durante el primer lapso de tiempo como un nuevo equipo, casi a mitad del desarrollo del proyecto es de resaltar la conexion en relación al trabajo en equipo que hemos manejado, cada uno aporta de la mejor manera para mantener una mejor comunicación y asi trabajar en los que deberiamos inicar o finalizar de hacer.  
 
 ¿Qué hicimos mal?
-- Observandoló quizás cada uno se dedicó en el area donde tiene más confort y no hemos implementado cambio de roles en dicha etapa.
+- Creo que como todo equipo hemos tenido altibajos y o que más hemos fallado es en e manejo de tiempos en reunirnos, sin embargo mantenemos una constante comunicacón. 
 
 ¿Qué debeneriamos empezar a hacer?
-- Empezar a resolver juntos y reunirnos más seguido..
+- Implementar estrategias de socialización colectiva.
 
 ¿Qué deberiamos dejar de hacer?
-- Exigirnos y resolver cada error por separado.
+- No comunicar los errores que pueden proporcionar aprendizaje

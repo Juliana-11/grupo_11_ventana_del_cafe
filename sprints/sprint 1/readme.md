@@ -23,10 +23,8 @@
         + Juliana Restrepo Ramírez
             Hola, me presento, soy Juliana, tengo 17 años, Colombiana, y más que por mi nombre quiero que me conozcas como una persona responsable, comprometida, disciplina y sensible, que cada día va en busca de mejorar el ser un mejor ser humano.
         + Gonzalo Roberto Pelizza
-            Hola, mi nombre es Gonzalo y tengo 28 años. Soy de Buenos Aires, Argentina. Tengo curiosidad en adentrarme en el mundo
-            de la programación y quiero aprender nuevas herramientas que se utilizan en el mercado. Actualmente trabajo como técnico 
-            de base de datos y estoy encargado de la administraciòn y creaciòn tanto de objetos como de procedimientos. Adicionalmente,
-            trato de mejorar día a día trabajando en equipo y con personas con mayor conocimiento o experiencia en el area.
+            Hola, mi nombre es Gonzalo y tengo 28 años. Soy de Buenos Aires, Argentina. Tengo curiosidad en adentrarme en el mundo de la programación y quiero aprender nuevas herramientas que se utilizan en el mercado. Actualmente trabajo como técnico 
+            de base de datos y estoy encargado de la administraciòn y creaciòn tanto de objetos como de procedimientos. Adicionalmente, trato de mejorar día a día trabajando en equipo y con personas con mayor conocimiento o experiencia en el area.
             
 
 3. Referencias:

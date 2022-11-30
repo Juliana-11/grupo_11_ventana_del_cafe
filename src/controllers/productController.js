@@ -50,16 +50,8 @@ const productController = {
        
         if(errors.isEmpty()){
             /*<<<<<<<<<<<<<<<PROMESAS INDEPENDIENTES>>>>>>>>>>>>>>>*/
-            Product.create({
-                productname: req.body.productName,
-                productprice: req.body.productPrice,
-                productdiscount: req.body.productDiscount,
-                productdescription: req.body.description,
-                productorigin: req.body.productOrigin,
-                stock: req.body.productStock,
-                category_id: req.body.category,
-                toastlevel_id: req.body.toastlevel
-            })
+            
+            
 
             /*<<<<<<<<<<<<<<<PROMESAS DEPENDIENTES>>>>>>>>>>>>>>>*/
             //Guardar la promesa padre
@@ -81,7 +73,8 @@ const productController = {
                 Image.create({
                     productimagename: req.file ? req.file.filename : 'defaultImage.png',
                     product_id: id + 1
-                })
+                })             
+            })
 
             ultimoId .then(id => {
                 Product_taste.create({
@@ -91,8 +84,6 @@ const productController = {
             })
             
             .then( () => res.redirect('/product'))
-
-            })
 
         }else {
             let oldData = req.body;
@@ -171,7 +162,8 @@ const productController = {
                 {model: db.Category, as: "associateCategory"},
                 {model: db.Productimage, as: "associateImage"},
                 {model: db.Toastlevel, as: "associateToastlevelP"},
-                {model: db.Taste, as: "associateProduct_taste"}
+                {model: db.Taste, as: "associateProduct_taste"},
+                {model: db.User, as: "associateBuys"}
             ],
             raw: true,
             nest: true

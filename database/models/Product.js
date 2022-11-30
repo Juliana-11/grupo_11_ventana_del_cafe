@@ -1,11 +1,12 @@
 //Modelo
-module.exports = (Sequelize,DataTypes)=>{
+module.exports = (Sequelize, DataTypes)=>{
     let alias = "Product";
     let cols = {
         id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
-            auntoincremente: true
+            allowNull: false,
+            autoIncrement: true
         },
         productname: {
             type: DataTypes.STRING,
@@ -16,14 +17,16 @@ module.exports = (Sequelize,DataTypes)=>{
             allowNull: false
         },
         productdiscount:{
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         productdescription:{
             type: DataTypes.STRING,
             allowNull: false
         },
         productorigin: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull:false
         },
         stock:{
             type: DataTypes.INTEGER,
@@ -34,7 +37,7 @@ module.exports = (Sequelize,DataTypes)=>{
             allowNull: false
         },
         toastlevel_id:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER
         }
     };
     let config = {
@@ -63,6 +66,13 @@ module.exports = (Sequelize,DataTypes)=>{
         Product.belongsTo(models.Toastlevel, {
             as: "associateToastlevelP",
             foreignKey: "toastlevel_id"
+        })
+        Product.belongsToMany(models.User, {
+            as: "associateBuys",
+            through: "shoppingcart",
+            foreignKey: "productbuy_id",
+            otherKey: "userbuy_id",
+            timestamps: false
         })
     }
 

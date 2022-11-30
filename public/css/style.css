@@ -1027,6 +1027,12 @@ input[type="radio"]:checked ~ label {
     background-color: var(--beige);
 }
 
+.containerFormCreate{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .containerFormCreateProduct{
     background-color: var(--gray);
     margin: 20px;
@@ -1035,6 +1041,7 @@ input[type="radio"]:checked ~ label {
     flex-wrap: wrap;
     box-shadow: 8px 8px 8px 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+    max-width: 600px;
 }
 
 .itemFormCreateProduct{
