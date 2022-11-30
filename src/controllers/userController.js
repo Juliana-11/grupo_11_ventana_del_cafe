@@ -163,11 +163,7 @@ const userController = {
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
-<<<<<<< HEAD
-                                res.redirect('/users/profile/'+ resultUsu[0].id)
-=======
                                 res.redirect('/users/profile/'+resultUsu[0].id)
->>>>>>> cafe7c410f1d822368015bf78db5bc8f47c905cc
                             }else{
                                 
                                 let mensajeDeEnvio ={
@@ -190,7 +186,15 @@ const userController = {
         })
     },
     edit: (req, res) => {
-        res.render('users/edit')
+        let userId = req.params.id;
+        db.User.findByPk(userId,{include: {model: db.Daysreceive, as:"associateDay_user" }})
+            .then ( function(result){
+                
+                let userOld = result.dataValues
+                console.log(userOld.associateDay_user[0].dataValues.id)
+                res.render('users/edit',{old: userOld})
+            })
+        
     },
     destroy:(req, res) => {
         req.session.user = undefined
