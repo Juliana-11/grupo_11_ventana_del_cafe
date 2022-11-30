@@ -138,7 +138,9 @@ const userController = {
                 }else{
                     if (resultEmail.length > 0){
                         let passValida = bcrypt.compareSync(req.body.passwordLogin,resultEmail[0].dataValues.password)
-                        if (passValida){   
+                        if (passValida){  
+                                let usuario = resultEmail;
+                                req.session.user =   usuario;
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
@@ -156,14 +158,12 @@ const userController = {
                         
 
                         if (passValida){   
+                                let usuario = resultUsu;
+                                req.session.user =   usuario;
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
-<<<<<<< HEAD
-                                res.redirect('/users/profile/'+ resultUsu[0].id)
-=======
                                 res.redirect('/users/profile/'+resultUsu[0].id)
->>>>>>> 2a2bf1e5a054ca1c2ff9df7c177ed8c3ed30c709
                             }else{
                                 
                                 let mensajeDeEnvio ={
