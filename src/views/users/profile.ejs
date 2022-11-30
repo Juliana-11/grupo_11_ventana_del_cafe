@@ -72,7 +72,6 @@
             <% if (user.associateDay_user[0].dataValues.id != 1){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Lunes</p>
-                    <% console.log('pase') %> 
                 </div>
             <% } else {%>
                 <div class="containerdateProfile">
@@ -168,7 +167,11 @@
         <div class="infoUser favorites">
             <h3>Favoritos</h3>
         </div>
+        <form action="/users/<%=user.name%>" method="POST" style="display: inline-flex">
 
+            <button type="submit" class="action-button delete">ELIMINAR</button>
+
+        </form>
 
     </main>
 

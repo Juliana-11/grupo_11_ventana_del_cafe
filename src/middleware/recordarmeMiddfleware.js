@@ -9,26 +9,59 @@ const User = db.User;
 
 function recordarmeMiddleware (req,res,next){
     
-    
-    if (req.cookies.recordarme != undefined && req.session.user == undefined){
-        console.log(req.cookies.recordarme )
-        console.log(req.session.user)
-        let usuario =   User.findAll({
-                                    where: { [Op.or]: [{userEmail: req.cookies.recordarme }, {userAs: req.cookies.recordarme }]}
-                                })
+    console.log('entre en recordarmeMiddleware')
+    if (req.cookies.recordarme != undefined){
+        console.log('entre al primer if')
+        User.findAll({include: {model: db.Daysreceive, as:"associateDay_user" }},
+                                    {where: { [Op.or]: [{userEmail: req.cookies.recordarme }, {userAs: req.cookies.recordarme }]}}
+                                    )
                         .then ( function (result){
-                            if (result.length > 0){
-                                req.session.user = result[0].dataValues.userAs;
-                                let usuario = req.session.user
-                                res.render('users/loginAcceso',{user: usuario})                                
+                            let usuario = result;
+                            console.log('Antes del segundo if')
+                            if (usuario){
+                                req.session.user = usuario.dataValues;
+                                let userLogged = req.session.user
+                                console.log(userLogged)
+                                res.render('users/profile',{user: userLogged})                               
                             }else{
                                 next()
                             }
                         })       
     }else{
+        console.log('Sali de recordarmeMiddleware')
         next();
     }
-   //next();  
+   
+
+  /*
+   if (req.cookies.recordarme != undefined ){
+        if(req.session.user == undefined){
+            let usuario =   User.findAll({include: {model: db.Daysreceive, as:"associateDay_user" }},
+                                        {where: { [Op.or]: [{userEmail: req.cookies.recordarme }, {userAs: req.cookies.recordarme }]}}
+                                        )
+                            .then ( function (result){
+                                if (result.length > 0){
+                                    req.session.user = result[0].dataValues;
+                                    let usuario = req.session.user
+                                    res.render('users/profile',{user: usuario})                               
+                                }else{
+                                    next()
+                                }
+                            }) 
+        }else{
+            let usuario =   User.findAll({include: {model: db.Daysreceive, as:"associateDay_user" }},
+            {where: { [Op.or]: [{userEmail: req.cookies.recordarme }, {userAs: req.cookies.recordarme }]}}
+            )
+            .then ( function (result){
+                if (result.length > 0){
+                    req.session.user = result[0].dataValues;
+                    let usuario = req.session.user
+                    res.render('users/profile',{user: usuario})                               
+                } })
+        }      
+    }else{
+        next();
+    }*/
 }
 
 
