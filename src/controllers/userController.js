@@ -161,7 +161,11 @@ const userController = {
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
+<<<<<<< HEAD
                                 res.redirect('/users/profile/'+ resultUsu[0].id)
+=======
+                                res.redirect('/users/profile/'+resultUsu[0].id)
+>>>>>>> 50644934ffa5f66d28175f34b6127789ee223ce9
                             }else{
                                 
                                 let mensajeDeEnvio ={
@@ -186,10 +190,42 @@ const userController = {
         })
     },
     edit: (req, res) => {
-        res.render('users/edit')
+        let userId = req.params.id;
+        User.findByPk(userId,{include: {model: db.Daysreceive, as:"associateDay_user" }})
+            .then ( function(result){
+                
+                let userOld = result.dataValues
+                res.render('users/edit',{old: userOld})
+            })
+        
+    },
+    saveEdit: (req,res)=>{
+        let idUser = req.params.id;
+        console.log(idUser)
+        //let passNewUser = bcrypt.hashSync(req.body.userPassword, 10);
+        /*User.update({
+            username: req.body.userName,
+            userlastname: req.body.userLastName,
+            useremail: req.body.userEmail,
+            userAs: req.body.userAs,
+            password: passNewUser,
+            useravatar: req.file == undefined ? 'defaultImage.png': req.file.filename,
+            useraddress: req.body.userAddress,
+            userphone: req.body.telefonoRegister,
+        
+        },
+        { where: {id: idUser}}
+        )
+            .then( result => {res.redirect('/')})*/
     },
     destroy:(req, res) => {
         req.session.user = undefined
+        res.redirect('/')
+    },
+    deleteUser: (req, res) => {
+        let idParam = req.params.id;
+        User.destroy({where : {id: idParam }})
+        res.redirect('/')
     }
 }
 

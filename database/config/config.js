@@ -5,7 +5,7 @@ module.exports={
     "database": "ventanadelcafe",
     "host": "localhost",
     "dialect": "mysql",
-    "port": "8889"
+    "port": "3306"
   },
   "test": {
     "username": "root",

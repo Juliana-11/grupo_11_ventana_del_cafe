@@ -22,7 +22,8 @@ function recordarmeMiddleware (req,res,next){
                                 req.session.user = usuario.dataValues;
                                 let userLogged = req.session.user
                                 console.log(userLogged)
-                                res.render('users/profile',{user: userLogged})                               
+                                //res.render('users/profile',{user: userLogged})
+                                res.redirect('/')                               
                             }else{
                                 next()
                             }
