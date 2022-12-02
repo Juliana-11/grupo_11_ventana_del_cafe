@@ -187,17 +187,41 @@ const userController = {
     },
     edit: (req, res) => {
         let userId = req.params.id;
-        db.User.findByPk(userId,{include: {model: db.Daysreceive, as:"associateDay_user" }})
+        User.findByPk(userId,{include: {model: db.Daysreceive, as:"associateDay_user" }})
             .then ( function(result){
                 
                 let userOld = result.dataValues
-                console.log(userOld.associateDay_user[0].dataValues.id)
                 res.render('users/edit',{old: userOld})
             })
         
     },
+    saveEdit: (req,res)=>{
+        let idUser = req.params.id;
+        console.log(idUser)
+        //let passNewUser = bcrypt.hashSync(req.body.userPassword, 10);
+        /*User.update({
+            username: req.body.userName,
+            userlastname: req.body.userLastName,
+            useremail: req.body.userEmail,
+            userAs: req.body.userAs,
+            password: passNewUser,
+            useravatar: req.file == undefined ? 'defaultImage.png': req.file.filename,
+            useraddress: req.body.userAddress,
+            userphone: req.body.telefonoRegister,
+        
+        },
+        { where: {id: idUser}}
+        )
+            .then( result => {res.redirect('/')})*/
+    },
     destroy:(req, res) => {
         req.session.user = undefined
+        res.redirect('/')
+    },
+    deleteUser: (req, res) => {
+        let idParam = req.params.id;
+        User.destroy({where : {id: idParam }})
+        res.redirect('/')
     }
 }
 
