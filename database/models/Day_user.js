@@ -5,14 +5,13 @@ module.exports = (Sequelize,DataTypes)=>{
         id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false,
             autoIncremente: true
         },
-        id_user: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        id_day: {
+        day_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         }

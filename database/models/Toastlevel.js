@@ -1,6 +1,6 @@
 //Modelo
 module.exports = (Sequelize,DataTypes)=>{
-    let alias = "Toastlevel";
+    let alias = "ToastLevel";
     let cols = {
         id:{
             type: DataTypes.INTEGER,
@@ -8,25 +8,25 @@ module.exports = (Sequelize,DataTypes)=>{
             allowNull: false,
             autoIncremente: true
         },
-        toastlevelname:{
+        toastLevelName:{
             type: DataTypes.STRING,
             allowNull: false
         }
         
     };
     let config = {
-        tableName: 'toastlevel',
+        tableName: 'toastLevel',
         timestamps: false
     }
     
-    const Toastlevel = Sequelize.define(alias, cols, config);
+    const ToastLevel = Sequelize.define(alias, cols, config);
 
-    Toastlevel.associate = function(models){ 
-        Toastlevel.hasMany(models.Product, {
+    ToastLevel.associate = function(models){ 
+        ToastLevel.hasMany(models.Product, {
             as: "associateToastlevel",
-            foreignKey: "toastlevel_id"
+            foreignKey: "toastLevel_id"
         })
     }
     
-    return Toastlevel;
+    return ToastLevel;
 }

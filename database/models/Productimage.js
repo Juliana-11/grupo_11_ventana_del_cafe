@@ -1,14 +1,13 @@
 //Modelo
 module.exports = (Sequelize,DataTypes)=>{
-    let alias = "Productimage";
+    let alias = "ProductImage";
     let cols = {
         id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false,
             autoIncremente: true
         },
-        productimagename:{
+        productImageName:{
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -19,17 +18,17 @@ module.exports = (Sequelize,DataTypes)=>{
         
     };
     let config = {
-        tableName: 'productimage',
+        tableName: 'productImage',
         timestamps: false
     }
     
-    const Productimage = Sequelize.define(alias, cols, config);
-    Productimage.associate = function(models){ 
-        Productimage.belongsTo(models.Product, {
-            as: "Productimage",
+    const ProductImage = Sequelize.define(alias, cols, config);
+    ProductImage.associate = function(models){ 
+        ProductImage.belongsTo(models.Product, {
+            as: "ProductImage",
             foreignKey: "product_id"
         })
     }
     
-    return Productimage;
+    return ProductImage;
 }

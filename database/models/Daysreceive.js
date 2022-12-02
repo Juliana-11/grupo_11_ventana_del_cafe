@@ -1,6 +1,6 @@
 //Modelo
 module.exports = (Sequelize,DataTypes)=>{
-    let alias = "Daysreceive";
+    let alias = "DaysReceive";
     let cols = {
         id:{
             type: DataTypes.INTEGER,
@@ -8,26 +8,26 @@ module.exports = (Sequelize,DataTypes)=>{
             allowNull: false,
             autoIncremente: true
         },
-        dayname: {
+        dayName: {
             type: DataTypes.STRING,
             allowNull: false
         }
     };
     let config = {
-        tableName: 'daysreceive',
+        tableName: 'daysReceive',
         timestamps: false
     }
     
-    const Daysreceive = Sequelize.define(alias, cols, config);
+    const DaysReceive = Sequelize.define(alias, cols, config);
 
-    Daysreceive.associate = function(models){ 
-        Daysreceive.belongsToMany(models.User, {
-            as: "Daysreceive",
+    DaysReceive.associate = function(models){ 
+        DaysReceive.belongsToMany(models.User, {
+            as: "DaysReceive",
             through: "Day_user",
-            foreignKey: "id_day",
-            otherKey: "id_user",
+            foreignKey: "day_id",
+            otherKey: "user_id",
             timestamps: false
         })
     }
-    return Daysreceive;
+    return DaysReceive;
 }

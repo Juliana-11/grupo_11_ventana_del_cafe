@@ -5,12 +5,10 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const { json } = require('express');
-const db = require('../../database/models')
+const db = require('../../database/models');
 const {Op} = require("sequelize");
 
 //data
-const usersDataPath = path.join(__dirname, '../../data/usersDataBase.json');
-const users = JSON.parse(fs.readFileSync(usersDataPath, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 //Modelos
@@ -40,14 +38,14 @@ const userController = {
                         res.render('users/register',{msgError: mensajeDeEnvio, old});
                     }else{
                         User.create({
-                            username: req.body.userName,
-                            userlastname: req.body.userLastName,
-                            useremail: req.body.userEmail,
+                            userName: req.body.userName,
+                            userLastName: req.body.userLastName,
+                            userEmail: req.body.userEmail,
                             userAs: req.body.userAs,
                             password: passNewUser,
-                            useravatar: req.file == undefined ? 'defaultImage.png': req.file.filename,
-                            useraddress: req.body.userAddress,
-                            userphone: req.body.telefonoRegister,
+                            userAvatar: req.file == undefined ? 'defaultImage.png': req.file.filename,
+                            userAddress: req.body.userAddress,
+                            userPhone: req.body.telefonoRegister,
                         
                         }
                         )
@@ -55,57 +53,57 @@ const userController = {
             
                                 if (req.body.ckeckboxUno){
                                     Day.create({
-                                        id_user: result.null,
-                                        id_day: 8
+                                        user_id: result.null,
+                                        day_id: 8
                                     })
                                 }
             
                                 if (req.body.ckeckboxDos){
                                     Day.create({
-                                        id_user: result.null,
-                                        id_day: 1
+                                        user_id: result.null,
+                                        day_id: 1
                                     })
                                 }
             
                                 if (req.body.ckeckboxTres){
                                     Day.create({
-                                        id_user: result.null,
-                                        id_day: 2
+                                        user_id: result.null,
+                                        day_id: 2
                                     })
                                 }
             
                                 if (req.body.ckeckboxCuatro){
                                     Day.create({
-                                        id_user: result.null,
-                                        id_day: 3
+                                        user_id: result.null,
+                                        day_id: 3
                                     })
                                 }
             
                                 if (req.body.ckeckboxCinco){
                                     Day.create({
-                                        id_user: result.null,
-                                        id_day: 4
+                                        user_id: result.null,
+                                        day_id: 4
                                     })
                                 }
             
                                 if (req.body.ckeckboxSeis){
                                     Day.create({
-                                        id_user: result.null,
-                                        id_day: 5
+                                        user_id: result.null,
+                                        day_id: 5
                                     })
                                 }
             
                                 if (req.body.ckeckboxSiete){
                                     Day.create({
-                                        id_user: result.null,
-                                        id_day: 6
+                                        user_id: result.null,
+                                        day_id: 6
                                     })
                                 }
             
                                 if (req.body.ckeckboxOcho){
                                     Day.create({
-                                        id_user: result.null,
-                                        id_day: 7
+                                        user_id: result.null,
+                                        day_id: 7
                                     })
                                 }
                             })
@@ -126,7 +124,7 @@ const userController = {
         res.render('users/login')
     },
     session: (req,res)=>{
-        let usuEmailFind = User.findAll({where:{ useremail: req.body.userLogin}});
+        let usuEmailFind = User.findAll({where:{ userEmail: req.body.userLogin}});
         let usuUsuarioFind = User.findAll({where:{userAs: req.body.userLogin}});
         Promise.all([usuEmailFind,usuUsuarioFind])
             .then(function ([resultEmail,resultUsu]) {
@@ -163,11 +161,7 @@ const userController = {
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
-<<<<<<< HEAD
                                 res.redirect('/users/profile/'+ resultUsu[0].id)
-=======
-                                res.redirect('/users/profile/'+resultUsu[0].id)
->>>>>>> cafe7c410f1d822368015bf78db5bc8f47c905cc
                             }else{
                                 
                                 let mensajeDeEnvio ={
@@ -184,9 +178,11 @@ const userController = {
     },
     profile: (req, res)=>{
         db.User.findByPk(req.params.id,
-            {include: {model: db.Daysreceive, as:"associateDay_user" }})
+            {include: {model: db.DaysReceive, as:"associateDay_user" }})
         .then(user => {
+            console.log(user.associateDay_user.dataValues)
             res.render('users/profile', {user})
+            
         })
     },
     edit: (req, res) => {

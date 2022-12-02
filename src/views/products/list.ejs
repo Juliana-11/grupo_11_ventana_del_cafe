@@ -72,38 +72,15 @@
                 </div> 
                 
             </div>
-            <% console.log(productsResolve) %>
             
             <div class="result-products">
-                <% for( let i = 0; i < productsResolve.length; i++ ) { %>
-                <div class="item-result-products">
-                    <div class="container-imag-item-result-products">
-                        <% if (productsResolve[i].associateImage.productimagename != null) { %>
-                            <img src="/imag/products/<%= productsResolve[i].associateImage.productimagename %> "  alt="" srcset="">
-                        <% }else {%>
-                            <img src="/imag/products/fondoBanner.jpg "  alt="" srcset="">
-                        <% } %>
-                    </div>
+                <%- include('../partials/product') %> 
 
-                    <div class="name-item-result-products">
-                        <h3><%= productsResolve[i].productname %> </h3>
-                    </div>
-
-                    <div class="info-money">
-                        <p><%= productsResolve[i].productprice %> </p> /
-                        <p><%= productsResolve[i].productdiscount %> % off</p> <br>
-                    </div>
-                    <div class="button-item-result-products">
-                        <button><a href="/product/<%= productsResolve[i].id%>">Ver detalles</a></button>
-                        <button><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                </div>
-                <% } %>
             </div>
         </div>
     </div>
-    
-
     <%- include('../partials/footer') %>
+    <script src="/Js/listFront.js"></script>
+    
 </body>
 </html>

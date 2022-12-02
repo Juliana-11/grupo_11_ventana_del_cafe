@@ -24,17 +24,17 @@ DROP TABLE IF EXISTS `ventanadelcafe`.`user` ;
 
 CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(16) NOT NULL,
-  `userlastname` VARCHAR(45) NOT NULL,
-  `useremail` VARCHAR(255) NOT NULL,
+  `userName` VARCHAR(16) NOT NULL,
+  `userLastName` VARCHAR(45) NOT NULL,
+  `userEmail` VARCHAR(255) NOT NULL,
   `userAs` VARCHAR(45) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
-  `useravatar` VARCHAR(1000) NOT NULL,
-  `userphone` INT NOT NULL,
-  `useraddress` VARCHAR(100) NOT NULL,
+  `userAvatar` VARCHAR(1000) NOT NULL,
+  `userPhone` INT NOT NULL,
+  `userAddress` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `userAs_UNIQUE` (`userAs` ASC) VISIBLE,
-  UNIQUE INDEX `useremail_UNIQUE` (`useremail` ASC) VISIBLE)
+  UNIQUE INDEX `userAs_UNIQUE` (`userAs` ASC) ,
+  UNIQUE INDEX `useremail_UNIQUE` (`userEmail` ASC) )
 ENGINE = InnoDB;
 
 
@@ -45,20 +45,20 @@ DROP TABLE IF EXISTS `ventanadelcafe`.`category` ;
 
 CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`category` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `categoryname` VARCHAR(255) NOT NULL,
+  `categoryName` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `categoryname_UNIQUE` (`categoryname` ASC) VISIBLE)
+  UNIQUE INDEX `categoryname_UNIQUE` (`categoryName` ASC) )
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ventanadelcafe`.`toastlevel`
+-- Table `ventanadelcafe`.`toastLevel`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ventanadelcafe`.`toastlevel` ;
+DROP TABLE IF EXISTS `ventanadelcafe`.`toastLevel` ;
 
-CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`toastlevel` (
+CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`toastLevel` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `toastlevelname` VARCHAR(100) NULL,
+  `toastLevelName` VARCHAR(100) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -70,28 +70,28 @@ DROP TABLE IF EXISTS `ventanadelcafe`.`product` ;
 
 CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`product` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `productname` VARCHAR(100) NOT NULL,
-  `productprice` INT NOT NULL,
-  `productdiscount` INT NOT NULL,
-  `productdescription` TEXT(1000) NOT NULL,
-  `productorigin` VARCHAR(200) NOT NULL,
+  `productName` VARCHAR(100) NOT NULL,
+  `productPrice` INT NOT NULL,
+  `productDiscount` INT NOT NULL,
+  `productDescription` TEXT(1000) NOT NULL,
+  `originProduct` VARCHAR(200) NOT NULL,
   `stock` INT NOT NULL,
   `category_id` INT NOT NULL,
-  `toastlevel_id` INT NULL,
+  `toastLevel_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
-  INDEX `toastlvel_id_idx` (`toastlevel_id` ASC) VISIBLE)
+  INDEX `category_id_idx` (`category_id` ASC) ,
+  INDEX `toastlvel_id_idx` (`toastLevel_id` ASC) )
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ventanadelcafe`.`daysreceive`
+-- Table `ventanadelcafe`.`daysReceive`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ventanadelcafe`.`daysreceive` ;
+DROP TABLE IF EXISTS `ventanadelcafe`.`daysReceive` ;
 
-CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`daysreceive` (
+CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`daysReceive` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `dayname` VARCHAR(45) NOT NULL,
+  `dayName` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -103,25 +103,25 @@ DROP TABLE IF EXISTS `ventanadelcafe`.`day_user` ;
 
 CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`day_user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `id_user` INT NOT NULL,
-  `id_day` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  `day_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `id_user_idx` (`id_user` ASC) VISIBLE,
-  INDEX `id_day_idx` (`id_day` ASC) VISIBLE)
+  INDEX `id_user_idx` (`user_id` ASC) ,
+  INDEX `id_day_idx` (`day_id` ASC) )
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ventanadelcafe`.`productimage`
+-- Table `ventanadelcafe`.`productImage`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ventanadelcafe`.`productimage` ;
+DROP TABLE IF EXISTS `ventanadelcafe`.`productImage` ;
 
-CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`productimage` (
+CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`productImage` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `productimagename` VARCHAR(1000) NOT NULL,
+  `productImageName` VARCHAR(1000) NOT NULL,
   `product_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `product_id_idx` (`product_id` ASC) VISIBLE)
+  INDEX `product_id_idx` (`product_id` ASC) )
 ENGINE = InnoDB;
 
 
@@ -132,7 +132,7 @@ DROP TABLE IF EXISTS `ventanadelcafe`.`taste` ;
 
 CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`taste` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `tastename` VARCHAR(100) NOT NULL,
+  `tasteName` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -147,23 +147,46 @@ CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`product_taste` (
   `taste_id` INT NOT NULL,
   `product_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `taste_id_idx` (`taste_id` ASC) VISIBLE,
-  INDEX `product_id_idx` (`product_id` ASC) VISIBLE)
+  INDEX `taste_id_idx` (`taste_id` ASC) ,
+  INDEX `product_id_idx` (`product_id` ASC) )
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ventanadelcafe`.`shoppingcart`
+-- Table `ventanadelcafe`.`order`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `ventanadelcafe`.`shoppingcart` ;
+DROP TABLE IF EXISTS `ventanadelcafe`.`order` ;
 
-CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`shoppingcart` (
+CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`order` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `productbuy_id` INT NOT NULL,
-  `userbuy_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  `totalProducts` DECIMAL(10,2) NOT NULL,
+  `paymentMethod` VARCHAR(100) NOT NULL,
+  `shippingMethod` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `idproductbuy_idx` (`productbuy_id` ASC) VISIBLE,
-  INDEX `iduserbuy_idx` (`userbuy_id` ASC) VISIBLE)
+  INDEX `iduserbuy_idx` (`user_id` ASC) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ventanadelcafe`.`orderItem`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `ventanadelcafe`.`orderItem` ;
+
+CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`orderItem` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Order_id` INT NOT NULL,
+  `originalProduct_id` INT NULL,
+  `productName` VARCHAR(45) NOT NULL,
+  `productPrice` INT NOT NULL,
+  `productDiscount` INT NOT NULL,
+  `productDescription` TEXT(1000) NOT NULL,
+  `originProduct` VARCHAR(200) NOT NULL,
+  `stock` INT NOT NULL,
+  `quantity` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `order_id_idx` (`Order_id` ASC) ,
+  INDEX `originalProduct_id_idx` (`originalProduct_id` ASC) )
 ENGINE = InnoDB;
 
 

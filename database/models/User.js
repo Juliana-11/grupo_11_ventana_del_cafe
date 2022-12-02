@@ -8,15 +8,15 @@ module.exports = (Sequelize,DataTypes)=>{
             allowNull: false,
             autoIncrement: true
         },
-        username: {
+        userName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        userlastname:{
+        userLastName:{
             type: DataTypes.STRING,
             allowNull: false
         },
-        useremail:{
+        userEmail:{
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
@@ -30,15 +30,15 @@ module.exports = (Sequelize,DataTypes)=>{
             type: DataTypes.STRING,
             allowNull:false
         },
-        useravatar:{
+        userAvatar:{
             type: DataTypes.STRING,
             allowNull:false
         },
-        userphone: {
+        userPhone: {
             type: DataTypes.INTEGER,
             allowNull:false
         },
-        useraddress: {
+        userAddress: {
             type: DataTypes.STRING,
             allowNull:false
         }
@@ -53,19 +53,16 @@ module.exports = (Sequelize,DataTypes)=>{
     const User = Sequelize.define(alias,cols,config)
 
     User.associate = function(models){ 
-        User.belongsToMany(models.Daysreceive, {
+        User.belongsToMany(models.DaysReceive, {
             as: "associateDay_user",
             through: "Day_user",
-            foreignKey: "id_user",
-            otherKey: "id_day",
+            foreignKey: "user_id",
+            otherKey: "day_id",
             timestamps: false
-        }),
-        User.belongsToMany(models.Product, {
+        })
+        User.hasMany(models.Order, {
             as: "associateUserbuy",
-            through: "shoppingcart",
-            foreignKey: "userbuy_id",
-            otherKey: "productbuy_id",
-            timestamps: false
+            foreignKey: "user_id",
         })
     }
     

@@ -7,27 +7,25 @@
         <% console.log(product) %> 
         <section class="productDetail">
 
-            <form action="#" class="buttonExit"><button><i class="fas fa-sign-out-alt"></i> Salir</button></form>
-
             <div class="containerImgDetail">
-                <img class="productImage" src="/imag/products/<%= product.associateImage.productimagename%> " alt="productImage">
+                <img class="productImage" src="/img/products/<%= product.associateImage.productImageName%> " alt="productImage">
             </div>
 
             <div class="containerInfoDetail">
-                <h2 class="productName"><%=product.productname%></h2>
+                <h2 class="productName"><%=product.productName%></h2>
                 <div class="containerInfoMoney">
-                    <img class="productPriceSigno" src="/imag/pesos.png" alt=""> 
+                    <img class="productPriceSigno" src="/img/pesos.png" alt=""> 
 
-                    <% if (product.productdiscount != 0) { %>
+                    <% if (product.productDiscount != 0) { %>
                         <p class="elementDetail"><%= newPrice %> </p>
-                        <p class="productPrice "> <%=product.productprice%> </p>
+                        <p class="productPrice "> <%=product.productPrice%> </p>
                     <% } else{ %>
-                        <p class="elementDetail"> <%=product.productprice%> </p>
+                        <p class="elementDetail"> <%=product.productPrice%> </p>
                     <% } %>
                                         
-                    <% if (product.productdiscount != 0) { %>
+                    <% if (product.productDiscount != 0) { %>
                         <p class="elementDetail">/</p>
-                        <p class="discount"><%= product.productdiscount %> % off</p>
+                        <p class="discount"><%= product.productDiscount %> % off</p>
                     <% } %>
 
                 </div>
@@ -38,13 +36,13 @@
                     <p class="divIconoDetailcontent"> <%# product.stock %> </p>
                 </div>-->
                 <div>
-                    <span class="hovertext" data-hover="<%= product.stock %> ">
-                    <p class="divIconoDetailtittle">Cantidad disponible</p>
-                    </span>
+            
+                    <p class="divIconoDetailtittle">Cantidad disponible<P class="hovertext"><%= product.stock %></P></p>
+                    
                 </div>
-                <p>categoria de producto: <%= product.associateCategory.categoryname %> </p>
+                <p>categoria de producto: <%= product.associateCategory.categoryName %> </p>
                 <h4 class="tittleDetail">Descripción</h4>
-                <p class="productDescription"><%=product.productdescription%> </p>
+                <p class="productDescription"><%=product.productDescription%> </p>
                 <form action="#">
                     <button class="buttonCarDetail"><i class="fas fa-shopping-cart"></i> Agregar al carrito</button>
                     <button class="buttonLikeProductDetail"><i class="far fa-heart"></i> Mis favoritos </button>
@@ -58,26 +56,29 @@
             
             <div class="propertycontent">
                 <div class="property lado">
-                    <div class="propertyIcon"><img src="/imag/fireplace.png" alt=""></div>
+                    <div class="propertyIcon"><img src="/img/fireplace.png" alt=""></div>
                     <h4>Tostado</h4>
-                    <p><%=product.associateToastlevelP.toastlevelname%> </p>
+                    <p><%=product.associateToastLevelP.toastLevelName%> </p>
                 </div>
                 
                 <div class="property lado">
                     <div class="propertyIcon"><i class="fas fa-map-marker-alt"></i></div>
                     <h4>Origen</h4>
-                    <p><%=product.productorigin%> </p>
+                    <p><%=product.originProduct%> </p>
                 </div>
                 
                 <div class="property">
-                    <div class="propertyIcon"><img src="/imag/coffe.png" alt=""></div>
+                    <div class="propertyIcon"><img src="/img/coffe.png" alt=""></div>
                     <h4>Sabor</h4>
-                    <p><%=product.associateProduct_taste.tastename%> </p>
+                    <p><%=product.associateProduct_taste.tasteName%> </p>
                 </div>
             </div>
             
         </div>
 
+        <form action="#" ><button><i class="fas fa-sign-out-alt"></i> Salir</button></form>
+        <form action="/product/delete/<%= product.id %>" method="POST" ><button><i class="fas fa-sign-out-alt"></i> Eliminar producto </button></form>
+        <form action="/product/edit/<%= product.id %>" method="GET" ><button><i class="fas fa-sign-out-alt"></i> Editar producto </button></form>
     </main>
     <%- include('../partials/footer') %>
 </body>

@@ -8,23 +8,23 @@ module.exports = (Sequelize, DataTypes)=>{
             allowNull: false,
             autoIncrement: true
         },
-        productname: {
+        productName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        productprice: {
+        productPrice: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        productdiscount:{
+        productDiscount:{
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        productdescription:{
+        productDescription:{
             type: DataTypes.STRING,
             allowNull: false
         },
-        productorigin: {
+        originProduct: {
             type: DataTypes.STRING,
             allowNull:false
         },
@@ -41,7 +41,7 @@ module.exports = (Sequelize, DataTypes)=>{
         }
     };
     let config = {
-        tableName: 'Product',
+        tableName: 'product',
         timestamps: false
     }
     
@@ -52,7 +52,7 @@ module.exports = (Sequelize, DataTypes)=>{
             as: "associateCategory",
             foreignKey: "category_id"
         })
-        Product.hasMany(models.Productimage, {
+        Product.hasMany(models.ProductImage, {
             as: "associateImage",
             foreignKey: "product_id"
         })
@@ -63,15 +63,15 @@ module.exports = (Sequelize, DataTypes)=>{
             otherKey: "taste_id",
             timestamps: false
         })
-        Product.belongsTo(models.Toastlevel, {
-            as: "associateToastlevelP",
-            foreignKey: "toastlevel_id"
+        Product.belongsTo(models.ToastLevel, {
+            as: "associateToastLevelP",
+            foreignKey: "toastLevel_id"
         })
-        Product.belongsToMany(models.User, {
-            as: "associateBuys",
-            through: "shoppingcart",
-            foreignKey: "productbuy_id",
-            otherKey: "userbuy_id",
+        Product.belongsToMany(models.Order, {
+            as: "associateOrders",
+            through: "orderItem",
+            foreignKey: "originalProduct_id",
+            otherKey: "order_id",
             timestamps: false
         })
     }

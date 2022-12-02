@@ -6,7 +6,7 @@
 
     
     <div class="TopProfile">
-        <h1 class="bienvenidaProfile">Hola <%= user.username %> </h1>
+        <h1 class="bienvenidaProfile">Hola <%= user.userName %> </h1>
         <div class="settingsProfile">
             <a href="/users/edit/<%= user.id %> "><i class="fas fa-user-cog"></i></a>
             <a href="/"><i class="fas fa-times-circle"></i></a>
@@ -16,7 +16,7 @@
     <main class="styleMainProfile">
 
         <div class="containerPhoto">
-            <img src="/imag/userAvatars/<%=user.useravatar%>" alt="Avatar">
+            <img src="/img/userAvatars/<%=user.userAvatar%>" alt="Avatar">
         </div>
 
         <div class="infoUser infoPersonal">
@@ -24,12 +24,12 @@
 
             <div class="containerdateProfile">
                 <P class="nameDate">Nombre</P>
-                <p><%=user.username%></p>
+                <p><%=user.userName%></p>
             </div>
 
             <div class="containerdateProfile">
                 <P class="nameDate">Apellido</P>
-                <p><%=user.userlastname%></p>
+                <p><%=user.userLastName%></p>
             </div>
 
             <div class="containerdateProfile">
@@ -43,7 +43,7 @@
 
             <div class="containerdateProfile3">
                 <P class="nameDate">Email</P>
-                <p><%=user.useremail%></p>
+                <p><%=user.userEmail%></p>
             </div>
 
             <div class="containerdateProfile3">
@@ -54,22 +54,22 @@
             <p class="change"><a href="users/formEditUser/<%=user.id%> ">Cambiar contraseña</a></p>
         </div>
 
-        <div class="infoUser daysReceiveOrder">
+        <div class="infoUser dayReceiveOrder">
             <h3>Días a recibir pedido</h3>
             
 
-            <% if (user.associateDay_user[0].dataValues.id == 8){%>
+            <% if (user.associateDay_user[0].id == 8){%>
                 <div class="containerdateProfile">
                     <p style="color: #1376ab; font-weight: bold;">Todos los días</p>
                     
                 </div>
-            <% } else if ( user.associateDay_user[0].dataValues.id != 8){%>
+            <% } else if ( user.associateDay_user[0].id != 8){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Todos los días</p>
                 </div>
             <% } %> 
 
-            <% if (user.associateDay_user[0].dataValues.id != 1){%>
+            <% if (user.associateDay_user[0].id != 1){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Lunes</p>
                 </div>
@@ -79,61 +79,61 @@
                 </div>
             <% } %> 
 
-            <% if (user.associateDay_user.iddaysreceive  === 2){%>
+            <% if (user.associateDay_user.id  === 2){%>
                 <div class="containerdateProfile">
                     <p style="color: #1376ab; font-weight: bold;">Martes</p>
                 </div>
-            <% } else if (user.associateDay_user.iddaysreceive  != 2){%>
+            <% } else if (user.associateDay_user.id  != 2){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Martes</p>
                 </div>
             <% } %> 
 
-            <% if (user.associateDay_user.iddaysreceive  === 3){%>
+            <% if (user.associateDay_user.id  === 3){%>
                 <div class="containerdateProfile">
                     <p style="color: #1376ab; font-weight: bold;">Miércoles</p>
                 </div>
-            <% } else if ( user.associateDay_user.iddaysreceive != 3){%>
+            <% } else if ( user.associateDay_user.id != 3){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Miércoles</p>
                 </div>
             <% } %> 
 
-            <% if (user.associateDay_user.iddaysreceive  === 4){%>
+            <% if (user.associateDay_user.id  === 4){%>
                 <div class="containerdateProfile">
                     <p style="color: #1376ab; font-weight: bold;">Jueves</p>
                 </div>
-            <% } else if ( user.associateDay_user.iddaysreceive  != 4){%>
+            <% } else if ( user.associateDay_user.id  != 4){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Jueves</p>
                 </div>
             <% } %> 
 
-            <% if (user.associateDay_user.iddaysreceive  === 5){%>
+            <% if (user.associateDay_user.id  === 5){%>
                 <div class="containerdateProfile">
                     <p style="color: #1376ab; font-weight: bold;">Viernes</p>
                 </div>
-            <% } else if ( user.associateDay_user.iddaysreceive  != 5){%>
+            <% } else if ( user.associateDay_user.id  != 5){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Viernes</p>
                 </div>
             <% } %> 
 
-            <% if (user.associateDay_user.iddaysreceive  === 6){%>
+            <% if (user.associateDay_user.id  === 6){%>
                 <div class="containerdateProfile">
                     <p style="color: #1376ab; font-weight: bold;">Sábado</p>
                 </div>
-            <% } else if ( user.associateDay_user.iddaysreceive  != 6){%>
+            <% } else if ( user.associateDay_user.id  != 6){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Sábado</p>
                 </div>
             <% } %> 
 
-            <% if (user.associateDay_user.iddaysreceive  == 7){%>
+            <% if (user.associateDay_user.id  == 7){%>
                 <div class="containerdateProfile">
                     <p style="color: #1376ab; font-weight: bold;">Domingo</p>
                 </div>
-            <% } else if ( user.associateDay_user.iddaysreceive  != 7){%>
+            <% } else if ( user.associateDay_user.id  != 7){%>
                 <div class="containerdateProfile">
                     <p style="color: black;">Domingo</p>
                 </div>
@@ -146,12 +146,12 @@
 
             <div class="containerdateProfile3">
                 <P class="nameDate">Teléfono</P>
-                <p><%=user.userphone%></p>
+                <p><%=user.userPhone%></p>
             </div>
             
             <div class="containerdateProfile3">
                 <P class="nameDate">Dirección</P>
-                <p><%=user.useraddress%></p>            
+                <p><%=user.userAddress%></p>            
             </div>
 
             <div class="containerdateProfile3">

@@ -8,7 +8,7 @@ module.exports = (Sequelize,DataTypes)=>{
             allowNull: false,
             autoIncremente: true
         },
-        tastename:{
+        tasteName:{
             type: DataTypes.STRING,
             allowNull: false
         }

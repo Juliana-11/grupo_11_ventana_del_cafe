@@ -2,8 +2,13 @@
 <html lang="en">
 <%- include('../partials/head', {title: "Creación de producto"}) %> 
 <body class="bodyStyleFormCreateProduct">
+    <!-- Header -->
     <%- include('../partials/header') %> 
+
+    <!-- Titulo -->
     <h1 class="titleCreateProduct">Registro de productos</h1>
+
+    <!-- Formulario de creación -->
     <div class="containerFormCreate">
         <form action="/product/create" method="POST" enctype="multipart/form-data" class="containerFormCreateProduct">
 
@@ -38,64 +43,72 @@
             </div>
             
             <div class="containerFeaturesCreate">
+                <!---Características--->
                 <h3 class="tittleh3create">Caracteristicas</h3>
 
-                <div class="itemFormCreateProduct2">
-                    <label for="taste">Sabor</label>
-                    <div class="containerSelectCreate">
-                        <select name="taste">
-                            <option selected="true" disabled="disabled" >Selecciona ...</option>
-                            <% for( let i = 0; i < tastes.length; i++ ) { %>
-                                <option value="<%= tastes[i].id %>"><%= tastes[i].tastename %></option>        
-                            <% } %>
-                        </select>
-                    </div>
-                </div>
-    
-                <div class="itemFormCreateProduct2">
-                    <label for="taste">Nivel de tostado</label>
-                    <div class="containerSelectCreate">
-                        <select name="toastlevel">
-                            <option selected="true" disabled="disabled" >Selecciona ...</option>
-                            <% for( let i = 0; i < toastlevels.length; i++ ) { %>
-                                <option value="<%= toastlevels[i].id %>"><%= toastlevels[i].toastlevelname %></option>        
-                            <% } %>
-                        </select>
-                    </div>
-                </div>
-    
+                <!----Categoria---->
                 <div class="itemFormCreateProduct2">
                     <label for="category">Categoria</label>
                     <div class="containerSelectCreate">
                         <select name="category" id="category">
                             <option selected="true" disabled="disabled" >Selecciona ...</option>
                             <% for( let i = 0; i < categories.length; i++ ) { %>
-                                <option value="<%= categories[i].id %> "><%= categories[i].categoryname %> </option>
+                                <option value="<%= categories[i].id %> "><%= categories[i].categoryName %> </option>
                             <% } %>
                         </select>
+                    </div>
+                </div>
+
+                <!----Sabor---->
+                <div class="itemFormCreateProduct2">
+                    <label for="taste">Sabor</label>
+                    <div class="containerSelectCreate">
+                        <select name="taste">
+                            <option selected="true" disabled="disabled" >Selecciona ...</option>
+                            <% for( let i = 0; i < tastes.length; i++ ) { %>
+                                <option value="<%= tastes[i].id %>"><%= tastes[i].tasteName %></option>        
+                            <% } %>
+                        </select>
+                        <%- include('../partials/modalCreateFeatures', {type: 'taste', name_modal: 'Sabor' }) %> 
+                    </div>
+                </div>
+    
+                <!----Nivel de tostado---->
+                <div class="itemFormCreateProduct2">
+                    <label for="taste">Nivel de tostado</label>
+                    <div class="containerSelectCreate">
+                        <select name="toastlevel">
+                            <option selected="true" disabled="disabled" >Selecciona ...</option>
+                            <% for( let i = 0; i < toastlevels.length; i++ ) { %>
+                                <option value="<%= toastlevels[i].id %>"><%= toastlevels[i].toastLevelName %></option>        
+                            <% } %>
+                        </select>
+                        
+                        <%- include('../partials/modalCreateFeatures', {type: 'toast-level', name_modal: 'nivel de tostado' }) %>
                     </div>
                 </div>
 
                 <div class="itemFormCreateProduct2">
                     <label for="image">Imagen</label>
                     <div class="containerSelectCreate">
-                        <input type="file" name="productImage" id="image">
+                        <input type="file" name="productImage" >
                     </div>
                 </div>
-            </div>
-            
-            <div class="descriptionFormCreateProduct">
-                <label for="description">Descripción del producto</label>
-                <div class="containerTextareaCreate">
-                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
-                </div>
-            </div>
 
-            <div class="buttonCreate">
-                <button type="submit">guardar</button>
+                <div class="descriptionFormCreateProduct">
+                    <label for="description">Descripción del producto</label>
+                    <div class="containerTextareaCreate">
+                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="buttonCreate">
+                    <button type="submit">guardar</button>
+                </div>
             </div>
         </form>    
     </div>
+    <script src="/Js/createFront.js"></script>
 </body>
 </html>
 
