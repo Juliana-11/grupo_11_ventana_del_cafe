@@ -161,11 +161,7 @@ const userController = {
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
-<<<<<<< HEAD
-                                res.redirect('/users/profile/'+ resultUsu[0].id)
-=======
                                 res.redirect('/users/profile/'+resultUsu[0].id)
->>>>>>> 50644934ffa5f66d28175f34b6127789ee223ce9
                             }else{
                                 
                                 let mensajeDeEnvio ={
