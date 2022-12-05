@@ -9,7 +9,7 @@
     
     <div class="containerFormCreate">
 
-        <form action="/product/update/<%= productFinally.id %>?_method=PUT " method="POST" enctype="multipart/form-data" class="containerFormCreateProduct">
+        <form action="/product/<%= productFinally.id %>/edit" method="POST" enctype="multipart/form-data" class="containerFormCreateProduct">
 
             <div class="infogeneralCreate">
                 <h3 class="tittleh3create">Información general</h3>
@@ -18,8 +18,7 @@
                     <label for="name" class="labelFormCreateProduct">Nombre de producto</label>
                     <input type="text" name="productName" id="name" value="<%= productFinally.productName  %>">
                 </div>
-    
-                <div class="itemFormCreateProduct">
+                    <div class="itemFormCreateProduct">
                     <label for="price" class="labelFormCreateProduct">Precio</label>
                     <input type="text" name="productPrice" id="price" value="<%= productFinally.productPrice%>">
                 </div>

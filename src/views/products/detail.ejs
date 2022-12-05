@@ -78,7 +78,7 @@
 
         <form action="#" ><button><i class="fas fa-sign-out-alt"></i> Salir</button></form>
         <form action="/product/delete/<%= product.id %>" method="POST" ><button><i class="fas fa-sign-out-alt"></i> Eliminar producto </button></form>
-        <form action="/product/edit/<%= product.id %>" method="GET" ><button><i class="fas fa-sign-out-alt"></i> Editar producto </button></form>
+        <form action="/product/<%= product.id %>/edit" method="GET" ><button><i class="fas fa-sign-out-alt"></i> Editar producto </button></form>
     </main>
     <%- include('../partials/footer') %>
 </body>

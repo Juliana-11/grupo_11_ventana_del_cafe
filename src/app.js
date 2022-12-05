@@ -6,7 +6,8 @@ const path = require('path');
 const methodOverride = require('method-override');
 let session = require('express-session');
 const cookieParser = require('cookie-parser');
-const recordarmeMiddleware = require('./middleware/recordarmeMiddfleware')
+const recordarmeMiddleware = require('./middleware/recordarmeMiddfleware');
+const bodyParse = require('body-parser')
 
 //Rutas
 const mainRouter = require('./routes/mainRouters'); 
@@ -29,6 +30,8 @@ app.use(session({
     saveUninitialized: true,
     }));
 app.use(cookieParser());
+app.use(bodyParse.json())
+app.use(bodyParse.urlencoded({extended:true}));
 //app.use(recordarmeMiddleware);
 
 /*Codigo*/

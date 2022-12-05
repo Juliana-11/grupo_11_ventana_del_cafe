@@ -23,3 +23,27 @@ button_add_create_toast_level.addEventListener("click", ()=> {
 button_close_create_toast_level.addEventListener("click", ()=>{
     modal_toast_level.classList.remove("show-modal-create")
 })
+
+//Validaciones
+let form = document.querySelector(".formCreateProduct")
+console.log(form)
+
+form.addEventListener("submit", (event)=>{
+    let errores = [];
+
+    if(errores.length > 0){
+        event.preventDefault
+        let ulErrores = document.querySelector(".errores")
+        errores.forEach(error => {
+            ulErrores.innerText +=`<li>${error}<li>`
+        })
+    }
+    
+    let productName = document.querySelector("#name")
+    if(productName == ""){
+        errores.push("El campo name debe estar lleno")
+    }else if(productName.length < 5){
+        errores.push("El nombre es demasiado corto")
+    }
+
+})

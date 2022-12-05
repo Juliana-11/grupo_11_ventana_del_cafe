@@ -178,9 +178,9 @@ const userController = {
     },
     profile: (req, res)=>{
         db.User.findByPk(req.params.id,
-            {include: {model: db.DaysReceive, as:"associateDay_user" }})
+            {include: {model: db.DaysReceive, as:"associateDay_User"}}
+            )
         .then(user => {
-            console.log(user.associateDay_user.dataValues)
             res.render('users/profile', {user})
             
         })
