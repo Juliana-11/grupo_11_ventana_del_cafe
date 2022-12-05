@@ -19,7 +19,7 @@ const userController = {
         res.render('users/register')
     },
 
-    create: (req,res)=>{
+    create: async (req,res)=>{
         let errors = validationResult(req);
         if(errors.isEmpty()){
             let passNewUser = bcrypt.hashSync(req.body.userPassword, 10)
@@ -37,7 +37,7 @@ const userController = {
                         let old = req.body
                         res.render('users/register',{msgError: mensajeDeEnvio, old});
                     }else{
-                        User.create({
+                         User.create({
                             userName: req.body.userName,
                             userLastName: req.body.userLastName,
                             userEmail: req.body.userEmail,
@@ -50,59 +50,59 @@ const userController = {
                         }
                         )
                             .then (function (result){
-            
+                                           
                                 if (req.body.ckeckboxUno){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 8
                                     })
                                 }
             
                                 if (req.body.ckeckboxDos){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 1
                                     })
                                 }
             
                                 if (req.body.ckeckboxTres){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 2
                                     })
                                 }
             
                                 if (req.body.ckeckboxCuatro){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 3
                                     })
                                 }
             
                                 if (req.body.ckeckboxCinco){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 4
                                     })
                                 }
             
                                 if (req.body.ckeckboxSeis){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 5
                                     })
                                 }
             
                                 if (req.body.ckeckboxSiete){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 6
                                     })
                                 }
             
                                 if (req.body.ckeckboxOcho){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 7
                                     })
                                 }

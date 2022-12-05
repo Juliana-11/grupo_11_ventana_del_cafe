@@ -12,6 +12,9 @@ const recordarmeMiddleware = require('./middleware/recordarmeMiddfleware')
 const mainRouter = require('./routes/mainRouters'); 
 const productRouters = require('./routes/productRouters');
 const usersRouters = require('./routes/usersRouters');
+const usersRoutersApi = require('./routes/api/usersRoutersApi');
+const productsRoutersApi = require('./routes/api/productsRoutersApi');
+
 
 /*Configuraciones*/
 app.set('views', __dirname + '/views');
@@ -32,6 +35,8 @@ app.use(cookieParser());
 app.use('/', mainRouter);
 app.use('/product', productRouters);
 app.use('/users', usersRouters);
+app.use('/api/users',usersRoutersApi);
+app.use('/api/products',productsRoutersApi);
 app.use((req, res, next) => { res.status(404).render('main/error404') });
 
 app.listen(3000, ()=>console.log('Puerto 3000 corriendo'));
