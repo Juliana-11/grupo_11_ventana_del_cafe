@@ -5,8 +5,13 @@
     <%- include('../partials/header') %>
     
 <main>
+<<<<<<< HEAD
     <form action="#" method="post">
         <h1 class="tituloRegister">Inicia Sesión</h1>
+=======
+    <form action="#" method="post" id ="formLogin">
+        <h1 class="tituloRegister">INICIA SESIÓN</h1>
+>>>>>>> 3522f4297c092bc8dd45d100edbb6a60f4058dd7
 
         <div class="containerLogin">
             
@@ -17,13 +22,16 @@
             <div class="containerLogin">
                 <div class="contentLogin">
                     <label for="userLogin">Indicame tu usuario</label>
-                        <input class="itemLogin" type="text" name="userLogin" id="userLogin" required placeholder="Nombre de usuario o correo electronico">
+                        <input class="itemLogin" type="text" name="userLogin" id="userLogin"  placeholder="Nombre de usuario o correo electronico">
                     <label for="passwordLogin">Indicame tu contraseña</label>
-                        <input class="itemLogin" type="password" name="passwordLogin" id="passwordLogin" placeholder="Contraseña" required>
+                        <input class="itemLogin" type="password" name="passwordLogin" id="passwordLogin" placeholder="Contraseña" >
                     <label for="recuerdameLogin">
                         <% if (locals.msgError) {%>
                             <span style="color:red;"><%= msgError.mgs %></span><br>
                         <%}%>
+                    <div class ="errorFrom">
+                        <ul></ul>
+                    </div>
                         <input type="checkbox" name="recuerdameLogin" id="recuerdameLogin">¿Quieres que te recuerde?</label>
                     <div class="containerOlvidasteCredenciales"><a href="/users/recuperarsession" class="olvidasteCredenciales">¿Olvidaste tus credenciales?</a></div>
                     <div class="containerOlvidasteCredenciales"><a href="/users/register" class="olvidasteCredenciales">Registrarme</a></div>     
@@ -42,5 +50,6 @@
 </main>
 
 <%- include('../partials/footer') %>
+<script src ="/Js/loginValidation.js"></script>
 </body>
 </html>

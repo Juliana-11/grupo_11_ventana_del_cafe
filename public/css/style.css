@@ -644,6 +644,14 @@ input[type="radio"]:checked ~ label {
     display: none;
 }
 
+.errorFrom{
+    color: red;
+    text-align: left;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: 2vw;
+}
+
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PRODUCT CAR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 /*body*/
 .ocultar{

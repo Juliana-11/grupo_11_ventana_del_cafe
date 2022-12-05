@@ -9,7 +9,7 @@
 
         <h1 class="tituloRegister">REGISTRATE</h1>
 
-        <form action="/users/register" method="POST" enctype ="multipart/form-data">
+        <form action="/users/register" method="POST" enctype ="multipart/form-data" id = "formRegister">
 
             <div class="containerRegister">
                 <div class="registerPartUno">
@@ -79,7 +79,11 @@
                         <div class="itemRegister">
                             <label for="userAvatar">Perfil</label>
                             <input type="file" id="userAvatar" name="userAvatar"  placeholder="Indicame tu email"  value="<%= locals.old && old.userAvatar %>">
-                        </div>        
+                        </div>   
+                        
+                        <div class ="errorFrom">
+                            <ul></ul>
+                        </div>
                        
                     </div>
                     
@@ -182,6 +186,9 @@
                                 <span style="color:red;font-size: 1vw;"><%= errors.userPhone.msg %></span>
                             <% } %>
                         </div>
+                        <div class ="errorFrom">
+                            <ul></ul>
+                        </div>
                     </div>
                 </div>
 
@@ -199,6 +206,7 @@
 </main>
 
 <%- include('../partials/footer') %>
+<script src ="/Js/registerValidation.js"></script>
 </body>
 
 </html>
