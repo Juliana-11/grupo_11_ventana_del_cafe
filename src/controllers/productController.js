@@ -7,6 +7,7 @@ const { resolve } = require('path');
 const { rejects } = require('assert');
 
 
+
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 //Modelos
@@ -29,7 +30,6 @@ const productController = {
             nest: true
         })
             .then(productsResolve => {
-
                 res.render('products/list', { productsResolve: productsResolve })
             })
     },
@@ -84,9 +84,8 @@ const productController = {
             console.log('Agregue el sabor');
             console.log('------------------');
 
-            Promise.all([Product, image, taste])
+            Promise.all([product, image, taste])
                 .then(() => {
-                    console.log(req.body);
                     res.redirect('/product')
                 })
         } else {
@@ -120,41 +119,50 @@ const productController = {
                 let productFinally = product.dataValues
                 res.render('products/edit', { tastes, product_tastes, toastlevels, categories, images, productFinally, toThousand })
             })
-        /*
-        let product = products.filter(aProduct => aProduct.id == id)
-        res.render('product-edit-form', {
-            product, toThousand
-        })*/
     },
 
-    update: (req, res) => {
-        const idParams = req.params.id
-        const imageOld = Image.findAll({ where: { product_id: idParams } })
-        const imageOldName = imageOld.productImageName
-        console.log(req.body);
+    update: async(req, res) => {
+        let errors = validationResult(req);
 
-        Product.update({
-            productName: req.body.productName,
-            productPrice: req.body.productPrice,
-            productDiscount: req.body.productDiscount,
-            productDescription: req.body.description,
-            originProduct: req.body.productOrigin,
-            stock: req.body.productStock,
-            category_id: req.body.category,
-            toastLevel_id: req.body.toastlevel
-        }, { where: { id: idParams } })
+        if (errors.isEmpty()) {
+            const product = await Product.update({
+                productName: req.body.productName,
+                productPrice: req.body.productPrice,
+                productDiscount: req.body.productDiscount,
+                productDescription: req.body.description,
+                originProduct: req.body.productOrigin,
+                stock: req.body.productStock,
+                category_id: req.body.category,
+                toastLevel_id: req.body.toastlevel
+            },{where: {id : req.params.id}})
+            console.log('------------------');
+            console.log('Actualice un producto');
+            console.log('------------------');
 
-        Image.update({
-            productImageName: req.file ? req.file.filename : imageOldName
-        }, { where: { product_id: idParams} })
+            console.log('antes de imagen')
+            const image = await Image.update({
+                productImageName: req.file ? req.file.filename : 'defaultImage.png',
+            },{where: {id : req.params.id}})
+            console.log('------------------');
+            console.log('actualice la imagen');
+            console.log('------------------');
 
+            const taste = await Product_taste.update({
+                taste_id: req.body.taste,
+            },{where: {id : req.params.id}})
+            console.log('------------------');
+            console.log('actualice el sabor');
+            console.log('------------------');
 
-        Product_taste.update({
-            taste_id: req.body.taste
-        }, { where: { product_id: idParams } })
-
-        
-        res.redirect('/product/'+ idParams)
+            Promise.all([product, image, taste])
+                .then(() => {
+                    res.redirect('/product/' + req.params.id)
+                })
+        } else {
+            let oldData = req.body;
+            res.render('productCreateForm', { errors: errors.mapped(), oldData });
+        }
+    
     },
 
 
@@ -189,11 +197,9 @@ const productController = {
             nest: true
         })
             .then(product => {
-                console.log(product)
                 let newPrice = 0;
 
                 if (product.productdiscount != 0) {
-                    console.log('entre')
                     let calculatePrice = ((product.productPrice * product.productDiscount) / 100);
                     let rest = product.productPrice - calculatePrice;
                     newPrice = rest;

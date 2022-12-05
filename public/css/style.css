@@ -41,9 +41,10 @@ p{
 .style-header{
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(49, 47, 47);
+    background-color: white;
     margin-bottom: 4px;
     color: white;
+    box-shadow: 0px 0px 10px rgb(50, 48, 48)
 }
 
 .container-logo{
@@ -68,6 +69,49 @@ p{
 
 .container-logo:hover .logo{
     transform: scale(2.5);
+}
+
+.shoppingCarLogo{
+    display: flex;
+    text-decoration: none;
+    width: 20px;
+}
+
+.nameShoppingCarLogo{
+    font-size: 10px;
+    font-family: 'Acme', sans-serif;
+    position: relative;
+    top: 15px;
+    left:2px;
+    color: black;
+    font-size: 8px;
+}
+
+.carNumber{
+    font-family: 'Acme', sans-serif;
+    color: white;
+    font-size: 10px;
+}
+
+.absolute{
+    position: absolute;
+}
+
+.containerCarNumber{
+    display: flex;
+    background-color: #8e582c;
+    width: 10px; 
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 13px;
+    bottom: 5;
+    border-radius: 10px;
+}
+
+.logos-header{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .elements-header{
@@ -123,11 +167,21 @@ p{
 }
 
 .logos-header i{
-    color: white;
+    color: black;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 30px;
 }
 
+.logos-header a{
+   position: relative;
+   top: 5px;
+   height: 25px;
+}
+
+.logos-header a i{
+    position: relative;
+    left: 5px;
+}
 .part-4-header{
     display: none;
     width: 100%;
@@ -155,7 +209,7 @@ p{
 
 .navBar ul li a{
     text-decoration: none;
-    color: white;
+    color: black;
     font-size: 18px;
     margin-left: 5px;
 }
@@ -287,12 +341,21 @@ header div nav{
 
 /*main*/
 .banner{
+    background-image: url('/img/fondoCampo.jpeg');
+    margin-top: 12px;
+}
+
+
+.subBanner{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     padding: 8px;
     justify-content: center;
-    background-color: var(--tono4);
+}
+
+.subBanner img{
+    border-radius: 3px;
 }
 
 .columnOne, .columnTwo, .columnThree, .columnFive, .columnSix, .columnSeven{
@@ -1542,6 +1605,28 @@ input[type="radio"]:checked ~ label {
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERY >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
+@media(max-width: 375px){
+    .banner{
+        height: 180px;
+    }
+
+    .imgBannerOne img,  .imgBannerSix img,  .imgBannerEleven img, .imgBannerFourteen img{
+        height: 85px;
+    }
+
+    .imgBannerTwo img, .imgBannerFive img, .imgBannerTen img,  .imgBannerFifteen img{
+        height: 65px;
+    }
+
+    .imgBannerThree img, .imgBannerFour img,  .imgBannerTwelve img, .imgBannerThirteen img{
+        height: 75px;
+    }
+
+    .imgBannerSeven img, .imgBannerEight img, .imgBannerNine img{
+        height: 48px;
+    }
+
+}
 
 @media (max-width: 608px){
     /*Header*/
@@ -1558,17 +1643,22 @@ input[type="radio"]:checked ~ label {
     /*Header*/
     .elements-header{
        width: 63%;
-   
+       
     }
+
     .logos-header{
         padding: 5px;
         display: flex;
         width: 40%;
-        justify-content: flex-end;
+        justify-content: space-evenly;
+    }   
+
+    .logos-header a{
+        border-bottom: 1px solid gray;
     }
 
     .logos-header i, .logos-header a{
-        font-size: 15px;
+        font-size: 18px;
         width: 20%;
     }
 
@@ -1702,6 +1792,7 @@ input[type="radio"]:checked ~ label {
 
     .logos-header i, .logos-header a{
         width: 15%;
+        font-size: 20px;
     }
 
     .score-three{

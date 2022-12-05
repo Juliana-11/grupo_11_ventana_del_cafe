@@ -161,11 +161,7 @@ const userController = {
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
-<<<<<<< HEAD
-                                res.redirect('/users/profile/'+ resultUsu[0].id)
-=======
                                 res.redirect('/users/profile/'+resultUsu[0].id)
->>>>>>> 50644934ffa5f66d28175f34b6127789ee223ce9
                             }else{
                                 
                                 let mensajeDeEnvio ={
@@ -182,9 +178,9 @@ const userController = {
     },
     profile: (req, res)=>{
         db.User.findByPk(req.params.id,
-            {include: {model: db.DaysReceive, as:"associateDay_user" }})
+            {include: {model: db.DaysReceive, as:"associateDay_User"}}
+            )
         .then(user => {
-            console.log(user.associateDay_user.dataValues)
             res.render('users/profile', {user})
             
         })

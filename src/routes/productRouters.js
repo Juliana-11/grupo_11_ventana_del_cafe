@@ -4,13 +4,16 @@ const express = require('express');
 const router = express.Router();
 const {check} = require('express-validator');
 const path = require('path');
+const bodyParser = require('body')
 
 //Middleware
 const configMulterProduct = require('../middleware/configMulterProduct')
 const userLogged = require('../middleware/userLoggedMiddleware')
 
+
 //controlador
-const productController = require('../controllers/productController')
+const productController = require('../controllers/productController');
+const guestMiddleware = require('../middleware/guestMiddleware');
 //Rutas
     //Index: lista de productos
 router.get('/', productController.index);
@@ -23,9 +26,9 @@ router.post('/create', configMulterProduct.single('productImage'), productContro
     //Delete: Eliminar producto
 router.post('/delete/:id', productController.delete);
     //Edit: muestra el formulario de edicion de productos
-router.get('/edit/:id', productController.edit);
+router.get('/:id/edit', productController.edit);
     //Update: Procesamiento de la edicion de un producto
-router.put('/update/:id', productController.update);
+router.post('/:id/edit', guestMiddleware, productController.update);
     //newType: Procesa los datos de tablas secundarias
 router.post('/newType/:table', productController.newType)
     //Detail: Detalle de producto :id
