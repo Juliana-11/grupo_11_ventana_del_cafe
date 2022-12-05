@@ -4,15 +4,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
-let session = require('express-session');
+const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const recordarmeMiddleware = require('./middleware/recordarmeMiddfleware');
 const bodyParse = require('body-parser')
-
-//Rutas
-const mainRouter = require('./routes/mainRouters'); 
-const productRouters = require('./routes/productRouters');
-const usersRouters = require('./routes/usersRouters');
 
 /*Configuraciones*/
 app.set('views', __dirname + '/views');
@@ -27,12 +22,17 @@ app.use(session({
     saveUninitialized: true,
     }));
 app.use(cookieParser());
-app.use(bodyParse.json())
-app.use(bodyParse.urlencoded({extended:true}));
 //app.use(recordarmeMiddleware);
+
+//Rutas
+const mainRouter = require('./routes/mainRouters'); 
+const productRouters = require('./routes/productRouters');
+const usersRouters = require('./routes/usersRouters');
+const apiRouters = require('./routes/apiRouters')
 
 /*Codigo*/
 app.use('/', mainRouter);
+app.use('/api', apiRouters)
 app.use('/product', productRouters);
 app.use('/users', usersRouters);
 app.use((req, res, next) => { res.status(404).render('main/error404') });

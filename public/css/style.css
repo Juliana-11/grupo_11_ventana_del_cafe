@@ -210,7 +210,7 @@ p{
 .navBar ul li a{
     text-decoration: none;
     color: black;
-    font-size: 18px;
+    font-size: 15px;
     margin-left: 5px;
 }
 
@@ -669,6 +669,10 @@ input[type="radio"]:checked ~ label {
     align-items: center;
     border-bottom:#42C6ED solid 3px;
     margin: 3px;
+}
+
+.cartRows{
+    border: 2px solid red;
 }
 
 .shopping-cart-table-names .product{
@@ -1910,7 +1914,7 @@ input[type="radio"]:checked ~ label {
     }
 
     .navBar ul li a {
-        font-size: 25px;
+        font-size: 20px;
     }
 
     /*suscription*/
