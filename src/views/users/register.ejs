@@ -180,7 +180,7 @@
                     
                         <div class="itemRegister">
                             <label for="telefonoRegister">Telefono / Celular </label>
-                            <input type="text" id="telefonoRegister" name="telefonoRegister" placeholder="Indicame tu celular">
+                            <input type="number" id="telefonoRegister" name="telefonoRegister" placeholder="Indicame tu celular">
                             <br>
                             <% if (locals.errors && errors.userPhone) { %>
                                 <span style="color:red;font-size: 1vw;"><%= errors.userPhone.msg %></span>

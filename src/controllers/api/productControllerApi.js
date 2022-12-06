@@ -7,11 +7,11 @@ const productsControllerApi = {
     'listado': (req, res) => {
         Products.findAll()
             .then(listProducts =>{
-                
-                if (listProducts != null){
-                    return res.status(200).json(listProducts);
+                let numero = listProducts.length
+                if (numero !== 0){
+                    return res.status(200).json({Total: listProducts.length,listProducts});
                 }else{
-                    return res.status(204).json('No hay datos');
+                    return res.status(404).json({message:'No hay datos'});
                 }
                 
             })
@@ -23,7 +23,7 @@ const productsControllerApi = {
                 if (DetalleProduct != null){
                     return res.status(200).json(DetalleProduct);
                 }else{
-                    return res.status(204).json("no hay datos");
+                    return res.status(204).json({message:'No hay datos'});
                 }
             });
     }
