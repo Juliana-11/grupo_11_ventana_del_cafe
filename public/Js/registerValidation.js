@@ -3,6 +3,7 @@ window.addEventListener("load",function(){
     formRegister.addEventListener("submit",function (e){
        let errores = [];
        let userName = document.getElementById("userName");
+
        if (userName.value == ""){
             errores.push("Debe ingresar un nombre")
        }else if (userName.value.length <2){
@@ -36,7 +37,6 @@ window.addEventListener("load",function(){
             for (let i = 0; i < errores.length;i++){
                 ulErrores.innerHTML += "<li>"+ errores[i] + "</li>"
             }
-
        }
     })
 })

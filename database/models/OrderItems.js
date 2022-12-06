@@ -1,6 +1,6 @@
 //Modelo
 module.exports = (Sequelize,DataTypes)=>{
-    let alias = "OrderItem";
+    let alias = "OrderItems";
     let cols = {
         id:{
             type: DataTypes.INTEGER,

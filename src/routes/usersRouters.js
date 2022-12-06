@@ -36,7 +36,7 @@ router.get('/recuperarsession', userController.retrieve)
 router.get('/profile/:id',userLoggedMiddleware, userController.profile)
     //Profile: renderiza el perfil
 router.get('/edit/:id', userController.edit)
-router.post('/edit/:id', userController.saveEdit)
+router.post('/edit/:id',configmulterUser.single('userAvatar'),userController.saveEdit)
     //Profile: cerrar session
 router.post('/:id', userController.destroy);
     //Profile: eliminar usuario

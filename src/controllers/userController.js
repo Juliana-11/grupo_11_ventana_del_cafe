@@ -28,9 +28,7 @@ const userController = {
                 where: { [Op.or]: [{userEmail: req.body.userEmail}, {userAs: req.body.userAs}]}
             })
                 .then (function(result) {
-                    console.log(result.length)
                     if (result.length > 0){
-                        console.log(req.body)
                         let mensajeDeEnvio ={
                             mgs: 'Ya existe un usuario registrado con esa descripción'
                         }
@@ -187,7 +185,7 @@ const userController = {
     },
     edit: (req, res) => {
         let userId = req.params.id;
-        User.findByPk(userId,{include: {model: db.Daysreceive, as:"associateDay_user" }})
+        User.findByPk(userId)
             .then ( function(result){
                 
                 let userOld = result.dataValues
@@ -197,9 +195,9 @@ const userController = {
     },
     saveEdit: (req,res)=>{
         let idUser = req.params.id;
-        console.log(idUser)
-        //let passNewUser = bcrypt.hashSync(req.body.userPassword, 10);
-        /*User.update({
+        //console.log(idUser)
+        let passNewUser = bcrypt.hashSync(req.body.userPassword, 10);
+        User.update({
             username: req.body.userName,
             userlastname: req.body.userLastName,
             useremail: req.body.userEmail,
@@ -212,7 +210,7 @@ const userController = {
         },
         { where: {id: idUser}}
         )
-            .then( result => {res.redirect('/')})*/
+            .then( result => {res.redirect('/')})
     },
     destroy:(req, res) => {
         req.session.user = undefined

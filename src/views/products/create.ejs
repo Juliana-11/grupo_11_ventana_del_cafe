@@ -19,11 +19,19 @@
                 <div class="itemFormCreateProduct">
                     <label for="name" class="labelFormCreateProduct">Nombre de producto</label>
                     <input type="text" name="productName" id="name">
+                    <br>
+                    <% if (locals.errors && errors.productName) { %>
+                        <span style="color:red;font-size: 1vw;"><%= errors.productName.msg %></span>
+                    <% } %>
                 </div>
     
                 <div class="itemFormCreateProduct">
                     <label for="price" class="labelFormCreateProduct">Precio</label>
                     <input type="text" name="productPrice" id="price">
+                    <br>
+                    <% if (locals.errors && errors.productPrice) { %>
+                        <span style="color:red;font-size: 1vw;"><%= errors.productName.msg %></span>
+                    <% } %>
                 </div>
     
                 <div class="itemFormCreateProduct">
