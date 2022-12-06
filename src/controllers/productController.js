@@ -50,6 +50,7 @@ const productController = {
 
     save: async (req, res) => {
         let errors = validationResult(req);
+        console.log('LLegue');
         if (errors.isEmpty()) {
             const product = await Product.create({
                 productName: req.body.productName,
@@ -88,7 +89,7 @@ const productController = {
                 })
         } else {
             
-            res.render('productCreateForm', { errors: errors.mapped(), old: req.body });
+            res.render('create', { errors: errors.mapped(), old: req.body });
         }
     },
 

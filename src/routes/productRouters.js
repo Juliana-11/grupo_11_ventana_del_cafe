@@ -8,11 +8,10 @@ const path = require('path');
 //Middleware
 const configMulterProduct = require('../middleware/configMulterProduct')
 const userLogged = require('../middleware/userLoggedMiddleware')
-
-
 //controlador
 const productController = require('../controllers/productController');
 const guestMiddleware = require('../middleware/guestMiddleware');
+const validateCreate = require('../middleware/validateCreate')
 //Rutas
     //Index: lista de productos
 router.get('/', productController.index);
@@ -21,7 +20,7 @@ router.get('/car', productController.car);
     //Create: renderiza el formulario de creacion de producto
 router.get('/create', productController.create);
     //Save: procesa los datos de producto creado
-router.post('/create', configMulterProduct.single('productImage'), productController.save);
+router.post('/create',configMulterProduct.single('productImage'),productController.save);
     //Delete: Eliminar producto
 router.post('/delete/:id', productController.delete);
     //Edit: muestra el formulario de edicion de productos

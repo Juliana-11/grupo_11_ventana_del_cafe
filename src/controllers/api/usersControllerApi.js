@@ -7,11 +7,11 @@ const usersControllerApi = {
     'listado': (req, res) => {
         User.findAll()
             .then(listUser =>{
-                
-                if (listUser != null){
-                    return res.status(200).json(listUser);
+                let numero =listUser.length;
+                if (numero !== 0){
+                    return res.status(200).json({Total: listUser.length,listUser});
                 }else{
-                    return res.status(204).json('No hay datos');
+                    return res.status(404).json('No hay datos');
                 }
                 
             })
@@ -20,11 +20,11 @@ const usersControllerApi = {
     'detalle': (req, res) => {
         User.findByPk(req.params.id)
             .then(userDetalle => {
-                
-                if (userDetalle != null){
+                let numero =listUser.length;
+                if ( numero !== 0){
                     return res.status(200).json(userDetalle);
                 }else{
-                    return res.status(204).json("no hay datos");
+                    return res.status(404).json('No hay datos');
                 }
                 
             });

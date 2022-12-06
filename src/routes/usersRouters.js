@@ -24,6 +24,7 @@ const userController = require('../controllers/userController');
 router.get('/register', guestMiddleware, userController.register);
     //Create: procesa el registro
 router.post('/register', configmulterUser.single('userAvatar'),validateRegister, userController.create);
+
     //Confirm: Verifica si se registro
 router.get('/profile/confirm', userController.confirm);
     //login: muestra el formulario de login

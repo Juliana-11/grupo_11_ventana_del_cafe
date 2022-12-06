@@ -43,7 +43,7 @@ const validateRegister = [
                                 }
                                 return true
                             } 
-                        ),
+                        )
     /*check('userPhone')
                         .isNumeric().withMessage('* Debe contener un número telefónica').bail()*/
 ];
