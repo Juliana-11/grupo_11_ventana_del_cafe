@@ -50,7 +50,6 @@ const productController = {
 
     save: async (req, res) => {
         let errors = validationResult(req);
-        console.log('LLegue');
         if (errors.isEmpty()) {
             const product = await Product.create({
                 productName: req.body.productName,
@@ -88,8 +87,8 @@ const productController = {
                     res.redirect('/product')
                 })
         } else {
-            
-            res.render('create', { errors: errors.mapped(), old: req.body });
+           
+            res.render('products/create', { errors: errors.mapped(), old: req.body });
         }
     },
 
@@ -121,7 +120,6 @@ const productController = {
     },
 
     update: async(req, res) => {
-        console.log(req.body)
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
