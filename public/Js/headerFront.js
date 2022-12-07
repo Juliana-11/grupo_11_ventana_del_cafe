@@ -1,7 +1,3 @@
-/* Prueba */
-let prueba = document.querySelector(".name-item-result-products h3")
-prueba.style.color = "red"
-
 /* -------------------- Funciones -------------------- */
 function quantityProductsInCar (){
     return localStorage.shoppingCar ? JSON.parse(localStorage.shoppingCar).length : 0

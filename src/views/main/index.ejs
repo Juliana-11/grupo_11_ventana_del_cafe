@@ -74,48 +74,41 @@
         <%- include('../partials/suscription') %> 
         <section class="coffee-information-section">
             <h2 class="title-section">Conozcamos más del café</h2>
-
-            <div class="container-coffee-information-section">
-
-                <div class="features-section">
-                    <i class="fas fa-arrow-alt-circle-left"></i>
-                    <article class="item-features-section features-one">
-                        <img src="/img/Datos curiosos.jpg" alt="" class="imag-features-section" >
-                        <div class="information-item-features-section">
-                            <h4 class="title-features-section">Datos curiosos del café</h4>
-                            <p class="abstract-features-section">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, qui tenetur accusantium necessitatibus consequatur vel esse. </p>
-                            <div class="container-button-features-section">
-                                <button class="button-features-section"><a href="">¡Conoce más!</a></button>
-                            </div>
-                        </div>
-                    </article >
-
-                    <article class="item-features-section features-two">
-                        <img src="/img/Beneficios.jpg" alt="" class="imag-features-section">
-                        <div class="information-item-features-section">
-                            <h4 class="title-features-section">Beneficios del café</h4>
-                            <p class="abstract-features-section">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, qui tenetur accusantium necessitatibus consequatur vel esse. </p>
-                            <div class="container-button-features-section">
-                                <button class="button-features-section"><a href="">¡Conoce más!</a></button>
-                            </div>
-                        </div>
-                    </article >
-
-                    <article class="item-features-section features-three">
-                        <img src="/img/Receta.jpg" alt="" class="imag-features-section">
-                        <div class="information-item-features-section">
-                            <h4 class="title-features-section">Receta</h4>
-                            <p class="abstract-features-section">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, qui tenetur accusantium necessitatibus consequatur vel esse. </p>
-                            <div class="container-button-features-section">
-                                <button class="button-features-section"><a href="">¡Conoce más!</a></button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <i class="fas fa-arrow-alt-circle-right"></i>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <a href="#">
+                        <img class="d-block w-100 carouselIndex" src="/img/Datos curiosos.jpg" alt="First slide">
+                        <h4 class="nameCarousel">Datos curiosos...</h4>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    <a href="#">
+                        <img class="d-block w-100 carouselIndex" src="/img/Beneficios.jpg" alt="Second slide">
+                        <h4 class="nameCarousel">Beneficios del café...</h4>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    <a href="#">
+                        <img class="d-block w-100 carouselIndex" src="/img/Receta.jpg" alt="Third slide">
+                        <h4 class="nameCarousel">Deliciosas recetas...</h4>
+                    </a>
+                  </div>
                 </div>
-
-            </div> 
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
         </section>
 
         <section class="about-us" id="about-us">
@@ -213,6 +206,6 @@
     </main>
 <br>
     <%- include('../partials/footer') %>
-    <script src="/Js/listFront.js"></script>
+    <%- include('../partials/scripts') %> 
 </body>
 </html>

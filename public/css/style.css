@@ -17,7 +17,7 @@
 
 :root {
     --black:  rgb(49, 47, 47);
-    --tono5:  #8e582c;
+    --brownDark:  #8e582c;
     --brown: #d3a168;
     --gray:   rgba(223, 219, 219, 0.923);
 }
@@ -57,7 +57,7 @@ p{
     align-self: center;
     box-shadow: 0px 0px 10px rgb(50, 48, 48);
     overflow: hidden;
-    background-color: var(--tono5);
+    background-color: var(--brownDark);
 }
 
 .logo{
@@ -81,7 +81,7 @@ p{
     font-size: 10px;
     font-family: 'Acme', sans-serif;
     position: relative;
-    top: 15px;
+    top: 18px;
     left:2px;
     color: black;
     font-size: 8px;
@@ -89,23 +89,26 @@ p{
 
 .carNumber{
     font-family: 'Acme', sans-serif;
+    position: relative;
     color: white;
     font-size: 10px;
+    top: 8px;
 }
 
 .absolute{
     position: absolute;
 }
 
-.containerCarNumber{
+.containerNumberCar{
     display: flex;
-    background-color: #8e582c;
+    background-color: var(--brownDark);
     width: 10px; 
+    height: 15px;
     justify-content: center;
     align-items: center;
     position: relative;
     left: 13px;
-    bottom: 5;
+    bottom: 5px;
     border-radius: 10px;
 }
 
@@ -175,7 +178,7 @@ p{
 .logos-header a{
    position: relative;
    top: 5px;
-   height: 25px;
+   height: 28px;
 }
 
 .logos-header a i{
@@ -292,7 +295,7 @@ header div nav{
 }
 
 .parrafo-suscription{
-    width: 35%;
+    width: 30%;
     max-width: 300px;
 }
 
@@ -306,7 +309,7 @@ header div nav{
 }
 
 .form-suscription{
-    width: 55%;
+    width: 65%;
 }
 
 .form-suscription input{
@@ -327,7 +330,7 @@ header div nav{
     position: relative;
     left: 20px;
     border-radius: 8px;
-    background-color: var(--tono5);
+    background-color: var(--brownDark);
     font-size: 10px;
     text-align: center;
 }
@@ -340,6 +343,18 @@ header div nav{
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< HOME >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 
 /*main*/
+.carouselIndex{
+    height: 200px;
+    border-radius: 10px;
+}
+
+.nameCarousel{
+    position: relative;
+    bottom: 45px;
+    left: 20px;
+    color: white;
+}
+
 .banner{
     background-image: url('/img/fondoCampo.jpeg');
     margin-top: 12px;
@@ -413,13 +428,13 @@ header div nav{
 }
 
 .coffee-information-section, .best-score-section{
-    padding: 20px;
-    background-color: var(--gray);
+    padding: 20px; 
 }
 
 .title-section{
     text-align: center;
     padding: 15px;
+    font-size: 25px;
 }
 
 .container-coffee-information-section{
@@ -588,7 +603,6 @@ input[type="radio"]:checked ~ label {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-
 }
 
 .contentLogin{
@@ -1777,6 +1791,9 @@ input[type="radio"]:checked ~ label {
 
 @media(min-width: 650px){
     /*Home*/
+    .carouselIndex{
+        height: 250px;
+    }
     .elements-header{
         width: 73%;
         padding: 5px;
@@ -1905,6 +1922,10 @@ input[type="radio"]:checked ~ label {
 
 @media(min-width: 770px){
     /*Header*/
+    .carouselIndex{
+        height: 280px;
+    }
+
     .elements-header{
         width: 77%;
     }
@@ -1919,7 +1940,12 @@ input[type="radio"]:checked ~ label {
 
     /*suscription*/
     .parrafo-suscription p{
-        font-size: 13px;
+        font-size: 15px;
+        left: 100px;
+    }
+
+    .form-suscription input{
+        left: 100px;
     }
 
     .button-footer{
@@ -1983,13 +2009,22 @@ input[type="radio"]:checked ~ label {
 
 @media(min-width: 860px){
     /*header*/
+    .carouselIndex{
+        height: 320px;
+    }
+
     .elements-header{
         width: 80%;
     }
 
     /*suscription*/
+    .form-suscription form input{
+        left: 100px;
+        top: 5px;
+    }
+
     .button-footer{
-        left: 160px;
+        left: 190px;
     }
 
     /*profile*/

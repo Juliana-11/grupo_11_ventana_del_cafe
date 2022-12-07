@@ -16,7 +16,7 @@ function calculateTotal(products) {
 
 /* -------------------- Lógica -------------------- */
 let cartRows = document.querySelector('.cartRows');
-
+console.log(cartRows)
 if (localStorage.shoppingCar) {
 
     let shoppingCar = JSON.parse(localStorage.shoppingCar);
@@ -25,7 +25,7 @@ if (localStorage.shoppingCar) {
         fetch(`/api/product/${item.id}`)
             .then(res => res.json())
             .then(product => {
-
+                console.log(product)
                 if(product){
                     cartRows.innerHTML += `
                         <tr id="row${index}">

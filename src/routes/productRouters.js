@@ -28,7 +28,7 @@ router.post('/delete/:id', productController.delete);
     //Edit: muestra el formulario de edicion de productos
 router.get('/:id/edit', productController.edit);
     //Update: Procesamiento de la edicion de un producto
-router.post('/:id/edit', guestMiddleware, productController.update);
+router.post('/:id/edit', guestMiddleware,configMulterProduct.single('productImage'), productController.update);
     //newType: Procesa los datos de tablas secundarias
 router.post('/newType/:table', productController.newType)
     //Detail: Detalle de producto :id
