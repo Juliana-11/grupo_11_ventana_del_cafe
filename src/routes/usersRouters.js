@@ -24,6 +24,7 @@ const userController = require('../controllers/userController');
 router.get('/register', guestMiddleware, userController.register);
     //Create: procesa el registro
 router.post('/register', configmulterUser.single('userAvatar'),validateRegister, userController.create);
+
     //Confirm: Verifica si se registro
 router.get('/profile/confirm', userController.confirm);
     //login: muestra el formulario de login
@@ -36,7 +37,7 @@ router.get('/recuperarsession', userController.retrieve)
 router.get('/profile/:id',userLoggedMiddleware, userController.profile)
     //Profile: renderiza el perfil
 router.get('/edit/:id', userController.edit)
-router.post('/edit/:id', userController.saveEdit)
+router.post('/edit/:id',configmulterUser.single('userAvatar'),userController.saveEdit)
     //Profile: cerrar session
 router.post('/:id', userController.destroy);
     //Profile: eliminar usuario

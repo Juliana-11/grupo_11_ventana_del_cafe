@@ -7,7 +7,6 @@ const { resolve } = require('path');
 const { rejects } = require('assert');
 
 
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 //Modelos
@@ -51,7 +50,6 @@ const productController = {
 
     save: async (req, res) => {
         let errors = validationResult(req);
-
         if (errors.isEmpty()) {
             const product = await Product.create({
                 productName: req.body.productName,
@@ -89,8 +87,8 @@ const productController = {
                     res.redirect('/product')
                 })
         } else {
-            let oldData = req.body;
-            res.render('productCreateForm', { errors: errors.mapped(), oldData });
+           
+            res.render('products/create', { errors: errors.mapped(), old: req.body });
         }
     },
 

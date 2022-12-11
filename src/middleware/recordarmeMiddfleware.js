@@ -9,15 +9,15 @@ const User = db.User;
 
 function recordarmeMiddleware (req,res,next){
     
-    console.log('entre en recordarmeMiddleware')
+
     if (req.cookies.recordarme != undefined){
-        console.log('entre al primer if')
+        
         User.findAll({include: {model: db.Daysreceive, as:"associateDay_user" }},
                                     {where: { [Op.or]: [{userEmail: req.cookies.recordarme }, {userAs: req.cookies.recordarme }]}}
                                     )
                         .then ( function (result){
                             let usuario = result;
-                            console.log('Antes del segundo if')
+                            
                             if (usuario){
                                 req.session.user = usuario.dataValues;
                                 let userLogged = req.session.user
@@ -29,7 +29,7 @@ function recordarmeMiddleware (req,res,next){
                             }
                         })       
     }else{
-        console.log('Sali de recordarmeMiddleware')
+        
         next();
     }
    

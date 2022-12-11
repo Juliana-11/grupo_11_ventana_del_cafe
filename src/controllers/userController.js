@@ -19,7 +19,7 @@ const userController = {
         res.render('users/register')
     },
 
-    create: (req,res)=>{
+    create: async (req,res)=>{
         let errors = validationResult(req);
         if(errors.isEmpty()){
             let passNewUser = bcrypt.hashSync(req.body.userPassword, 10)
@@ -28,16 +28,14 @@ const userController = {
                 where: { [Op.or]: [{userEmail: req.body.userEmail}, {userAs: req.body.userAs}]}
             })
                 .then (function(result) {
-                    console.log(result.length)
                     if (result.length > 0){
-                        console.log(req.body)
                         let mensajeDeEnvio ={
                             mgs: 'Ya existe un usuario registrado con esa descripción'
                         }
                         let old = req.body
                         res.render('users/register',{msgError: mensajeDeEnvio, old});
                     }else{
-                        User.create({
+                         User.create({
                             userName: req.body.userName,
                             userLastName: req.body.userLastName,
                             userEmail: req.body.userEmail,
@@ -50,59 +48,59 @@ const userController = {
                         }
                         )
                             .then (function (result){
-            
+                                           
                                 if (req.body.ckeckboxUno){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 8
                                     })
                                 }
             
                                 if (req.body.ckeckboxDos){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 1
                                     })
                                 }
             
                                 if (req.body.ckeckboxTres){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 2
                                     })
                                 }
             
                                 if (req.body.ckeckboxCuatro){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 3
                                     })
                                 }
             
                                 if (req.body.ckeckboxCinco){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 4
                                     })
                                 }
             
                                 if (req.body.ckeckboxSeis){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 5
                                     })
                                 }
             
                                 if (req.body.ckeckboxSiete){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 6
                                     })
                                 }
             
                                 if (req.body.ckeckboxOcho){
                                     Day.create({
-                                        user_id: result.null,
+                                        user_id: result.dataValues.id,
                                         day_id: 7
                                     })
                                 }
@@ -178,7 +176,7 @@ const userController = {
     },
     profile: (req, res)=>{
         db.User.findByPk(req.params.id,
-            {include: {model: db.DaysReceive, as:"associateDay_User"}}
+            {include: {model: Order.OrderItem, as: "associateUserbuy"}}
             )
         .then(user => {
             res.render('users/profile', {user})
@@ -187,7 +185,7 @@ const userController = {
     },
     edit: (req, res) => {
         let userId = req.params.id;
-        User.findByPk(userId,{include: {model: db.Daysreceive, as:"associateDay_user" }})
+        User.findByPk(userId)
             .then ( function(result){
                 
                 let userOld = result.dataValues
@@ -197,9 +195,9 @@ const userController = {
     },
     saveEdit: (req,res)=>{
         let idUser = req.params.id;
-        console.log(idUser)
-        //let passNewUser = bcrypt.hashSync(req.body.userPassword, 10);
-        /*User.update({
+        //console.log(idUser)
+        let passNewUser = bcrypt.hashSync(req.body.userPassword, 10);
+        User.update({
             username: req.body.userName,
             userlastname: req.body.userLastName,
             useremail: req.body.userEmail,
@@ -212,7 +210,7 @@ const userController = {
         },
         { where: {id: idUser}}
         )
-            .then( result => {res.redirect('/')})*/
+            .then( result => {res.redirect('/')})
     },
     destroy:(req, res) => {
         req.session.user = undefined

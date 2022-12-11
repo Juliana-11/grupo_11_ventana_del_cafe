@@ -11,22 +11,6 @@ const validateRegister = [
     check('userEmail')
                         .notEmpty().withMessage('* Debe contener un email').bail()
                         .isEmail().withMessage('* Debe ingresar un correo válido')
-                        /*.custom(
-                            (value,{req})=> {
-                                let usuEmail = false ;
-                                let k = 0;
-                                while (k < users.length && usuEmail == false){
-                                    if (users[k].userEmail == req.body.userEmail ){
-                                        usuEmail = true;
-                                    }
-                                    k++;
-                                }
-                                if (usuEmail === true){
-                                    throw new Error('* Correo electrónico ya registrado');
-                                }
-                                return true
-                            } 
-                        )*/
                         ,
     check('userAs')
                         .notEmpty().withMessage('* Debe contener un usuario').bail()
@@ -59,7 +43,7 @@ const validateRegister = [
                                 }
                                 return true
                             } 
-                        ),
+                        )
     /*check('userPhone')
                         .isNumeric().withMessage('* Debe contener un número telefónica').bail()*/
 ];

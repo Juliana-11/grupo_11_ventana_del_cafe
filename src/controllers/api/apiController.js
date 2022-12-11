@@ -1,4 +1,4 @@
-const db = require('../../database/models');
+const db = require('../../../database/models');
 
 const Product = db.Product;
 const Order = db.Order;
@@ -12,7 +12,7 @@ const apiController = {
     checkout: async function (req, res) {
       // return res.send({ ...req.body, userId: req.session.userLogged.id });
       let order = await Order.create(
-        { ...req.body, userId: req.session.userLogged.id },
+        { ...req.body, user_id: req.session.user.id },
         {
           include: Order.OrderItems,
         }

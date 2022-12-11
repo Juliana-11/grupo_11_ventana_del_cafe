@@ -30,7 +30,7 @@
                     <input type="text" name="productPrice" id="price">
                     <br>
                     <% if (locals.errors && errors.productPrice) { %>
-                        <span style="color:red;font-size: 1vw;"><%= errors.productPrice.msg %></span>
+                        <span style="color:red;font-size: 1vw;"><%= errors.productName.msg %></span>
                     <% } %>
                 </div>
     
@@ -71,7 +71,12 @@
                 <div class="itemFormCreateProduct2">
                     <label for="category">Categoria</label>
                     <div class="containerSelectCreate">
-                       
+                        <select name="category" id="category">
+                            <option selected="true" disabled="disabled" >Selecciona ...</option>
+                            <% for( let i = 0; i < categories.length; i++ ) { %>
+                                <option value="<%= categories[i].id %> "><%= categories[i].categoryName %> </option>
+                            <% } %>
+                        </select>
                     </div>
                 </div>
 
@@ -79,7 +84,12 @@
                 <div class="itemFormCreateProduct2">
                     <label for="taste">Sabor</label>
                     <div class="containerSelectCreate">
-                        
+                       <select name="taste">
+                            <option selected="true" disabled="disabled" >Selecciona ...</option>
+                            <% for( let i = 0; i < tastes.length; i++ ) { %>
+                                <option value="<%= tastes[i].id %>"><%= tastes[i].tasteName %></option>        
+                            <% } %>
+                        </select>
                         <%- include('../partials/modalCreateFeatures', {type: 'taste', name_modal: 'Sabor' }) %> 
                     </div>
                 </div>
@@ -88,7 +98,12 @@
                 <div class="itemFormCreateProduct2">
                     <label for="taste">Nivel de tostado</label>
                     <div class="containerSelectCreate">
-                        
+                        <select name="toastlevel">
+                            <option selected="true" disabled="disabled" >Selecciona ...</option>
+                            <% for( let i = 0; i < toastlevels.length; i++ ) { %>
+                                <option value="<%= toastlevels[i].id %>"><%= toastlevels[i].toastLevelName %></option>        
+                            <% } %>
+                        </select>
                         
                         <%- include('../partials/modalCreateFeatures', {type: 'toast-level', name_modal: 'nivel de tostado' }) %>
                     </div>
@@ -119,7 +134,6 @@
         </form>    
     </div>
     <script src="/Js/createFront.js"></script>
-    <%- include('../partials/scripts') %> 
 </body>
 </html>
 

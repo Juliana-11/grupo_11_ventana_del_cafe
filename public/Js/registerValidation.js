@@ -1,7 +1,9 @@
 window.addEventListener("load",function(){
     let formRegister = document.getElementById("formRegister");
+
     formRegister.addEventListener("submit",function (e){
        let errores = [];
+
        let userName = document.getElementById("userName");
        if (userName.value == ""){
             errores.push("Debe ingresar un nombre")
@@ -23,7 +25,6 @@ window.addEventListener("load",function(){
        }
        
        let userPassword = document.getElementById("userPassword");
-       
        if (userPassword.value == ""){
             errores.push("Debe ingresar un password")
        }else if (userPassword.value.length < 8){
@@ -36,7 +37,6 @@ window.addEventListener("load",function(){
             for (let i = 0; i < errores.length;i++){
                 ulErrores.innerHTML += "<li>"+ errores[i] + "</li>"
             }
-
        }
     })
 })

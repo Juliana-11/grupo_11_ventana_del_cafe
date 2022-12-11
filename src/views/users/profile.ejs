@@ -54,92 +54,6 @@
             <p class="change"><a href="users/formEditUser/<%=user.id%> ">Cambiar contraseña</a></p>
         </div>
 
-        <div class="infoUser dayReceiveOrder">
-            <h3>Días a recibir pedido</h3>
-            
-
-            <% if (user.associateDay_user[0].dataValues.id == 8){%>
-                <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;">Todos los días</p>
-                    
-                </div>
-            <% } else if ( user.associateDay_user[0].id != 8){%>
-                <div class="containerdateProfile">
-                    <p style="color: black;">Todos los días</p>
-                </div>
-            <% } %> 
-
-            <% if (user.associateDay_user[0].id != 1){%>
-                <div class="containerdateProfile">
-                    <p style="color: black;">Lunes</p>
-                </div>
-            <% } else {%>
-                <div class="containerdateProfile">
-                    <p style="color: red; font-weight: bold;">Lunes</p>
-                </div>
-            <% } %> 
-
-            <% if (user.associateDay_user.id  === 2){%>
-                <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;">Martes</p>
-                </div>
-            <% } else if (user.associateDay_user.id  != 2){%>
-                <div class="containerdateProfile">
-                    <p style="color: black;">Martes</p>
-                </div>
-            <% } %> 
-
-            <% if (user.associateDay_user.id  === 3){%>
-                <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;">Miércoles</p>
-                </div>
-            <% } else if ( user.associateDay_user.id != 3){%>
-                <div class="containerdateProfile">
-                    <p style="color: black;">Miércoles</p>
-                </div>
-            <% } %> 
-
-            <% if (user.associateDay_user.id  === 4){%>
-                <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;">Jueves</p>
-                </div>
-            <% } else if ( user.associateDay_user.id  != 4){%>
-                <div class="containerdateProfile">
-                    <p style="color: black;">Jueves</p>
-                </div>
-            <% } %> 
-
-            <% if (user.associateDay_user.id  === 5){%>
-                <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;">Viernes</p>
-                </div>
-            <% } else if ( user.associateDay_user.id  != 5){%>
-                <div class="containerdateProfile">
-                    <p style="color: black;">Viernes</p>
-                </div>
-            <% } %> 
-
-            <% if (user.associateDay_user.id  === 6){%>
-                <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;">Sábado</p>
-                </div>
-            <% } else if ( user.associateDay_user.id  != 6){%>
-                <div class="containerdateProfile">
-                    <p style="color: black;">Sábado</p>
-                </div>
-            <% } %> 
-
-            <% if (user.associateDay_user.id  == 7){%>
-                <div class="containerdateProfile">
-                    <p style="color: #1376ab; font-weight: bold;">Domingo</p>
-                </div>
-            <% } else if ( user.associateDay_user.id  != 7){%>
-                <div class="containerdateProfile">
-                    <p style="color: black;">Domingo</p>
-                </div>
-            <% } %> 
-
-        </div>
 
         <div class="infoUser infoContact">
             <h3>Información de contacto</h3>
@@ -178,6 +92,55 @@
             <button type="submit" class="action-button delete">Eliminar</button>
 
         </form>
+
+        <div>
+            <h2>Pedido Nro <%= user.order.originalProduct_id %> </h2>
+            <div>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <strong>#</strong>
+                                </th>
+                                <th>
+                                    <strong>Producto</strong>
+                                </th>
+                                <th>
+                                    <strong>Precio</strong>
+                                </th>
+                                <th>
+                                    <strong>Cantidad</strong>
+                                </th>
+                                <th>
+                                    <strong>Subtotal</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="cartRows">
+                        </tbody>
+                    </table>
+                    <div>
+                        <h2>Total: <span class="totalAmount">$ 0</span></h2>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        Detalles de la compra
+                    </div>
+                    <form id="checkoutCart">
+                        <div>
+                            <div >
+                                <p><strong>Tipo Envio:</strong> Correo Argentino</p>
+                            </div>
+                            <div >
+                                <p><strong>Pago:</strong> Efectivo</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
     </main>
 

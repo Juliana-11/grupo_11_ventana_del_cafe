@@ -33,18 +33,27 @@ p{
     color: black;
 }
 
+
 /*header*/
 .body-style{
     background-color: var(--tono9);
 }
 
+.content{
+    position: relative;
+    top: 110px;
+}
+
 .style-header{
     display: flex;
     flex-wrap: wrap;
+    position: fixed;
     background-color: white;
     margin-bottom: 4px;
     color: white;
-    box-shadow: 0px 0px 10px rgb(50, 48, 48)
+    box-shadow: 0px 0px 10px rgb(50, 48, 48);
+    z-index: 1001;
+    width: 100%;
 }
 
 .container-logo{
@@ -65,6 +74,10 @@ p{
     width: 100%;
     transition: 0.5s;
     object-fit: cover;
+}
+
+.logos-header a i:hover{
+    color: var(--brownDark);
 }
 
 .container-logo:hover .logo{
@@ -127,6 +140,82 @@ p{
 
 }
 
+#containerSearch{
+    border-bottom: 1px solid black;
+    width: 15%;
+}
+
+#containerSearch i{
+    position: relative;
+    top: 11px;
+    left: 30%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+#containerSearch i:hover{
+    color: var(--brownDark);
+}
+
+#containerBarSearch{
+    position: fixed;
+    top: -10px;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 1000;
+    transition: all 800ms;
+}
+
+#containerBarSearch input{
+    display: block;
+    width: 1000px;
+    margin: auto;
+    padding: 10px;
+    font-size: 12px;
+    outline: 0;  
+}
+
+#boxSearch{
+    position: fixed;
+    top: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    background-color: #fff;
+    z-index: 999;
+    overflow: hidden;
+    display: none;
+}
+
+#boxSearch a{
+    display: block;
+    width: 1000px;
+    color: #777777;
+    padding: 12px 20px;
+    font-size: 15px;
+}
+
+#boxSearch li a:hover{
+    background-color: #f3f3f3 ;
+}
+
+#boxSearch li a i{
+    margin-right: 10px;
+    color: #777777;
+}
+
+#coverContainerSearch{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: none;
+}
+
 .part-1-header{
     width: 60%;
     display: flex;
@@ -143,11 +232,10 @@ p{
 }
 
 .part-2-header{
-    width: 40%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    
+}
+.part-2-header i{
+    color: black;
 }
 
 .index-menu{
@@ -231,6 +319,8 @@ header div nav{
     justify-content: center;
     font-size: 10px;
     height: 250px;
+    position: relative;
+    top: 100px;
 }
 
 .politicas-footer{
@@ -668,10 +758,6 @@ input[type="radio"]:checked ~ label {
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PRODUCT CAR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 /*body*/
-.ocultar{
-    display: none;
-}
-
 .ocultar p{
     font-size: 13px;
     padding: 8px;
@@ -685,12 +771,111 @@ input[type="radio"]:checked ~ label {
     margin: 3px;
 }
 
+.infoCar{
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.639);
+    margin-left: 15px;
+}
+
+.partOneCar{
+    width: 50%;
+    display: flex;
+}
+
 .cartRows{
-    border: 2px solid red;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.partTwoCar{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+}
+
+.priceCar, .quantityCar, .subtotalCar{
+    width: 30%;
+    padding: 5px;
+}
+
+.indexCar, .nameCar{
+    text-align: center;
+    padding: 5px;
+}
+
+.cartRows{
+    width:100%;
 }
 
 .shopping-cart-table-names .product{
     width: 50%;
+}
+
+.containerTotalAmount{
+    width: 95%;
+}
+
+.mainCar{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.containerTotalAmount h4{
+    width: 100%;
+    text-align: end;
+    margin: 5px;
+}
+
+.endBuy{
+    width: 100%;
+    margin: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--gray);
+}
+
+.endBuy h2{
+    width: 100%;
+    text-align: center;
+}
+
+.methodsCar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.endBuy form{
+    width: 100%;
+}
+
+.methodCar{
+    width: 50%;
+    text-align: center;
+}
+
+.containerButtonSubmitCar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonSubmitCar{
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.methodCar label{
+    width: 100%;
+
 }
 
 .part-2-body{
@@ -701,8 +886,15 @@ input[type="radio"]:checked ~ label {
     text-align: center;
 }
 
+.partTwoCar button{
+    width: 8%;
+    background-color: rgb(209, 44, 44);
+    border-radius: 5px;
+    border: 0px solid black;
+}
+
 .price, .amount, .subtotal{
-    width: 33%;
+    width: 31%;
 }
 
 /*main*/
@@ -1662,6 +1854,12 @@ input[type="radio"]:checked ~ label {
 
     .botton-subtotal-article-car{
         display: block;
+    }
+}
+
+@media(max-width: 1000px){
+    #containerBarSearch, #containerBarSearch input, #boxSearch{
+        width: 100%;
     }
 }
 

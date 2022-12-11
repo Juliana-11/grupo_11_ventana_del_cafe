@@ -4,75 +4,60 @@
 <body class="body-style">
     <%- include('../partials/header') %>
 
-    <div class="ocultar">
-        <div class="shopping-cart-table-names">
-        <p class="product">Producto</p>
-        <div class="part-2-body">
-            <p class="price">Precio unitario</p>
-            <p class="amount">Cantidad</p>
-            <p class="subtotal">Subtotal</p>
-        </div>
-        </div>
-    </div>
+    <div class="content">
+        <h2>Carrito de compra</h2>
 
-    <main>
-        <table>
-            <tbody class="cartRows">
-            <p>.</p>
-            </tbody>
-        </table>
-
-        <article class="product-car-option-1">
-            
-        <!--<div class="container-img-1">                    
-            <img src="/img/cafeColombiano 2.png" class="img-Car">
-        </div>       
-        <div class="container-info-product-car-1">
-            <h2 class="title-article-car-1">Cafe especial Hilo</h2>
-            <h3 class="price-article-car-1">$42,000</h3>
-            <div class="container-quantity-1">
-                <i class="fas fa-minus"></i>
-                <input  type="text" name="cantidad" id="cantidad" value="1" class="number">
-                <i class="fas fa-plus"></i>
-            </div>                        
-        </div>-->
-        </article>
-
-        <article class="product-car-option-2">
-            <!--<div class="container-name-product-car">
-                <div class="container-img">                    
-                    <img src="/img/cafeColombiano 2.png" class="img-Car">
-                </div>
-                <div class="container-title-product">
-                    <h2 class="title-article-car">Cafe especial Hilo</h2>
-                </div>
-            </div>            
-            <div class="container-info-product-car">
-                <h3 class="price-article-car">$42,000</h3>
-
-                <div class="container-quantity">
-                    <form action="">
-                        <button>
-                            <i class="fas fa-minus"></i>                        
-                        </button>
-                        <input  type="text" name="cantidad" id="cantidad" value="1" class="number">
-                        <button>
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </form>
-                </div>
-
-                <div class="container-price-button">
-                    <h3 class="subtotal-article-car">$42,000</h3>
-                    <form action="">
-                        <button class="botton-subtotal-article-car">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </form>-->
-                </div>
+        <div class="ocultar">
+            <div class="shopping-cart-table-names">
+            <p class="product">Producto</p>
+            <div class="part-2-body">
+                <p class="price">Precio unitario</p>
+                <p class="amount">Cantidad</p>
+                <p class="subtotal">Subtotal</p>
             </div>
-        </article>
-    </main>
+            </div>
+        </div>
+
+        <main class="mainCar">
+                <div class="cartRows">
+                </div>
+            
+            <div class="containerTotalAmount">
+                <h4>Total: <span class="totalAmount">$ 0</span></h2>
+            </div>
+            
+            <div class="endBuy">
+                <h2>Terminar compra</h2>
+                <form id="checkoutCar">
+                    <div class="methodsCar">
+                        <div class="methodCar">
+                            <label for="country">Tipo de envio</label>
+                            <select name="shippingMethod" id="shippingMethod" required>
+                                <option value="" disabled selected>Elegir...</option>
+                                <option value="servientrega">Servientrega</option>
+                                <option value="interRapidisimo">Inter Rapidísimo</option>
+                                <option value="coodinadora">Cordinadora</option>
+                                <option value="DHL">DHL</option>
+                            </select>
+                        </div>
+                        <div class="methodCar">
+                            <label for="country">Pago</label>
+                            <select name="paymentMethod" id="paymentMethod" required>
+                                <option value="" disabled selected>Elegir...</option>
+                                <option value="cash">Efectivo</option>
+                                <option value="debitCard">Tarjeta Débito</option>
+                                <option value="creditCard">Tarjeta Crédito</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="containerButtonSubmitCar">
+                        <button type="submit" class="buttonSubmitCar">Comprar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+    </div>
     <%- include('../partials/footer') %>
     <%- include('../partials/scripts') %> 
     <script src="/Js/shoppingCarFront.js"></script>
