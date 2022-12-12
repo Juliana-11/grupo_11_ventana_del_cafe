@@ -23,7 +23,6 @@ let cartRows = document.querySelector('.cartRows');
 
 
 if (localStorage.shoppingCar) {
-
     let shoppingCar = JSON.parse(localStorage.shoppingCar);
     shoppingCar.forEach((item, index) => {
         fetch(`/api/product/${item.id}`)

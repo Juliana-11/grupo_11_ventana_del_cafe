@@ -50,7 +50,7 @@ const userController = {
                             userPhone: req.body.telefonoRegister,
                         })
                         .then(user =>{
-                            res.render('/users/profile/' + user.dataValues.id)
+                            res.redirect('/users/profile/' + user.dataValues.id)
                         })
                     }
                 })
