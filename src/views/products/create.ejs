@@ -4,122 +4,154 @@
 <body class="bodyStyleFormCreateProduct">
     <!-- Header -->
     <%- include('../partials/header') %> 
+    <%- include('../partials/resultSearchForm') %> 
+    <%- include('../partials/modalOptionHeader') %> 
 
-    <!-- Titulo -->
-    <h1 class="titleCreateProduct">Registro de productos</h1>
+    <div class="content">
 
-    <!-- Formulario de creación -->
-    <div class="containerFormCreate">
-        <div class="errores"></div>
-        <form action="/product/create" method="POST" enctype="multipart/form-data" class="formCreateProduct">
+        <!-- Titulo -->
+        <h1 class="titleCreateProduct">Registro de productos</h1>
+    
+        <!-- Formulario de creación -->
+        <div class="containerFormCreate">
+            <div class="errores"></div>
+            <form action="/product/create" method="POST" enctype="multipart/form-data" class="formCreateProduct">
+    
+                <div class="infogeneralCreate">
+                    <h3 class="tittleh3create">Información general</h3>
 
-            <div class="infogeneralCreate">
-                <h3 class="tittleh3create">Información general</h3>
-
-                <div class="itemFormCreateProduct">
-                    <label for="name" class="labelFormCreateProduct">Nombre de producto</label>
-                    <input type="text" name="productName" id="name">
-                    <br>
-                    <% if (locals.errors && errors.productName) { %>
-                        <span style="color:red;font-size: 1vw;"><%= errors.productName.msg %></span>
-                    <% } %>
-                </div>
-    
-                <div class="itemFormCreateProduct">
-                    <label for="price" class="labelFormCreateProduct">Precio</label>
-                    <input type="text" name="productPrice" id="price">
-                    <br>
-                    <% if (locals.errors && errors.productPrice) { %>
-                        <span style="color:red;font-size: 1vw;"><%= errors.productPrice.msg %></span>
-                    <% } %>
-                </div>
-    
-                <div class="itemFormCreateProduct">
-                    <label for="discount" class="labelFormCreateProduct">Descuento</label>
-                    <input type="text" name="productDiscount" id="discount">
-                    <br>
-                    <% if (locals.errors && errors.productDiscount) { %>
-                        <span style="color:red;font-size: 1vw;"><%= errors.productDiscount.msg %></span>
-                    <% } %>
-                </div>
-    
-                <div class="itemFormCreateProduct">
-                    <label for="productStock" class="labelFormCreateProduct">Cantidad disponible</label>
-                    <input type="text" name="productStock" id="productStock">
-                    <br>
-                    <% if (locals.errors && errors.productStock) { %>
-                        <span style="color:red;font-size: 1vw;"><%= errors.productStock.msg %></span>
-                    <% } %>
-                </div>
-    
-                <div class="itemFormCreateProduct">
-                    <label for="productOrigin" class="labelFormCreateProduct">Origen del producto</label>
-                    <input type="text" name="productOrigin" id="productOrigin">
-                    <br>
-                    <% if (locals.errors && errors.productOrigin) { %>
-                        <span style="color:red;font-size: 1vw;"><%= errors.productOrigin.msg %></span>
-                    <% } %>
-                </div>
-    
-            </div>
+                    <div class="contentInfoAllCreate">
+                        
+                        <div class="itemFormCreateProduct">
+                            <div>
+                                <i class="fas fa-coffee"></i>
+                                <input type="text" name="productName" id="name" placeholder="Nombre de producto">
+                            </div>
+                            <% if (locals.errors && errors.productName) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.productName.msg %></span>
+                            <% } %>
+                        </div>
             
-            <div class="containerFeaturesCreate">
-                <!---Características--->
-                <h3 class="tittleh3create">Caracteristicas</h3>
-
-                <!----Categoria---->
-                <div class="itemFormCreateProduct2">
-                    <label for="category">Categoria</label>
-                    <div class="containerSelectCreate">
-                       
+                        <div class="itemFormCreateProduct">
+                            <div>
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <input type="text" name="productPrice" id="price" placeholder="Precio">
+                            </div>
+                            <% if (locals.errors && errors.productPrice) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.productName.msg %></span>
+                            <% } %>
+                        </div>
+            
+                        <div class="itemFormCreateProduct">
+                            <div>
+                                <i class="fas fa-tag"></i>
+                                <input type="text" name="productDiscount" id="discount" placeholder="Descuento">
+                            </div>
+                            <% if (locals.errors && errors.productDiscount) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.productDiscount.msg %></span>
+                            <% } %>
+                        </div>
+            
+                        <div class="itemFormCreateProduct">
+                            <div>
+                                <i class="fas fa-layer-group"></i>
+                                <input type="text" name="productStock" id="productStock" placeholder="Cantidad disponible">
+                            </div>
+                            <% if (locals.errors && errors.productStock) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.productStock.msg %></span>
+                            <% } %>
+                        </div>
+            
+                        <div class="itemFormCreateProduct">
+                            <div>
+                                <i class="fas fa-map-marked-alt"></i>
+                                <input type="text" name="productOrigin" id="productOrigin" placeholder="Origen del producto">
+                            </div>
+                            <% if (locals.errors && errors.productOrigin) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.productOrigin.msg %></span>
+                            <% } %>
+                        </div>
                     </div>
                 </div>
-
-                <!----Sabor---->
-                <div class="itemFormCreateProduct2">
-                    <label for="taste">Sabor</label>
-                    <div class="containerSelectCreate">
-                        
-                        <%- include('../partials/modalCreateFeatures', {type: 'taste', name_modal: 'Sabor' }) %> 
-                    </div>
-                </div>
+                
+                <div class="containerFeaturesCreate">
+                    <!---Características--->
+                    <h3 class="tittleh3create">Caracteristicas</h3>
     
-                <!----Nivel de tostado---->
-                <div class="itemFormCreateProduct2">
-                    <label for="taste">Nivel de tostado</label>
-                    <div class="containerSelectCreate">
+                    <div class="containerElementsFeaturesCreate">
                         
+                        <!----Categoria---->
+                        <div class="itemFormCreateProduct2">
+                            <div class="containerSelectCreate">
+                                <i class="fas fa-stream"></i>
+                                <select name="category" id="category">
+                                    <option selected="true" disabled="disabled" >Categoria...</option>
+                                    <% for( let i = 0; i < categories.length; i++ ) { %>
+                                        <option value="<%= categories[i].id %> "><%= categories[i].categoryName %> </option>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
                         
-                        <%- include('../partials/modalCreateFeatures', {type: 'toast-level', name_modal: 'nivel de tostado' }) %>
+        
+                        <!----Sabor---->
+                        <div class=" itemFormCreateProduct2 acomodar withModal">
+                            <div class="containerSelectCreate">
+                                <i class="fas fa-stream"></i>
+                                <select name="taste">
+                                    <option selected="true" disabled="disabled" >Sabor ...</option>
+                                    <% for( let i = 0; i < tastes.length; i++ ) { %>
+                                        <option value="<%= tastes[i].id %>"><%= tastes[i].tasteName %></option>        
+                                    <% } %>
+                                </select>
+                                <%- include('../partials/modalCreateFeatures', {type: 'taste', name_modal: 'Sabor' }) %> 
+                            </div>
+                        </div>
+            
+                        <!----Nivel de tostado---->
+                        <div class="itemFormCreateProduct2 withModal">
+                            <div class="containerSelectCreate">
+                                <i class="fas fa-stream"></i>
+                                <select name="toastlevel">
+                                    <option selected="true" disabled="disabled" >Nivel de tostado...</option>
+                                    <% for( let i = 0; i < toastlevels.length; i++ ) { %>
+                                        <option value="<%= toastlevels[i].id %>"><%= toastlevels[i].toastLevelName %></option>        
+                                    <% } %>
+                                </select>
+                                <%- include('../partials/modalCreateFeatures', {type: 'toast-level', name_modal: 'nivel de tostado' }) %>     
+                            </div>
+                        </div>
+        
+                        <div class="itemFormCreateProduct2">
+                            <div class="containerSelectCreate">
+                                <div>
+                                    <i class="fas fa-images"></i>
+                                    <label for="image">Imagen</label>
+                                </div>
+                                <input type="file" name="productImage" accept="image/gif, image/png, image/jpg, image/jpeg">
+                            </div>
+                        </div>
+        
+                        <div class="descriptionFormCreateProduct">
+                            <label for="description">Descripción del producto</label>
+                            <div class="containerTextareaCreate">
+                                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                                <br>
+                                <% if (locals.errors && errors.description) { %>
+                                    <span style="color:red;font-size: 1vw;"><%= errors.description.msg %></span>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="buttonCreate ">
+                        <button type="submit">Guardar</button>
                     </div>
                 </div>
-
-                <div class="itemFormCreateProduct2">
-                    <label for="image">Imagen</label>
-                    <div class="containerSelectCreate">
-                        <input type="file" name="productImage" >
-                    </div>
-                </div>
-
-                <div class="descriptionFormCreateProduct">
-                    <label for="description">Descripción del producto</label>
-                    <div class="containerTextareaCreate">
-                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
-                        <br>
-                        <% if (locals.errors && errors.description) { %>
-                            <span style="color:red;font-size: 1vw;"><%= errors.description.msg %></span>
-                        <% } %>
-                    </div>
-                </div>
-
-                <div class="buttonCreate">
-                    <button type="submit">guardar</button>
-                </div>
-            </div>
-        </form>    
+            </form>    
+        </div>
     </div>
     <script src="/Js/createFront.js"></script>
-    <%- include('../partials/scripts') %> 
 </body>
 </html>
 

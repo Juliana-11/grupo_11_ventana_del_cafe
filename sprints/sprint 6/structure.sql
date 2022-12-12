@@ -85,33 +85,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ventanadelcafe`.`daysReceive`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `ventanadelcafe`.`daysReceive` ;
-
-CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`daysReceive` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `dayName` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `ventanadelcafe`.`day_user`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `ventanadelcafe`.`day_user` ;
-
-CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`day_user` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `day_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `id_user_idx` (`user_id` ASC) ,
-  INDEX `id_day_idx` (`day_id` ASC) )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `ventanadelcafe`.`productImage`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `ventanadelcafe`.`productImage` ;
@@ -175,7 +148,7 @@ DROP TABLE IF EXISTS `ventanadelcafe`.`orderItem` ;
 
 CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`orderItem` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `Order_id` INT NOT NULL,
+  `order_id` INT NOT NULL,
   `originalProduct_id` INT NULL,
   `productName` VARCHAR(45) NOT NULL,
   `productPrice` INT NOT NULL,
@@ -185,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `ventanadelcafe`.`orderItem` (
   `stock` INT NOT NULL,
   `quantity` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `order_id_idx` (`Order_id` ASC) ,
+  INDEX `order_id_idx` (`order_id` ASC) ,
   INDEX `originalProduct_id_idx` (`originalProduct_id` ASC) )
 ENGINE = InnoDB;
 

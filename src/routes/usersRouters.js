@@ -14,7 +14,7 @@ const guestMiddleware = require('../middleware/guestMiddleware');
 const userLoggedMiddleware = require('../middleware/userLoggedMiddleware');
 
 
-let recordarmeMiddleware = require('../middleware/recordarmeMiddfleware');
+let recordarmeMiddleware = require('../middleware/recordarmeMiddleware');
 
 //controllers
 const userController = require('../controllers/userController');

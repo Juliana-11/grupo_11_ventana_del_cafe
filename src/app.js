@@ -6,7 +6,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const recordarmeMiddleware = require('./middleware/recordarmeMiddfleware');
+const recordarmeMiddleware = require('./middleware/recordarmeMiddleware');
 const bodyParse = require('body-parser')
 
 /*Configuraciones*/

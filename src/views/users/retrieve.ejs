@@ -4,18 +4,24 @@
 
 <body class="body-style ">
     <%- include('../partials/header') %>
+    <%- include('../partials/resultSearchForm') %>
+    <%- include('../partials/modalOptionHeader') %> 
 
-    <h2 class="titleretrieve">Recuperar cuenta</h2>
+    <div class="content">
 
-    <div class="formretrieve">
-        <div class="containerretrieve">
-            <form action="#">
-                <label for="emailretrieve">Ingrea tu email registrado</label>
-                <input type="email" name="emailretrieve" id="emailretrieve">
-                <button type="submit" class="buttonretrieve">¡Recuperar!</button>
-            </form>
+        <h2 class="titleretrieve">Recuperar cuenta</h2>
+    
+        <div class="formretrieve">
+            <div class="containerretrieve">
+                <form action="#">
+                    <label for="emailretrieve">Ingrea tu email registrado</label>
+                    <input type="email" name="emailretrieve" id="emailretrieve">
+                    <button type="submit" class="buttonretrieve">¡Recuperar!</button>
+                </form>
+            </div>
         </div>
     </div>
+
 
     <%- include('../partials/footer') %>
     <%- include('../partials/scripts') %> 

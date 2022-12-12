@@ -5,6 +5,7 @@
 <body class="body-style">
     <%- include('../partials/header') %>
     <%- include('../partials/resultSearchForm') %>
+    <%- include('../partials/modalOptionHeader') %> 
     
     <div class="content">
         <div class="bannerList">
@@ -17,69 +18,74 @@
 
         <div class="content-products">
             <div class="container-products">
-                <div class="element-filter-one">
-                    <form action="#">
-                        <input type="text" id="search" placeholder="Buscar">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
-                <div class="element-filter-two">
-                    <div class="element-filter">
-                        <div class="title-filter-products">
-                            <h4>Filtrar por categoria</h4>
-                        </div>
-                        <form action="#">
-                            <div class="item-filter-products">
-                                <input type="checkbox" name="consumo" class="categoryItem" category="consumo" >
-                                <label for="consumo">Consumo</label>
-                            </div>
-                            <div class="item-filter-products">
-                                <input type="checkbox" name="belleza" class="categoryItem belleza"  >
-                                <label for="belleza">Belleza</label>
-                            </div>
-                            <div class="item-filter-products">
-                                <input type="checkbox" name="licores" class="categoryItem licores"  >
-                                <label for="licores">Licores</label>
-                            </div>
-                            <div class="item-filter-products">
-                                <input type="checkbox" name="souvenirs" class="categoryItem souvenirs"  >
-                                <label for="souvenirs">Souvenirs</label>
-                            </div>
-                            <div class="item-filter-products">
-                                <input type="checkbox" name="all" class="categoryItem" category="all" >
-                                <label for="all">Todos</label>
-                            </div>
+                <div class="elementsFilter">
+                    <div class="element-filter-one">
+                        <form action="#" class="formSearchList">
+                            <input type="text" id="search" placeholder="Buscar">
+                            <button type="submit"><i class="fas fa-search"></i></button>
                         </form>
-                    </div> 
-                    
-                    <div class="element-filter">
-                        <div class="title-filter-products">
-                            <h4>Filtrar por precio</h4>
-                            <div class="range">
-                                <input type="range" class="slider" min="10" max="200" value="50" step="1">
+                    </div>
+                    <div class="element-filter-two">
+                        <div class="element-filter">
+                            <div class="title-filter-products">
+                                <h4>Filtrar por categoria</h4>
                             </div>
-                        </div>
-                    </div> 
-
-                    <div class="element-filter">
-                        <div class="title-filter-products">
-                            <h4>Filtrar por características</h4>
-                            
-                            tostado
-                        </div>
-                    </div> 
-
-                    <div class="element-filter">
-                        <a href="/product/create">Nuevo producto</a>
-                    </div> 
-                    
-                </div>
+                            <form action="#">
+                                <div class="item-filter-products">
+                                    <input type="checkbox" name="consumo" class="categoryItem" category="consumo" >
+                                    <label for="consumo">Consumo</label>
+                                </div>
+                                <div class="item-filter-products">
+                                    <input type="checkbox" name="belleza" class="categoryItem belleza"  >
+                                    <label for="belleza">Belleza</label>
+                                </div>
+                                <div class="item-filter-products">
+                                    <input type="checkbox" name="licores" class="categoryItem licores"  >
+                                    <label for="licores">Licores</label>
+                                </div>
+                                <div class="item-filter-products">
+                                    <input type="checkbox" name="souvenirs" class="categoryItem souvenirs"  >
+                                    <label for="souvenirs">Souvenirs</label>
+                                </div>
+                                <div class="item-filter-products">
+                                    <input type="checkbox" name="all" class="categoryItem" category="all" >
+                                    <label for="all">Todos</label>
+                                </div>
+                            </form>
+                        </div> 
+                        
+                        <div class="element-filter">
+                            <div class="title-filter-products">
+                                <h4>Filtrar por precio</h4>
+                                <div class="range">
+                                    <input type="range" class="slider" min="10" max="200" value="50" step="1">
+                                </div>
+                            </div>
+                        </div> 
                 
-                <div class="result-products">
-                    <%- include('../partials/product') %> 
-
+                        <div class="element-filter">
+                            <div class="title-filter-products">
+                                <h4>Filtrar por características</h4>
+                                tostado
+                            </div>
+                        </div> 
+                
+                        <div class="newProduct">
+                            <a href="/product/create">Nuevo producto</a>
+                        </div> 
                 </div>
             </div>
+
+            <%- include("../partials/filterProduct") %> 
+            
+        </div>
+        <div class="icon-filter-list">
+            <i class="fas fa-sort-down"></i>
+        </div>
+            
+        <div class="result-products">
+            <%- include('../partials/product') %> 
+
         </div>
     </div>
     <%- include('../partials/footer') %>

@@ -56,7 +56,7 @@ if (localStorage.shoppingCar) {
                 }
             }).then(() => {
                 let total = document.querySelector(".totalAmount");
-                total.innerText = `$ ${calculateTotal()}`
+                total.innerText = products != [] ? `$ ${calculateTotal()}` : "$ 0"
             })
         });
 }

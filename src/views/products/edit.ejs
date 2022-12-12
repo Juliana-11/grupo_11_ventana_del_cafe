@@ -3,131 +3,135 @@
 <%- include('../partials/head', {title: "Detalle de producto"}) %>
 <body>
     <%- include('../partials/header') %>
-
-    <% console.log(productFinally) %> 
-    <h1 class="titleCreateProduct">Edición de producto</h1>
+    <%- include('../partials/resultSearchForm') %>
+    <%- include('../partials/modalOptionHeader') %> 
     
-    <div class="containerFormCreate">
-
-        <form action="/product/<%= productFinally.id %>/edit" method="POST" enctype="multipart/form-data" class="containerFormCreateProduct">
-
-            <div class="infogeneralCreate">
-                <h3 class="tittleh3create">Información general</h3>
-
-                <div class="itemFormCreateProduct">
-                    <label for="name" class="labelFormCreateProduct">Nombre de producto</label>
-                    <input type="text" name="productName" id="name" value="<%= productFinally.productName  %>">
-                </div>
+    <div class="content">
+         
+        <h1 class="titleCreateProduct">Edición de producto</h1>
+        
+        <div class="containerFormCreate">
+    
+            <form action="/product/<%= productFinally.id %>/edit" method="POST" enctype="multipart/form-data" class="containerFormCreateProduct">
+    
+                <div class="infogeneralCreate">
+                    <h3 class="tittleh3create">Información general</h3>
+    
                     <div class="itemFormCreateProduct">
-                    <label for="price" class="labelFormCreateProduct">Precio</label>
-                    <input type="text" name="productPrice" id="price" value="<%= productFinally.productPrice%>">
-                </div>
-    
-                <div class="itemFormCreateProduct">
-                    <label for="discount" class="labelFormCreateProduct">Descuento</label>
-                    <input type="text" name="productDiscount" id="discount" value="<%= productFinally.productDiscount%>">
-                </div>
-    
-                <div class="itemFormCreateProduct">
-                    <label for="stock" class="labelFormCreateProduct">Cantidad dispobible</label>
-                    <input type="text" name="productStock" id="stock" value="<%= productFinally.stock%>">
-                </div>
-    
-                <div class="itemFormCreateProduct">
-                    <label for="origin" class="labelFormCreateProduct">Origen del producto</label>
-                    <input type="text" name="productOrigin" id="origin" value="<%= productFinally.originProduct %>">
-                </div>
-    
-            </div>
-            
-            <div class="containerFeaturesCreate">
-                <h3 class="tittleh3create">Caracteristicas</h3>
-
-                <!----Categoria---->
-                <div class="itemFormCreateProduct2">
-                    <label for="category">Categoria</label>
-                    <div class="containerSelectCreate">
-                        <select name="category" id="category">
-                            <option disabled="disabled" >Selecciona ...</option>
-                            <% for( let i = 0; i < categories.length; i++ ) { %>
-                                <% if (categories[i].id == productFinally.category_id) { %>
-                                    <option value="<%= categories[i].id %> " selected="true" ><%= categories[i].categoryName %> </option>
-                                <% }else{ %>
-                                    <option value="<%= categories[i].id %> "><%= categories[i].categoryName %> </option>
-                                <% } %>
-                            <% } %>
-                        </select>
+                        <label for="name" class="labelFormCreateProduct">Nombre de producto</label>
+                        <input type="text" name="productName" id="name" value="<%= productFinally.productName  %>">
                     </div>
-                </div>
-
-                <!----Sabor---->
-                <div class="itemFormCreateProduct2">
-                    <label for="taste">Sabor</label>
-                    <div class="containerSelectCreate">
-                        <select name="taste">
-                            <option  disabled="disabled" >Selecciona ...</option>
-                            
-                            <% for( let i = 0; i < tastes.length; i++ ) { %>
-                                <% if (product_tastes[i].dataValues.product_id == productFinally.id ) { %>
-                                    <option value="<%= tastes[i].id %>" selected="true"><%= tastes[i].tasteName %></option>  
-                                <% }else{ %>
-                                    <option value="<%= tastes[i].id %>"><%= tastes[i].tasteName %></option>        
-                                <% } %>
-                            <% } %>
-                        </select>
-                        <%- include('../partials/modalCreateFeatures', {type: 'taste', name_modal: 'Sabor' }) %> 
+                        <div class="itemFormCreateProduct">
+                        <label for="price" class="labelFormCreateProduct">Precio</label>
+                        <input type="text" name="productPrice" id="price" value="<%= productFinally.productPrice%>">
                     </div>
-                </div>
-    
-                <!----Nivel de tostado---->
-                <div class="itemFormCreateProduct2">
-                    <label for="taste">Nivel de tostado</label>
-                    <div class="containerSelectCreate">
-                        <select name="toastlevel">
-                            <option  disabled="disabled" >Selecciona ...</option>
-                            
-                            <% for( let i = 0; i < toastlevels.length; i++ ) { %>
-                                <% if (toastlevels[i].dataValues.id == productFinally.toastlevel_id ) { %>
-                                    <option value="<%= toastlevels[i].id %>" selected="true" ><%= toastlevels[i].toastLevelName %></option>
-                                <% }else{ %>
-                                    <option value="<%= toastlevels[i].id %>"><%= toastlevels[i].toastLevelName %></option>        
-                                <% } %>
-                            <% } %>
-                        </select>
-                        
-                        <%- include('../partials/modalCreateFeatures', {type: 'toast-level', name_modal: 'nivel de tostado' }) %>
+        
+                    <div class="itemFormCreateProduct">
+                        <label for="discount" class="labelFormCreateProduct">Descuento</label>
+                        <input type="text" name="productDiscount" id="discount" value="<%= productFinally.productDiscount%>">
                     </div>
-                </div>
-
-                <div class="itemFormCreateProduct2">
-                    <label for="image">Imagen</label>
-                    <div class="containerSelectCreate">
-                        <input type="file" name="productImage" >
+        
+                    <div class="itemFormCreateProduct">
+                        <label for="stock" class="labelFormCreateProduct">Cantidad dispobible</label>
+                        <input type="text" name="productStock" id="stock" value="<%= productFinally.stock%>">
                     </div>
+        
+                    <div class="itemFormCreateProduct">
+                        <label for="origin" class="labelFormCreateProduct">Origen del producto</label>
+                        <input type="text" name="productOrigin" id="origin" value="<%= productFinally.originProduct %>">
+                    </div>
+        
                 </div>
-
-               
-                    <% for( let i = 0; i < images.length; i++ ) { %>
-                        <% if (images[i].dataValues.product_id == productFinally.id) { %>
-                            <div class="edit_image">
-                                <img src="/img/products/<%= images[i].dataValues.productImageName %> " alt="No encontrada">
-                            </div>
-                        <% }%>
-                    <% } %>
                 
-
-                <div class="descriptionFormCreateProduct">
-                    <label for="description">Descripción del producto</label>
-                    <div class="containerTextareaCreate">
-                        <textarea name="description" id="description" ><%= productFinally.productDescription %></textarea>
+                <div class="containerFeaturesCreate">
+                    <h3 class="tittleh3create">Caracteristicas</h3>
+    
+                    <!----Categoria---->
+                    <div class="itemFormCreateProduct2">
+                        <label for="category">Categoria</label>
+                        <div class="containerSelectCreate">
+                            <select name="category" id="category">
+                                <option disabled="disabled" >Selecciona ...</option>
+                                <% for( let i = 0; i < categories.length; i++ ) { %>
+                                    <% if (categories[i].id == productFinally.category_id) { %>
+                                        <option value="<%= categories[i].id %> " selected="true" ><%= categories[i].categoryName %> </option>
+                                    <% }else{ %>
+                                        <option value="<%= categories[i].id %> "><%= categories[i].categoryName %> </option>
+                                    <% } %>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <!----Sabor---->
+                    <div class="itemFormCreateProduct2">
+                        <label for="taste">Sabor</label>
+                        <div class="containerSelectCreate">
+                            <select name="taste">
+                                <option  disabled="disabled" >Selecciona ...</option>
+                                
+                                <% for( let i = 0; i < tastes.length; i++ ) { %>
+                                    <% if (product_tastes[i].dataValues.product_id == productFinally.id ) { %>
+                                        <option value="<%= tastes[i].id %>" selected="true"><%= tastes[i].tasteName %></option>  
+                                    <% }else{ %>
+                                        <option value="<%= tastes[i].id %>"><%= tastes[i].tasteName %></option>        
+                                    <% } %>
+                                <% } %>
+                            </select>
+                            <%- include('../partials/modalCreateFeatures', {type: 'taste', name_modal: 'Sabor' }) %> 
+                        </div>
+                    </div>
+        
+                    <!----Nivel de tostado---->
+                    <div class="itemFormCreateProduct2">
+                        <label for="taste">Nivel de tostado</label>
+                        <div class="containerSelectCreate">
+                            <select name="toastlevel">
+                                <option  disabled="disabled" >Selecciona ...</option>
+                                
+                                <% for( let i = 0; i < toastlevels.length; i++ ) { %>
+                                    <% if (toastlevels[i].dataValues.id == productFinally.toastlevel_id ) { %>
+                                        <option value="<%= toastlevels[i].id %>" selected="true" ><%= toastlevels[i].toastLevelName %></option>
+                                    <% }else{ %>
+                                        <option value="<%= toastlevels[i].id %>"><%= toastlevels[i].toastLevelName %></option>        
+                                    <% } %>
+                                <% } %>
+                            </select>
+                            
+                            <%- include('../partials/modalCreateFeatures', {type: 'toast-level', name_modal: 'nivel de tostado' }) %>
+                        </div>
+                    </div>
+    
+                    <div class="itemFormCreateProduct2">
+                        <label for="image">Imagen</label>
+                        <div class="containerSelectCreate">
+                            <input type="file" name="productImage" >
+                        </div>
+                    </div>
+    
+                   
+                        <% for( let i = 0; i < images.length; i++ ) { %>
+                            <% if (images[i].dataValues.product_id == productFinally.id) { %>
+                                <div class="edit_image">
+                                    <img src="/img/products/<%= images[i].dataValues.productImageName %> " alt="No encontrada">
+                                </div>
+                            <% }%>
+                        <% } %>
+                    
+    
+                    <div class="descriptionFormCreateProduct">
+                        <label for="description">Descripción del producto</label>
+                        <div class="containerTextareaCreate">
+                            <textarea name="description" id="description" ><%= productFinally.productDescription %></textarea>
+                        </div>
+                    </div>
+    
+                    <div class="buttonCreate">
+                        <button type="submit">guardar</button>
                     </div>
                 </div>
-
-                <div class="buttonCreate">
-                    <button type="submit">guardar</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
     <%- include('../partials/footer') %>

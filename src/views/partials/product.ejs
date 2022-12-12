@@ -13,12 +13,15 @@
         </div>
     
         <div class="info-money">
-            <p><%= productsResolve[i].productPrice %> </p> /
-            <p><%= productsResolve[i].productDiscount %> % off</p> <br>
+            <p class="productPriceList"><%= productsResolve[i].productPrice %></p>
+            <% if (productsResolve[i].productDiscount && productsResolve[i].productDiscount != 0) { %>
+                <p class="slash">/</p> 
+                <p class="productDiscountList"><%= productsResolve[i].productDiscount %> % off</p>
+            <% } %>
         </div>
         <div class="button-item-result-products">
             <button><a href="/product/<%= productsResolve[i].id%>">Ver detalles</a></button>
-            <button class="agregarCarrito" data-id="<%= productsResolve[i].id%>">Comprar</i></button>
+            <button class="agregarCarrito" data-id="<%= productsResolve[i].id%>"><a>Comprar</a></button>
         </div>
     
         <%# if (locals.session.user) { %>

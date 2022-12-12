@@ -16,7 +16,11 @@ const User = db.User;
 const Day = db.Day_user;
 const userController = {
     register: (req, res)=>{
-        res.render('users/register')
+        if(req.query.email_footer){
+            res.render('users/register', {query: req.query.email_footer})
+        }else{
+            res.render('users/register')
+        }
     },
 
     create: async (req,res)=>{
@@ -44,68 +48,10 @@ const userController = {
                             userAvatar: req.file == undefined ? 'defaultImage.png': req.file.filename,
                             userAddress: req.body.userAddress,
                             userPhone: req.body.telefonoRegister,
-                        
-                        }
-                        )
-                            .then (function (result){
-                                           
-                                if (req.body.ckeckboxUno){
-                                    Day.create({
-                                        user_id: result.dataValues.id,
-                                        day_id: 8
-                                    })
-                                }
-            
-                                if (req.body.ckeckboxDos){
-                                    Day.create({
-                                        user_id: result.dataValues.id,
-                                        day_id: 1
-                                    })
-                                }
-            
-                                if (req.body.ckeckboxTres){
-                                    Day.create({
-                                        user_id: result.dataValues.id,
-                                        day_id: 2
-                                    })
-                                }
-            
-                                if (req.body.ckeckboxCuatro){
-                                    Day.create({
-                                        user_id: result.dataValues.id,
-                                        day_id: 3
-                                    })
-                                }
-            
-                                if (req.body.ckeckboxCinco){
-                                    Day.create({
-                                        user_id: result.dataValues.id,
-                                        day_id: 4
-                                    })
-                                }
-            
-                                if (req.body.ckeckboxSeis){
-                                    Day.create({
-                                        user_id: result.dataValues.id,
-                                        day_id: 5
-                                    })
-                                }
-            
-                                if (req.body.ckeckboxSiete){
-                                    Day.create({
-                                        user_id: result.dataValues.id,
-                                        day_id: 6
-                                    })
-                                }
-            
-                                if (req.body.ckeckboxOcho){
-                                    Day.create({
-                                        user_id: result.dataValues.id,
-                                        day_id: 7
-                                    })
-                                }
-                            })
-                            res.render('users/confirm')
+                        })
+                        .then(user =>{
+                            res.render('/users/profile/' + user.dataValues.id)
+                        })
                     }
                 })
 
@@ -136,7 +82,7 @@ const userController = {
                         let passValida = bcrypt.compareSync(req.body.passwordLogin,resultEmail[0].dataValues.password)
                         if (passValida){  
                                 let usuario = resultEmail;
-                                req.session.user =   usuario;
+                                req.session.user = usuario;
                                 if (req.body.recuerdameLogin != undefined){
                                     res.cookie('recordarme',req.body.userLogin,{ maxAge: 900000});        
                                 }
@@ -176,7 +122,7 @@ const userController = {
     },
     profile: (req, res)=>{
         db.User.findByPk(req.params.id,
-            {include: {model: Order.OrderItem, as: "associateUserbuy"}}
+            //{include: {model: Order, as: "associateUserbuy"}}
             )
         .then(user => {
             res.render('users/profile', {user})

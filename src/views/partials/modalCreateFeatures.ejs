@@ -1,9 +1,8 @@
-<button type="button" class="button-add-create-<%= type %> modalCreateFeatures"> + </button>
+<button type="button" class="button-add-create-<%= type %> modalCreateFeatures buttonCreateModal"> + </button>
 
-    <div class="modal-container-create-<%= type %>" >
+<div class="modal-container-create-<%= type %>" >
 
-        <div class="modal-create">
-
+    <div class="modal-create">
             <h1>Agregar nuevo <%= name_modal %> </h1>
             <form action="/products/newType/<%= type %>" method="POST">
                 <label for="new<%= type %>" class="label-modal-create">¿Cuál será ese nuevo <%= name_modal %>?</label>
@@ -11,8 +10,13 @@
                     <input type="text" name="new<%= type %>" >
                 </div>
             </form>
-            <div class="input-modal-create">
-                <button type="submit" class="button-close-modal-create-<%= type %> modalCreateFeatures ">Agregar</button>
-            </div>
+        <div class="input-modal-create">
+            <button class="button-create-modal-<%= name_modal %> ">Agregar</button>
+            <button id="cancel">Cancelar</button>
         </div>
     </div>
+</div>
+
+<div id="cover-modal-create-product">
+
+</div>

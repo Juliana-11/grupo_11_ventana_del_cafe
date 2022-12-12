@@ -3,45 +3,50 @@
     <%- include('../partials/head', {title: "Login"}) %>
 <body class="body-style">
     <%- include('../partials/header') %>
+    <%- include('../partials/resultSearchForm') %>
+    <%- include('../partials/modalOptionHeader') %> 
     
 <main>
-    <form action="#" method="post" id ="formLogin">
-        <h1 class="tituloRegister">INICIA SESIÓN</h1>
+    <div class="content">
 
-        <div class="containerLogin">
-            
-            <div class="containerImgDecoLogin">
-                <img src="/img/cafeColombiano.jpg" alt="containerImgDecoLogin">
-            </div>
+        <form action="#" method="post" id ="formLogin">
+            <h1 class="tituloRegister">INICIA SESIÓN</h1>
     
             <div class="containerLogin">
-                <div class="contentLogin">
-                    <label for="userLogin">Indicame tu usuario</label>
-                        <input class="itemLogin" type="text" name="userLogin" id="userLogin"  placeholder="Nombre de usuario o correo electronico">
-                    <label for="passwordLogin">Indicame tu contraseña</label>
-                        <input class="itemLogin" type="password" name="passwordLogin" id="passwordLogin" placeholder="Contraseña" >
-                    <label for="recuerdameLogin">
-                        <% if (locals.msgError) {%>
-                            <span style="color:red;"><%= msgError.mgs %></span><br>
-                        <%}%>
-                    <div class ="errorFrom">
-                        <ul></ul>
-                    </div>
-                        <input type="checkbox" name="recuerdameLogin" id="recuerdameLogin">¿Quieres que te recuerde?</label>
-                    <div class="containerOlvidasteCredenciales"><a href="/users/recuperarsession" class="olvidasteCredenciales">¿Olvidaste tus credenciales?</a></div>
-                    <div class="containerOlvidasteCredenciales"><a href="/users/register" class="olvidasteCredenciales">Registrarme</a></div>     
+                
+                <div class="containerImgDecoLogin">
+                    <img src="/img/cafeColombiano.jpg" alt="containerImgDecoLogin">
                 </div>
-                        
-                <div class="containerButtonLogin"><button class="buttonLogin" type="submit">Ingresar</button></div>
-            </div>
-    
-            <div class="containerImgDecoLogin">
-                <img src="/img/cafeColombiano 2.png" alt="containerImgDecoLogin">
-            </div>
-        </div>
         
-           
-    </form>
+                <div class="containerLogin">
+                    <div class="contentLogin">
+                        <label for="userLogin">Indicame tu usuario</label>
+                            <input class="itemLogin" type="text" name="userLogin" id="userLogin"  placeholder="Nombre de usuario o correo electronico">
+                        <label for="passwordLogin">Indicame tu contraseña</label>
+                            <input class="itemLogin" type="password" name="passwordLogin" id="passwordLogin" placeholder="Contraseña" >
+                        <label for="recuerdameLogin">
+                            <% if (locals.msgError) {%>
+                                <span style="color:red;"><%= msgError.mgs %></span><br>
+                            <%}%>
+                        <div class ="errorFrom">
+                            <ul></ul>
+                        </div>
+                            <input type="checkbox" name="recuerdameLogin" id="recuerdameLogin">¿Quieres que te recuerde?</label>
+                        <div class="containerOlvidasteCredenciales"><a href="/users/recuperarsession" class="olvidasteCredenciales">¿Olvidaste tus credenciales?</a></div>
+                        <div class="containerOlvidasteCredenciales"><a href="/users/register" class="olvidasteCredenciales">Registrarme</a></div>     
+                    </div>
+                            
+                    <div class="containerButtonLogin"><button class="buttonLogin" type="submit">Ingresar</button></div>
+                </div>
+        
+                <div class="containerImgDecoLogin">
+                    <img src="/img/cafeColombiano 2.png" alt="containerImgDecoLogin">
+                </div>
+            </div>
+            
+               
+        </form>
+    </div>
 </main>
 
 <%- include('../partials/footer') %>

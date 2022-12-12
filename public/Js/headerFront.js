@@ -1,4 +1,4 @@
-                            //---------------------- Carrito ----------------------//
+//---------------------- Carrito ----------------------//
 
 /* Funciones */
 function quantityProductsInCar (){
@@ -104,3 +104,26 @@ function search_internal(){
 icon_search.addEventListener("click", search_show);
 cover_ctn_search.addEventListener("click", search_disguise);
 input_search.addEventListener("keyup", search_internal);
+
+//---------------------- burguer menu ----------------------//
+let optionIcono = document.querySelector(".part-2-header i");
+let modal_option_header = document.querySelector(".modal-option-header")
+let cover_modal_option_header = document.querySelector(".cover-modal-option-header")
+
+/* Funciones */
+//mostrar
+function burguer_menu_show (){
+    modal_option_header.style.left = "40%"
+    cover_modal_option_header.style.display = "block"
+}
+
+//ocultar
+function burguer_menu_disguise(){
+    modal_option_header.style.left = "100%"
+    cover_modal_option_header.style.display = "none"
+}
+
+/* Lógica */
+optionIcono.addEventListener("click", burguer_menu_show)
+cover_modal_option_header.addEventListener("click", burguer_menu_disguise)
+

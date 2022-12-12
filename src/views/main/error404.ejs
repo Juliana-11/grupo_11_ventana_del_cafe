@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head', {title: "Home"}) %>
-
+<%- include('../partials/head', {title: "No encontrado"}) %>
 <body class="body-style error">
     <%- include('../partials/header') %>
+    <%- include('../partials/resultSearchForm') %>
+    <%- include('../partials/modalOptionHeader') %> 
 
-    <div class="containerImg404">
-        <img src="/img/index/404.jpg" >
-    </div>
+    <div class="content">
+        <div class="containerImg404">
+            <img src="/img/index/404.jpg" >
+        </div>
+    
+        <div class="info404">
+            <h2>Tu solicitud no esta disponible</h2>
+            <p><a href="/">Inicio</a></p>
+        </div>
 
-    <div class="info404">
-        <h2>Tu solicitud no esta disponible</h2>
-        <p><a href="/">Inicio</a></p>
     </div>
 
     <%- include('../partials/footer') %>
