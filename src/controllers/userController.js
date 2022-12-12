@@ -165,6 +165,7 @@ const userController = {
     deleteUser: (req, res) => {
         let idParam = req.params.id;
         User.destroy({where : {id: idParam }})
+        req.session.user = undefined
         res.redirect('/')
     }
 }
