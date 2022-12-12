@@ -16,10 +16,12 @@ botonesComprar.forEach((boton)=>{
     //escuchar el click
     boton.addEventListener("click",(e)=>{
         //Formato que pueda leer el localStorage y variables
+        console.log(e)
         let dataShoppingCar = {
             id: e.target.dataset.id,
             quantity: 1
         };
+        console.log(dataShoppingCar)
         let stringifyCar = JSON.stringify([dataShoppingCar]);
         let data_id = e.target.dataset.id;
 
