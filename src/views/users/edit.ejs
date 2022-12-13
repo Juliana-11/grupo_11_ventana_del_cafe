@@ -13,7 +13,7 @@
     
             <h1 class="tituloRegister">Edita tu perfil </h1>
     
-            <form action="/users/edit/<%= old.id %>" method="POST" enctype ="multipart/form-data">
+            <form action="/users/edit/<%= old.id %>" method="POST" enctype ="multipart/form-data" id="formEditUser">
                
                 <div class="containerRegister">
                     <div class="registerPartUno">
@@ -107,6 +107,9 @@
                                 <% } %>
                             </div>
                         </div>
+                        <div class ="errorFrom">
+                            <ul></ul>
+                        </div>
                     </div>
     
                     <div class="imagenDecoRegister">
@@ -125,6 +128,7 @@
 
 <%- include('../partials/footer') %>
 <%- include('../partials/scripts') %> 
+<script src="/Js/editUserValidation.js"></script>
 </body>
 
 </html>

@@ -12,7 +12,7 @@
         
         <div class="containerFormCreate">
     
-            <form action="/product/edit/<%= productFinally.id %>" method="POST" enctype="multipart/form-data" class="containerFormCreateProduct">
+            <form action="/product/edit/<%= productFinally.id %>" method="POST" enctype="multipart/form-data" id="formEditProduct" class="containerFormCreateProduct">
     
                 <div class="infogeneralCreate">
                     <h3 class="tittleh3create">Información general</h3>
@@ -125,6 +125,10 @@
                             <textarea name="description" id="description" ><%= productFinally.productDescription %></textarea>
                         </div>
                     </div>
+
+                    <div class ="errorFrom">
+                        <ul></ul>
+                    </div>
     
                     <div class="buttonCreate">
                         <button type="submit">guardar</button>
@@ -136,6 +140,7 @@
 
     <%- include('../partials/footer') %>
     <%- include('../partials/scripts') %> 
+    <script src="/Js/editProductValidation.js"></script>
     
 </body>
 </html>
