@@ -12,6 +12,7 @@ const usersControllerApi = {
                 let numero =listUser.length;
                 if (numero !== 0){
                     return res.status(200).json({Total: listUser.length,listUser});
+                    //return res.status(200).json(listUser.userName);
                 }else{
                     return res.status(404).json({message:'No hay datos'});
                 }

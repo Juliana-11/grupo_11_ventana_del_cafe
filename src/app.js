@@ -8,6 +8,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const recordarmeMiddleware = require('./middleware/recordarmeMiddleware');
 const bodyParse = require('body-parser')
+const cors = require('cors');
 
 /*Configuraciones*/
 app.set('views', __dirname + '/views');
@@ -22,6 +23,7 @@ app.use(session({
     saveUninitialized: true,
     }));
 app.use(cookieParser());
+app.use(cors());
 //app.use(recordarmeMiddleware);
 
 //Rutas

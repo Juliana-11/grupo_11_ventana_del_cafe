@@ -141,17 +141,18 @@ const userController = {
     },
     saveEdit: (req,res)=>{
         let idUser = req.params.id;
-        //console.log(idUser)
+        console.log(idUser)
+        console.log(req.body)
         let passNewUser = bcrypt.hashSync(req.body.userPassword, 10);
         User.update({
-            username: req.body.userName,
-            userlastname: req.body.userLastName,
-            useremail: req.body.userEmail,
+            userName: req.body.userName,
+            userLastName: req.body.userLastName,
+            userEmail: req.body.userEmail,
             userAs: req.body.userAs,
             password: passNewUser,
-            useravatar: req.file == undefined ? 'defaultImage.png': req.file.filename,
-            useraddress: req.body.userAddress,
-            userphone: req.body.telefonoRegister,
+            userAvatar: req.file == undefined ? 'defaultImage.png': req.file.filename,
+            userAddress: req.body.userAddress,
+            userPhone: req.body.telefonoRegister,
         
         },
         { where: {id: idUser}}
