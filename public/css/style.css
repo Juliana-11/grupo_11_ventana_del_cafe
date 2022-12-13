@@ -3,7 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 /*h2*/
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-/*h3*/
+/*toastr*/
+
 
 
 /*Código*/
@@ -375,7 +376,7 @@ header div nav{
     font-size: 10px;
     height: 250px;
     position: relative;
-    top: 350px;
+    top: 150px;
 }
 
 .politicas-footer{
@@ -813,6 +814,10 @@ input[type="radio"]:checked ~ label {
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PRODUCT CAR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 /*body*/
+
+.agregarCarrito{
+    font-size: 10px;
+}
 .ocultar p{
     font-size: 13px;
     padding: 8px;

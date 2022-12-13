@@ -1,54 +1,42 @@
 //---------------------- Carrito ----------------------//
 
 /* Funciones */
-function quantityProductsInCar (){
-    return localStorage.shoppingCar ? JSON.parse(localStorage.shoppingCar).length : 0
-}
 
+function productosEnElCarrito(){
+    return localStorage.carrito ? JSON.parse(localStorage.carrito).length : 0
+}
 /* Lógica */
+console.log(productosEnElCarrito());
 
 /*Llamar al boton comprar y Llamar al icono de carrito en header */
-let botonesComprar = document.querySelectorAll(".agregarCarrito")
-let carNumber = document.querySelector(".carNumber")
-carNumber.innerText = quantityProductsInCar();
+let botonesComprar = document.querySelectorAll(".agregarCarrito");
+let carNumber = document.querySelector(".containerNumberCar p");
+carNumber.innerText = productosEnElCarrito()
 
-botonesComprar.forEach((boton)=>{
-    //escuchar el click
-    boton.addEventListener("click",(e)=>{
-        //Formato que pueda leer el localStorage y variables
-        console.log(e)
-        let dataShoppingCar = {
-            id: e.target.dataset.id,
-            quantity: 1
-        };
-        console.log(dataShoppingCar)
-        let stringifyCar = JSON.stringify([dataShoppingCar]);
-        let data_id = e.target.dataset.id;
 
-        //Hay carrito en localStorage
-        if(localStorage.shoppingCar){
-
-            //Lo leo
-            let shoppingCar = JSON.parse(localStorage.shoppingCar)
-            let exists = shoppingCar.findIndex((product) => product.id == data_id);
-            if(exists != -1){
-                //Sumo uno si el producto existe dentro del carrito
-                shoppingCar[exists].quantity++
+botonesComprar.forEach((boton) => {
+    //escuchar
+    boton.addEventListener("click", (e) => {
+        if(localStorage.carrito){
+            let carrito = JSON.parse(localStorage.carrito)
+            let index = carrito.findIndex((product) => product.id == e.target.dataset.id)
+            if(index != -1){
+                carrito[index].quantity++
             }else{
-                //Agrego con push si el producto o existe en el carrito
-                shoppingCar.push({dataShoppingCar})
+                carrito.push({id: e.target.dataset.id, quantity: 1})
             }
-            localStorage.setItem('shoppingCar', JSON.stringify(shoppingCar));
-
+            localStorage.setItem("carrito", JSON.stringify(carrito))
         }else{
-            //Si no hay lo creo
-            localStorage.setItem('shoppingCar', stringifyCar)
+            localStorage.setItem(
+                "carrito",
+                JSON.stringify([{id: e.target.dataset.id, quantity: 1}])
+            )
         }
-        alert('Se agrego un producto al carrito')
-        carNumber.innerText = quantityProductsInCar();
+        alert('Se agrego este producto al carrito')
+        carNumber.innerText = productosEnElCarrito()
     })
-
 })
+
 
 //---------------------- Buscador ----------------------//
 let ctn_bar_search = document.getElementById("containerBarSearch");

@@ -12,7 +12,7 @@
         
         <div class="containerFormCreate">
     
-            <form action="/product/<%= productFinally.id %>/edit" method="POST" enctype="multipart/form-data" class="containerFormCreateProduct">
+            <form action="/product/edit/<%= productFinally.id %>" method="POST" enctype="multipart/form-data" class="containerFormCreateProduct">
     
                 <div class="infogeneralCreate">
                     <h3 class="tittleh3create">Información general</h3>
@@ -71,7 +71,7 @@
                                 <option  disabled="disabled" >Selecciona ...</option>
                                 
                                 <% for( let i = 0; i < tastes.length; i++ ) { %>
-                                    <% if (product_tastes[i].dataValues.product_id == productFinally.id ) { %>
+                                    <% if (product_tastes[i] == productFinally.id ) { %>
                                         <option value="<%= tastes[i].id %>" selected="true"><%= tastes[i].tasteName %></option>  
                                     <% }else{ %>
                                         <option value="<%= tastes[i].id %>"><%= tastes[i].tasteName %></option>        

@@ -24,9 +24,9 @@ router.post('/create',configMulterProduct.single('productImage'),validateCreate,
     //Delete: Eliminar producto
 router.post('/delete/:id', productController.delete);
     //Edit: muestra el formulario de edicion de productos
-router.get('/:id/edit', productController.edit);
+router.get('/edit/:id', productController.edit);
     //Update: Procesamiento de la edicion de un producto
-router.post('/:id/edit', guestMiddleware,configMulterProduct.single('productImage'), productController.update);
+router.post('/edit/:id', guestMiddleware,configMulterProduct.single('productImage'), productController.update);
     //newType: Procesa los datos de tablas secundarias
 router.post('/newType/:table', productController.newType)
     //Detail: Detalle de producto :id

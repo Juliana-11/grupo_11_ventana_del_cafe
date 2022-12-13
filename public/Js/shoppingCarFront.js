@@ -11,7 +11,7 @@ const products = [];
 function calculateTotal(){
     let acum = 0 ;
     for (let i = 0; i < products.length; i++) {
-        acum =+ (products[i].productPrice * products[i].quantity)
+        acum = acum + (products[i].productPrice * products[i].quantity)
     }
     return acum;
 };
@@ -22,9 +22,9 @@ function calculateTotal(){
 let cartRows = document.querySelector('.cartRows');
 
 
-if (localStorage.shoppingCar) {
-    let shoppingCar = JSON.parse(localStorage.shoppingCar);
-    shoppingCar.forEach((item, index) => {
+if (localStorage.carrito) {
+    let carrito = JSON.parse(localStorage.carrito);
+    carrito.forEach((item, index) => {
         fetch(`/api/product/${item.id}`)
             .then(res => res.json())
             .then(product => {
@@ -50,8 +50,8 @@ if (localStorage.shoppingCar) {
                         </div>`;
                         
                 }else{
-                    shoppingCar.splice(index, 1)
-                    localStorage.setItem("shoppingCar", JSON.stringify(shoppingCar))
+                    carrito.splice(index, 1)
+                    localStorage.setItem("carrito", JSON.stringify(carrito))
                 }
             }).then(() => {
                 let total = document.querySelector(".totalAmount");
@@ -82,7 +82,7 @@ checkoutCar.addEventListener("submit", (e)=>{
     .then(r => r.json())
     .then(res => {
         if(res.ok){
-            emptyShoppingCar()
+            emptycarrito()
             location.href = `/user/profile/${res.order.id}`
         }
     })
