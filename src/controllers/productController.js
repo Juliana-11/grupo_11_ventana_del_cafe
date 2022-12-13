@@ -42,14 +42,15 @@ const productController = {
         let toastlevel = ToastLevel.findAll();
         let category = Category.findAll()
         Promise.all([taste, toastlevel, category])
-            .then(([tastes, toastlevels, categories]) => {
-                res.render('products/create', { tastes, toastlevels, categories })
+            .then(([tastes, toastlevels, category]) => {
+                res.render('products/create', { tastes, toastlevels, category})
             })
 
     },
 
     save: async (req, res) => {
         let errors = validationResult(req);
+        console.log(req.body)
         if (errors.isEmpty()) {
             const product = await Product.create({
                 productName: req.body.productName,

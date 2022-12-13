@@ -86,8 +86,8 @@
                                 <i class="fas fa-stream"></i>
                                 <select name="category" id="category">
                                     <option selected="true" disabled="disabled" >Categoria...</option>
-                                    <% for( let i = 0; i < categories.length; i++ ) { %>
-                                        <option value="<%= categories[i].id %> "><%= categories[i].categoryName %> </option>
+                                    <% for( let i = 0; i < category.length; i++ ) { %>
+                                        <option value="<%= category[i].id %> "><%= category[i].categoryName %> </option>
                                     <% } %>
                                 </select>
                             </div>
@@ -98,7 +98,7 @@
                         <div class=" itemFormCreateProduct2 acomodar withModal">
                             <div class="containerSelectCreate">
                                 <i class="fas fa-stream"></i>
-                                <select name="taste">
+                                <select  name="taste">
                                     <option selected="true" disabled="disabled" >Sabor ...</option>
                                     <% for( let i = 0; i < tastes.length; i++ ) { %>
                                         <option value="<%= tastes[i].id %>"><%= tastes[i].tasteName %></option>        
@@ -112,7 +112,7 @@
                         <div class="itemFormCreateProduct2 withModal">
                             <div class="containerSelectCreate">
                                 <i class="fas fa-stream"></i>
-                                <select name="toastlevel">
+                                <select  name="toastlevel">
                                     <option selected="true" disabled="disabled" >Nivel de tostado...</option>
                                     <% for( let i = 0; i < toastlevels.length; i++ ) { %>
                                         <option value="<%= toastlevels[i].id %>"><%= toastlevels[i].toastLevelName %></option>        

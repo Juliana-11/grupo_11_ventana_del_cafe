@@ -21,7 +21,7 @@
         </div>
         <div class="button-item-result-products">
             <button><a href="/product/<%= productsResolve[i].id%>">Ver detalles</a></button>
-            <button class="agregarCarrito" data-id="<%= productsResolve[i].id%>"><a>Comprar</a></button>
+            <button class="agregarCarrito" data-id="<%=productsResolve[i].id%>">Comprar</button>
         </div>
     
         <%# if (locals.session.user) { %>
