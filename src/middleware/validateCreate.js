@@ -20,7 +20,7 @@ const validateCreate = [
                         .isLength({min:5}).withMessage('* Debe contener mínimo 6 caracteres y máximo 15'),
     check('description')
                         .notEmpty().withMessage('* Debe contener una descripción').bail()
-                        .isLength({min:2,max:50}).withMessage('* Debe contener mínimo 6 caracteres y máximo 15')
+                        .isLength({min:2,max:50}).withMessage('* Debe contener mínimo 6 caracteres y máximo 50')
 
 ];
 
