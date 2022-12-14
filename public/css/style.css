@@ -387,7 +387,7 @@ header div nav{
 
 .politicas-footer p, .rigth-footer p{
     margin-bottom: 4px;
-    font-size: 12px;
+    font-size: 10px;
     color: white;
 }
 
@@ -400,6 +400,7 @@ header div nav{
 
 .footer-medium h2{
     color: white;
+    font-size: 15px;
 }
 
 .name-ecommer{
@@ -486,6 +487,41 @@ header div nav{
     position: relative;
     left: 5px;
 }
+
+.conocemas{
+    width: 20%;
+    position: relative;
+    left: 85%;
+    bottom: 30px;
+}
+
+.conocemas a{
+    text-decoration: none;
+    color: black;
+    font-size: 10px;
+}
+
+.conocemas a strong{
+    font-size: 15px;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ABOUT US >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
+.containerImgAbout{
+    width: 50%;
+    margin: auto;
+}
+
+.containerImgAbout img{
+    width: 90%;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.descriptTeam{
+    width: 70%;
+    margin: auto;
+}
+
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< HOME >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
 
 /*main*/
@@ -809,7 +845,7 @@ input[type="radio"]:checked ~ label {
     text-align: left;
     box-sizing: border-box;
     width: 100%;
-    margin-left: 2vw;
+    font-size: 11px;
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PRODUCT CAR >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
@@ -1090,7 +1126,43 @@ input[type="radio"]:checked ~ label {
     font-size: 8px;
 }
 
+
+
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PRODUCT DETAIL >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
+.optionsDetail, .optionsProfile{
+    background-color: rgb(189, 175, 175);
+    width: 50%;
+    max-width: 300px;
+    left: 10%;
+    opacity: 0;
+    padding: 10px;
+    position: fixed;
+    transition: all 500ms;
+    z-index: 10000;
+    border-radius: 10px;
+}
+
+.buttonDetail{
+    font-size: 15px;
+}
+
+.optionsDetail form, .optionsProfile form{
+    margin: 10px;
+    
+}
+
+.optionsDetail form button, .optionsProfile form button{
+    cursor: pointer;
+    padding: 3px;
+    background-color: gray;
+
+}
+
+.optionsDetail form button a, .optionsProfile form button a{
+    text-decoration: none;
+    color: black;
+}
+
 .productDetail{
     display: flex;
     flex-wrap: wrap;
@@ -1098,6 +1170,17 @@ input[type="radio"]:checked ~ label {
     color: black;
     padding: 20px;
     justify-content: space-around;
+}
+
+.settingsDetail{
+    width: 100%;
+    cursor: pointer;
+}
+
+.divIconoDetail{
+    width: 80%;
+    position: relative;
+    left: 50px;
 }
 
 .buttonExit{
@@ -1112,11 +1195,7 @@ input[type="radio"]:checked ~ label {
 
 .productImage{
     width: 80%;
-}
-
-.containerInfoMoney{
-    display: flex;
-    flex-wrap: wrap;
+    border-radius: 5px;
 }
 
 .productPriceSigno{
@@ -1140,6 +1219,8 @@ input[type="radio"]:checked ~ label {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .elementDetail{
@@ -1157,41 +1238,23 @@ input[type="radio"]:checked ~ label {
     color: gray;
 }
 
-.divIconoDetail{
-    width: 30%; 
+.containerButtonsDetail{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.hovertext {
-    position: relative;
-    border-bottom: 1px dotted black;
-  }
-  
-  .hovertext:before {
-    content: attr(data-hover);
-    visibility: hidden;
-    opacity: 0;
-    width: 140px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px 0;
-    transition: opacity 1s ease-in-out;
-  
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 110%;
-  }
-  
-  .hovertext:hover:before {
-    opacity: 1;
-    visibility: visible;
-  }
+.modalDetailInfo{
+    background-color: #42C6ED;
+    position: fixed;
+    right: 100%;
+}
  
 .productName{
     text-align: center;
-    margin-bottom: 20px;
+    margin: 10px;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 .productDescription{
@@ -1200,7 +1263,7 @@ input[type="radio"]:checked ~ label {
 }
 
 .buttonCarDetail{
-    width: 100%;
+    width: 45%;
     margin: 5px;
     padding: 5px;
 }
@@ -1229,10 +1292,15 @@ input[type="radio"]:checked ~ label {
     margin: 8px;
 }
 
+.infoPropertyDetail{
+    height: 50%;
+}
+
 .property{
     display: flex;
     flex-wrap: wrap;
     width: 30%;
+    height: 100px;
     margin: 2px;
     align-content: stretch;
     justify-content: space-around;
@@ -1252,6 +1320,14 @@ input[type="radio"]:checked ~ label {
 
 .property h4{
     width: 70%;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.propertyContentName{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .propertyIcon{
@@ -1273,70 +1349,62 @@ input[type="radio"]:checked ~ label {
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< REGISTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.bodyStyleRegisterUser{
+    background-color: rgb(240, 200, 172);
+    height: 100%;
+}
+.registerPartUno, .registerPartDos{
+    width: 50%;
+    max-width: 310px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .tituloRegister{
     text-align: center;
+    font-size: 30px;
 }
 
 .containerh2Register{
-    border-bottom: 2px solid gray;
     margin: 10px;
     margin-top: 20px; 
     width: 100%;
 }
 
 .containerh2Register h2{
-    color: gray;
+    text-align: center;
+    width: 100%;
+    margin: 4px 0px;
+    font-size: 20px;
+}
+
+
+.itemRegister{
+    width: 100%;
     text-align: center;
 }
 
-.datosPersonalesRegister, .datosDeEntrega{
-    display: flex;
-    flex-wrap: wrap;
-    background-color: var(--gray);
-    margin: 15px 25px;
-    padding: 5px;
-    border-radius: 15px;
-    
-    max-width: 320px;
-}
-.itemRegister{
-    width: 95%;
-    text-align: center;
+.itemEntrega{
+    margin-bottom: 15px;
 }
 
 .itemRegister label{
     display: none;
 }
 
+#userAvatar{
+    font-size: 10px;
+    border: 1.5px solid black;
+}
+
 .itemRegister input{
-    text-align: center;
-    width: 75%;
-    height: 35px;
-    margin: 13px;
-    border-radius: 10px;
-    border: 1px solid black;
-}
-
-.checkboxRegister{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 5px 0px;
-}
-
-.checkboxRegister p{
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.checkboxRegister label{
-    text-align: center;
-}
-
-.itemCheckboxRegister{
-    width: 40%;
-    margin-left: 10px;
-    margin-bottom: 10px;
+    width: 80%;
+    font-size: 10px;
+    padding: 3px;
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow: 5px -3px 12px rgb(116 105 105);
 }
 
 .containerButtonRegister{
@@ -1359,16 +1427,12 @@ input[type="radio"]:checked ~ label {
 
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FORMULARIO DE CREACION DE PRODUCTO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/ 
-.contentInfoAllCreate{
-    width: 80%;
+.contentInfoAllCreate, .containerElementsFeaturesCreate{
+    width: 50%;
+    max-width: 310px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-}
-
-.containerElementsFeaturesCreate{
-    width: 80%;
-    margin: auto;
 }
 
 .titleCreateProduct{
@@ -1428,6 +1492,7 @@ input[type="radio"]:checked ~ label {
 
 .itemFormCreateProduct2 select, .containerSelectCreate input{
     width: 80%;
+    font-size: 10px;
     max-width: 205px;
     border: 2px solid black;
     padding: 5px;
@@ -1450,8 +1515,8 @@ input[type="radio"]:checked ~ label {
 }
 
 .containerSelectCreate{
-    width: 90%;
-    max-width: 300px;
+    width: 100%;
+    max-width: 180px;
     margin: auto;
     position: relative;
 }
@@ -1462,6 +1527,7 @@ input[type="radio"]:checked ~ label {
 
 .itemFormCreateProduct input{
     width: 80%;
+    font-size: 10px;
     padding: 3px;
     border-radius: 5px;
     margin: 5px ;
@@ -1495,9 +1561,8 @@ input[type="radio"]:checked ~ label {
 }
 
 .containerTextareaCreate textarea{
-    height: 70px;
-    width: 75%;
-    max-width: 340px;
+    height: 90px;
+    max-width: 400px;
     padding: 5px;
     border: 2px solid black;
     border-radius: 5px;
@@ -1606,8 +1671,8 @@ input[type="radio"]:checked ~ label {
     font-size: 15px;
     height: 25px;
     position: absolute;
-    top: 8px;
-    left: 275px;
+    top: 5px;
+    left: 180px;
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
@@ -1639,7 +1704,6 @@ input[type="radio"]:checked ~ label {
     grid-auto-flow: dense;
     gap: 5px;
     justify-items: center;
-
     border: solid 2px black;
     border-radius: 20px;
     padding: 5px;
@@ -1651,6 +1715,23 @@ input[type="radio"]:checked ~ label {
     width: 65%;
     margin: 2px;
     
+}
+
+.optionsProfile{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.optionsProfile form {
+    width: 100%;
+}
+
+.optionsProfile form button{
+    width: 70%;
+}
+
+.settingsProfile i{
+    cursor: pointer;
 }
 
 .containerPhoto img{
@@ -1670,7 +1751,14 @@ input[type="radio"]:checked ~ label {
 
 .infoUser h3{
     width: 100%;
+    font-size: 20px;
+    max-height: 100px;
     text-align: center;
+}
+
+.containerdateProfile{
+    position: relative;
+    bottom: 60px;
 }
 
 .TopProfile{
@@ -1696,7 +1784,6 @@ input[type="radio"]:checked ~ label {
 
 .nameDate{
     font-weight: bold;
-    margin-top: 4px;
 }
 
 .containerdateProfile{
@@ -2170,7 +2257,6 @@ input[type="radio"]:checked ~ label {
 
     /*Register*/
     .registerPartUno, .registerPartDos{
-        width: 50%;
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
@@ -2202,14 +2288,6 @@ input[type="radio"]:checked ~ label {
     .styleMainProfile{
         font-size: 14px;
     } 
-
-    .infoPersonal{
-        grid-column: span 2;
-    }
-
-    .daysReceiveOrder{
-        grid-row: span 2;
-    }
 }
 
 
@@ -2222,6 +2300,14 @@ input[type="radio"]:checked ~ label {
     /*list*/
     .icon-filter-list i{
         display: none;
+    }
+
+    .politicas-footer p, .rigth-footer p{
+        font-size: 13px;
+    }
+    
+    .footer-medium h2{
+        font-size: 30px;
     }
 
     /*Home*/
@@ -2273,7 +2359,8 @@ input[type="radio"]:checked ~ label {
     /*Register*/
     .itemRegister label{
         display: block;
-        margin-bottom: -7px;
+        margin-bottom: -3px;
+        font-weight: bold;
     }
     .containerRegister{
         display: flex;
@@ -2338,6 +2425,11 @@ input[type="radio"]:checked ~ label {
 
     .containerImgDetail{
         width: 50%;
+    }
+    
+    .containerImgDetail img{
+        width: 90%;
+        margin: auto;
     }
 
     .containerInfoDetail{

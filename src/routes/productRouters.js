@@ -20,7 +20,7 @@ router.get('/car', userLogged, productController.car);
     //Create: renderiza el formulario de creacion de producto
 router.get('/create', productController.create);
     //Save: procesa los datos de producto creado
-router.post('/create',configMulterProduct.single('productImage'),validateCreate,productController.save);
+router.post('/create', configMulterProduct.single('productImage'), validateCreate, productController.save);
     //Delete: Eliminar producto
 router.post('/delete/:id', productController.delete);
     //Edit: muestra el formulario de edicion de productos

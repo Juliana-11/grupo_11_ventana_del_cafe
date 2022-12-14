@@ -101,23 +101,25 @@
                             <%- include('../partials/modalCreateFeatures', {type: 'toast-level', name_modal: 'nivel de tostado' }) %>
                         </div>
                     </div>
-    
+     
                     <div class="itemFormCreateProduct2">
                         <label for="image">Imagen</label>
                         <div class="containerSelectCreate">
-                            <input type="file" name="productImage" >
+                            <% if (images[0].dataValues.product_id == productFinally.id) { %>
+                                <div class="edit_image">
+                                    <input type="file" name="productImage" value="<%= images[0].dataValues.productImageName %>">
+                                </div>
+                            <% }else{%>
+                                <input type="file" name="productImage" >
+                            <% } %>
                         </div>
                     </div>
-    
-                   
-                        <% for( let i = 0; i < images.length; i++ ) { %>
-                            <% if (images[i].dataValues.product_id == productFinally.id) { %>
-                                <div class="edit_image">
-                                    <img src="/img/products/<%= images[i].dataValues.productImageName %> " alt="No encontrada">
-                                </div>
-                            <% }%>
-                        <% } %>
-                    
+
+                        <% if (images[0].dataValues.product_id== productFinally.id) { %>
+                            <div class="edit_image">
+                                <img src="/img/products/<%= images[0].dataValues.productImageName %> " alt="No encontrada">
+                            </div>
+                        <% }%>
     
                     <div class="descriptionFormCreateProduct">
                         <label for="description">Descripción del producto</label>

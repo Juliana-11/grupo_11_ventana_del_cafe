@@ -1,146 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head', {title: "Registro"}) %>
-<body class="body-style">
+<body class="bodyStyleRegisterUser">
     <%- include('../partials/header') %>
     <%- include('../partials/resultSearchForm') %>
     <%- include('../partials/modalOptionHeader') %> 
 
-<main>
-    <div class="content">
+    <main >
+        <div class="content">
 
-        <div class="registrarse">
-    
-            <h1 class="tituloRegister">REGISTRATE</h1>
-    
-            <form action="/users/register" method="POST" enctype ="multipart/form-data" id = "formRegister">
-    
-                <div class="containerRegister">
-                    <div class="registerPartUno">
-                        <div class="containerh2Register"><h2>Datos personales</h2></div>
+            <div class="registrarse">
         
-                        <div class="datosPersonalesRegister">
+                <h1 class="tituloRegister">REGISTRATE</h1>
         
-                            <div class="itemRegister">
-                                <label for="userName">Nombre </label>
-                                <input type="text" id="userName" name="userName"  placeholder="Indicame tu nombre"  value="<%= locals.old && old.userName %>">
-                                <br>
-                                <% if (locals.errors && errors.userName) { %>
-                                    <span style="color:red;font-size: 1vw;"><%= errors.userName.msg %></span>
-                                <% } %>
-                            </div>
-                            
-                            <div class="itemRegister">
-                                <label for="apellidoRegister">Apellido </label>
-                                <input type="text" id="userLastName" name="userLastName"  placeholder="Indicame tu apellido"  value="<%= locals.old && old.userLastName %>">
-                                <br>
-                                <% if (locals.errors && errors.userLastName) { %>
-                                    <span style="color:red;font-size: 1vw;"><%= errors.userLastName.msg %></span>
-                                <% } %>
-                            </div>
-                            
-                            <div class="itemRegister">
-                                <% if (!locals.query) { %>
-                                    <label for="userEmail">Email </label>
-                                    <input type="email" id="userEmail" name="userEmail"  placeholder="Indicame tu email" value="<%= locals.old && old.userEmail %>">
+                <form action="/users/register" method="POST" enctype ="multipart/form-data" id = "formRegister">
+        
+                    <div class="containerRegister">
+                        <div class="registerPartUno">
+                            <div class="containerh2Register"><h2>Datos personales</h2></div>
+            
+                            <div class="datosPersonalesRegister">
+            
+                                <div class="itemRegister">
+                                    <label for="userName">Nombre </label>
+                                    <div>
+                                        <i class="fas fa-user"></i>
+                                        <input type="text" id="userName" name="userName"  placeholder="Indicame tu nombre"  value="<%= locals.old && old.userName %>">
+                                    </div>
                                     <br>
-                                    <% } else {%>
-                                        <label for="userEmail">Email </label>
-                                        <input type="email" id="userEmail" name="userEmail"  placeholder="Indicame tu email" value="<%=query%>">
-                                        <br>
+                                    <% if (locals.errors && errors.userName) { %>
+                                        <span style="color:red;font-size: 10px;"><%= errors.userName.msg %></span>
                                     <% } %>
+                                </div>
                                 
-                                <% if (locals.errors && errors.userEmail) { %>
-                                    <span style="color:red;font-size: 1vw;"><%= errors.userEmail.msg %></span>
-                                <% } %>
+                                <div class="itemRegister">
+                                    <label for="apellidoRegister">Apellido </label>
+                                    <div>
+                                        <i class="fas fa-user"></i>
+                                        <input type="text" id="userLastName" name="userLastName"  placeholder="Indicame tu apellido"  value="<%= locals.old && old.userLastName %>">
+                                    </div>
+                                    <br>
+                                    <% if (locals.errors && errors.userLastName) { %>
+                                        <span style="color:red;font-size: 10px;"><%= errors.userLastName.msg %></span>
+                                    <% } %>
+                                </div>
+                                
+                                <div class="itemRegister">
+                                    <% if (!locals.query) { %>
+                                        <label for="userEmail">Email </label>
+                                        <div>
+                                            <i class="fas fa-envelope"></i>
+                                            <input type="email" id="userEmail" name="userEmail"  placeholder="Indicame tu email" value="<%= locals.old && old.userEmail %>">
+                                        </div>
+                                        <br>
+                                        <% } else {%>
+                                            <label for="userEmail">Email </label>
+                                            <input type="email" id="userEmail" name="userEmail"  placeholder="Indicame tu email" value="<%=query%>">
+                                            <br>
+                                        <% } %>
+                                    
+                                    <% if (locals.errors && errors.userEmail) { %>
+                                        <span style="color:red;font-size: 10px;"><%= errors.userEmail.msg %></span>
+                                    <% } %>
+                                </div>
+                                
+                                <div class="itemRegister">
+                                    <label for="userAs">Nuevo usuario </label>
+                                    <div>
+                                        <i class="fas fa-theater-masks"></i>
+                                        <input type="text"  id="userAs" name="userAs" placeholder="Create un usuario"  value="<%= locals.old && old.userAs %>">
+                                    </div>
+                                    <br>
+                                    <% if (locals.errors && errors.userAs) { %>
+                                        <span style="color:red;font-size: 10px;"><%= errors.userAs.msg %></span>
+                                    <% } %>
+        
+                                    <% if (locals.msgError) {%>
+                                        <span style="color:red;"><%= msgError.mgs %></span><br>
+                                    <%}%>
+                                
+                                </div>
+            
+                                <div class="itemRegister">
+                                    <label for="userPassword">Contraseña</label>
+                                    <div>
+                                        <i class="fas fa-user-lock"></i>
+                                        <input type="password" id="userPassword" name="userPassword" placeholder="Crea una contraseña" value="<%= locals.old && old.userPassword %>">
+                                    </div>
+                                    <br>
+                                    <% if (locals.errors && errors.userPassword) { %>
+                                        <span style="color:red;font-size: 10px;"><%= errors.userPassword.msg %></span>
+                                    <% } %>
+                                </div>
+            
+                                <div class="itemRegister">
+                                    <label for="userPasswordConfirm">Confirma contraseña </label>
+                                    <div>
+                                        <i class="fas fa-user-lock"></i>
+                                        <input type="password" id="userPasswordConfirm" name="userPasswordConfirm"  placeholder="Confirma tu contraseña" value="<%= locals.old && old.userPasswordConfirm %>">
+                                    </div>
+                                    <br>
+                                    <% if (locals.errors && errors.userPasswordConfirm) { %>
+                                        <span style="color:red;font-size: 10px;"><%= errors.userPasswordConfirm.msg %></span>
+                                    <% } %>
+                                </div>
+            
+                                <div class="itemRegister userAvatarctn">
+                                    <label for="userAvatar">Perfil</label>
+                                    <div>
+                                        <i class="fas fa-images"></i>
+                                        <input type="file" id="userAvatar" name="userAvatar"  accept="image/gif, image/png, image/jpg, image/jpeg"  value="<%= locals.old && old.userAvatar %>">
+                                    </div>
+                                </div>   
                             </div>
                             
-                            <div class="itemRegister">
-                                <label for="userAs">Nuevo usuario </label>
-                                <input type="text"  id="userAs" name="userAs" placeholder="Create un usuario"  value="<%= locals.old && old.userAs %>">
-                                <br>
-                                <% if (locals.errors && errors.userAs) { %>
-                                    <span style="color:red;font-size: 1vw;"><%= errors.userAs.msg %></span>
-                                <% } %>
-    
-                                <% if (locals.msgError) {%>
-                                    <span style="color:red;"><%= msgError.mgs %></span><br>
-                                <%}%>
-                               
-                            </div>
-        
-                            <div class="itemRegister">
-                                <label for="userPassword">Contraseña</label>
-                                <input type="password" id="userPassword" name="userPassword" placeholder="Crea una contraseña" value="<%= locals.old && old.userPassword %>">
-                                <br>
-                                <% if (locals.errors && errors.userPassword) { %>
-                                    <span style="color:red;font-size: 1vw;"><%= errors.userPassword.msg %></span>
-                                <% } %>
-                            </div>
-        
-                            <div class="itemRegister">
-                                <label for="userPasswordConfirm">Confirma contraseña </label>
-                                <input type="password" id="userPasswordConfirm" name="userPasswordConfirm"  placeholder="Confirma tu contraseña" value="<%= locals.old && old.userPasswordConfirm %>">
-                                <br>
-                                <% if (locals.errors && errors.userPasswordConfirm) { %>
-                                    <span style="color:red;font-size: 1vw;"><%= errors.userPasswordConfirm.msg %></span>
-                                <% } %>
-                            </div>
-        
-                            <div class="itemRegister">
-                                <label for="userAvatar">Perfil</label>
-                                <input type="file" id="userAvatar" name="userAvatar"  accept="image/gif, image/png, image/jpg, image/jpeg"  value="<%= locals.old && old.userAvatar %>">
-                            </div>   
+                        </div>
+            
+                        <div class="registerPartDos">
+                            <div class="containerh2Register"><h2>Datos de entrega</h2></div>
                             
+                            <div class="datosDeEntrega">
+                
+                                <div class="itemRegister itemEntrega">
+                                    <label for="userAddress">Dirección</label>
+                                    <div>
+                                        <i class="fas fa-map-marked-alt"></i>
+                                        <input type="text" id="userAddress" name="userAddress" placeholder="Indicame tu dirección" value="<%= locals.old && old.userAddress %>">
+                                    </div>
+                                </div>
+                            
+                                <div class="itemRegister itemEntrega">
+                                    <label for="telefonoRegister">Telefono / Celular </label>
+                                    <div>
+                                        <i class="fas fa-phone-alt"></i>
+                                        <input type="number" id="telefonoRegister" name="telefonoRegister" placeholder="Indicame tu numero de contacto">
+                                    </div>
+                                    <br>
+                                    <% if (locals.errors && errors.userPhone) { %>
+                                        <span style="color:red;font-size: 10px;"><%= errors.userPhone.msg %></span>
+                                    <% } %>
+                                </div>
+                                <div class ="errorFrom">
+                                    <ul></ul>
+                                </div>
+                            </div>
+
                             <div class ="errorFrom">
                                 <ul></ul>
                             </div>
-                           
                         </div>
-                        
-                    </div>
-    
-                    <div class="imagenDecoRegister">
-                        <img src="/imag/cafeColombiano.jpg" alt="cultivar_cafe">
-                    </div>
         
-                    <div class="registerPartDos">
-                        <div class="containerh2Register"><h2>Datos de entrega</h2></div>
-                        
-                        <div class="datosDeEntrega">
-            
-                            <div class="itemRegister">
-                                <label for="userAddress">Dirección 1</label>
-                                <input type="text" id="userAddress" name="userAddress" placeholder="Indicame tu dirección" value="<%= locals.old && old.userAddress %>">
-                            </div>
-                        
-                            <div class="itemRegister">
-                                <label for="telefonoRegister">Telefono / Celular </label>
-                                <input type="number" id="telefonoRegister" name="telefonoRegister" placeholder="Indicame tu celular">
-                                <br>
-                                <% if (locals.errors && errors.userPhone) { %>
-                                    <span style="color:red;font-size: 1vw;"><%= errors.userPhone.msg %></span>
-                                <% } %>
-                            </div>
-                            <div class ="errorFrom">
-                                <ul></ul>
-                            </div>
-                        </div>
                     </div>
-    
-                    <div class="imagenDecoRegister">
-                        <img src="/imag/cafeColombiano 2.png" alt="cultivar_cafe">
+                
+                    <div class="containerButtonRegister">
+                        <input type="submit" class="buttonRegister" value="Continuar">
                     </div>
-    
-                </div>
-            
-                <div class="containerButtonRegister">
-                    <input type="submit" class="buttonRegister" value="Continuar">
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
 
 <%- include('../partials/footer') %>
 <%- include('../partials/scripts') %> 

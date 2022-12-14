@@ -15,12 +15,15 @@
         <!-- Formulario de creación -->
         <div class="containerFormCreate">
             <div class="errores"></div>
+
             <form action="/product/create" method="POST" enctype="multipart/form-data" class="formCreateProduct">
     
                 <div class="infogeneralCreate">
+                    
                     <h3 class="tittleh3create">Información general</h3>
 
                     <div class="contentInfoAllCreate">
+                        
                         
                         <div class="itemFormCreateProduct">
                             <div>
@@ -28,7 +31,7 @@
                                 <input type="text" name="productName" id="name" placeholder="Nombre de producto">
                             </div>
                             <% if (locals.errors && errors.productName) { %>
-                                <span style="color:red;font-size: 1vw;"><%= errors.productName.msg %></span>
+                                <span style="color:red;font-size: 10px;"><%= errors.productName.msg %></span>
                             <% } %>
                         </div>
             
@@ -38,7 +41,7 @@
                                 <input type="text" name="productPrice" id="price" placeholder="Precio">
                             </div>
                             <% if (locals.errors && errors.productPrice) { %>
-                                <span style="color:red;font-size: 1vw;"><%= errors.productName.msg %></span>
+                                <span style="color:red;font-size: 10px;"><%= errors.productPrice.msg %></span>
                             <% } %>
                         </div>
             
@@ -48,7 +51,7 @@
                                 <input type="text" name="productDiscount" id="discount" placeholder="Descuento">
                             </div>
                             <% if (locals.errors && errors.productDiscount) { %>
-                                <span style="color:red;font-size: 1vw;"><%= errors.productDiscount.msg %></span>
+                                <span style="color:red;font-size: 10px;"><%= errors.productDiscount.msg %></span>
                             <% } %>
                         </div>
             
@@ -58,7 +61,7 @@
                                 <input type="text" name="productStock" id="productStock" placeholder="Cantidad disponible">
                             </div>
                             <% if (locals.errors && errors.productStock) { %>
-                                <span style="color:red;font-size: 1vw;"><%= errors.productStock.msg %></span>
+                                <span style="color:red;font-size: 10px;"><%= errors.productStock.msg %></span>
                             <% } %>
                         </div>
             
@@ -68,9 +71,10 @@
                                 <input type="text" name="productOrigin" id="productOrigin" placeholder="Origen del producto">
                             </div>
                             <% if (locals.errors && errors.productOrigin) { %>
-                                <span style="color:red;font-size: 1vw;"><%= errors.productOrigin.msg %></span>
+                                <span style="color:red;font-size: 10px;"><%= errors.productOrigin.msg %></span>
                             <% } %>
                         </div>
+
                     </div>
                 </div>
                 
@@ -97,7 +101,7 @@
                                 </select>
                             </div>
                             <% if (locals.errors && errors.category) { %>
-                                <span style="color:red;font-size: 1vw;"><%= errors.category.msg %></span>
+                                <span style="color:red;font-size: 10px;"><%= errors.category.msg %></span>
                             <% } %>
                         </div>
                         
@@ -119,7 +123,7 @@
                                 <%- include('../partials/modalCreateFeatures', {type: 'taste', name_modal: 'Sabor' }) %> 
                             </div>
                             <% if (locals.errors && errors.taste) { %>
-                                <span style="color:red; font-size: 1vw;"><%= errors.taste.msg %></span>
+                                <span style="color:red; font-size: 10px;"><%= errors.taste.msg %></span>
                             <% } %>
                         </div>
             
@@ -140,7 +144,7 @@
                                 <%- include('../partials/modalCreateFeatures', {type: 'toast-level', name_modal: 'nivel de tostado' }) %>     
                             </div>
                             <% if (locals.errors && errors.toastlevel) { %>
-                                <span style="color:red; font-size: 1vw;"><%= errors.toastlevel.msg %></span>
+                                <span style="color:red; font-size: 10px;"><%= errors.toastlevel.msg %></span>
                             <% } %>
                         </div>
         
@@ -160,7 +164,7 @@
                                 <textarea name="description" id="description" cols="30" rows="10"></textarea>
                                 <br>
                                 <% if (locals.errors && errors.description) { %>
-                                    <span style="color:red;font-size: 1vw;"><%= errors.description.msg %></span>
+                                    <span style="color:red;font-size: 10px;"><%= errors.description.msg %></span>
                                 <% } %>
                             </div>
                         </div>

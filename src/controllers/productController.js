@@ -29,11 +29,15 @@ const productController = {
             nest: true
         })
             .then(productsResolve => {
-                res.render('products/list', { productsResolve: productsResolve })
+                res.render('products/list', { productsResolve: productsResolve, toThousand})
             })
     },
 
     car: (req, res) => {
+        if(req.session.user){
+            let session = req.session.user
+            res.render('products/cart', {session})
+        }
         res.render('products/cart')
     },
 
@@ -43,16 +47,18 @@ const productController = {
         let category = Category.findAll()
         Promise.all([taste, toastlevel, category])
             .then(([tastes, toastlevels, category]) => {
-                res.render('products/create', { tastes, toastlevels, category})
+                if(req.session.user){
+                    let session = req.session.user
+                    res.render('products/create', { tastes, toastlevels, category, session })
+                }
+                res.render('products/create', { tastes, toastlevels, category })
             })
 
     },
 
     save: async (req, res) => {
         let errors = validationResult(req);
-        console.log(errors)
         if (errors.isEmpty()) {
-            console.log('Entre al empty')
             const product = await Product.create({
                 productName: req.body.productName,
                 productPrice: req.body.productPrice,
@@ -67,7 +73,6 @@ const productController = {
             console.log('Cree un producto');
             console.log('------------------');
 
-            console.log('antes de imagen')
             const image = await Image.create({
                 productImageName: req.file ? req.file.filename : 'defaultImage.png',
                 product_id: product.id
@@ -89,9 +94,19 @@ const productController = {
                     res.redirect('/product')
                 })
         } else {
-            console.log(req.body)
-           
-            res.render('products/create', { errors: errors.mapped(), old: req.body });
+            let taste = Taste.findAll();
+            let toastlevel = ToastLevel.findAll();
+            let category = Category.findAll()
+            Promise.all([taste, toastlevel, category])
+                .then(([tastes, toastlevels, categories]) => {
+                    res.render( 'products/create', { 
+                        tastes: tastes, 
+                        toastlevels: toastlevels, 
+                        categories: categories,
+                        errors: errors.mapped(),
+                        old: req.body })
+                })
+            //res.render('products/create', { errors: errors.mapped(), old: req.body });
         }
     },
 
@@ -114,7 +129,11 @@ const productController = {
         let toastlevel = ToastLevel.findAll();
         let category = Category.findAll();
         let product = Product.findByPk(req.params.id);
-        let image = Image.findAll();
+        let image = Image.findAll({
+            where: {
+                product_id : req.params.id,
+            }
+        });
         Promise.all([taste, product_taste, toastlevel, category, product, image])
             .then(([tastes, product_tastes, toastlevels, categories, product, images]) => {
                 let productFinally = product.dataValues
@@ -122,7 +141,7 @@ const productController = {
             })
     },
 
-    update: async(req, res) => {
+    update: async (req, res) => {
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
@@ -135,7 +154,7 @@ const productController = {
                 stock: req.body.productStock,
                 category_id: req.body.category,
                 toastLevel_id: req.body.toastlevel
-            },{where: {id : req.params.id}})
+            }, { where: { id: req.params.id } })
             console.log('------------------');
             console.log('Actualice un producto');
             console.log('------------------');
@@ -143,14 +162,14 @@ const productController = {
             console.log('antes de imagen')
             const image = await Image.update({
                 productImageName: req.file ? req.file.filename : 'defaultImage.png',
-            },{where: {id : req.params.id}})
+            }, { where: { id: req.params.id } })
             console.log('------------------');
             console.log('actualice la imagen');
             console.log('------------------');
 
             const taste = await Product_taste.update({
                 taste_id: req.body.taste,
-            },{where: {id : req.params.id}})
+            }, { where: { id: req.params.id } })
             console.log('------------------');
             console.log('actualice el sabor');
             console.log('------------------');
@@ -163,7 +182,7 @@ const productController = {
             let oldData = req.body;
             res.render('productCreateForm', { errors: errors.mapped(), oldData });
         }
-    
+
     },
 
 

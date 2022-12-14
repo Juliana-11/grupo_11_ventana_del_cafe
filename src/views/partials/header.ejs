@@ -18,7 +18,11 @@
                 <i class="fas fa-search" id="iconSearch"></i>
             </div>
             <a href="#"><i class="far fa-bell"></i></a>
-            <a href="/users/login"><i class="fas fa-user-circle"></i></a>
+            <% if (!locals.session) { %>
+                <a href="/users/login"><i class="fas fa-user-circle"></i></a>
+            <% }else{ %>
+                <a href="/users/profile/<%= locals.session[0].id %> "><i class="fas fa-user-circle"></i></a>
+            <% } %>
             <a href="/product/car" class="shoppingCarLogo">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="nameShoppingCarLogo">Carrito</span>
@@ -35,7 +39,7 @@
                 <ul>
                     <li><a href="/product">Productos</a></li>
                     <li><a href="/kitchenRecipes">Recetas</a></li>
-                    <li><a href="#about-us">About us</a></li>
+                    <li><a href="/aboutUs">About us</a></li>
                 </ul>
             </nav>
         </div>
