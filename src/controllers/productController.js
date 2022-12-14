@@ -50,8 +50,9 @@ const productController = {
 
     save: async (req, res) => {
         let errors = validationResult(req);
-        console.log(req.body)
+        console.log(errors)
         if (errors.isEmpty()) {
+            console.log('Entre al empty')
             const product = await Product.create({
                 productName: req.body.productName,
                 productPrice: req.body.productPrice,
@@ -88,6 +89,7 @@ const productController = {
                     res.redirect('/product')
                 })
         } else {
+            console.log(req.body)
            
             res.render('products/create', { errors: errors.mapped(), old: req.body });
         }
