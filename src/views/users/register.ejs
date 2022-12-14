@@ -71,7 +71,7 @@
         
                             <div class="itemRegister">
                                 <label for="userPassword">Contraseña</label>
-                                <input type="password" id="userPassword" name="userPassword" placeholder="Crea una contraseña" required value="<%= locals.old && old.userPassword %>">
+                                <input type="password" id="userPassword" name="userPassword" placeholder="Crea una contraseña" value="<%= locals.old && old.userPassword %>">
                                 <br>
                                 <% if (locals.errors && errors.userPassword) { %>
                                     <span style="color:red;font-size: 1vw;"><%= errors.userPassword.msg %></span>
@@ -80,7 +80,7 @@
         
                             <div class="itemRegister">
                                 <label for="userPasswordConfirm">Confirma contraseña </label>
-                                <input type="password" id="userPasswordConfirm" name="userPasswordConfirm"  placeholder="Confirma tu contraseña" required value="<%= locals.old && old.userPasswordConfirm %>">
+                                <input type="password" id="userPasswordConfirm" name="userPasswordConfirm"  placeholder="Confirma tu contraseña" value="<%= locals.old && old.userPasswordConfirm %>">
                                 <br>
                                 <% if (locals.errors && errors.userPasswordConfirm) { %>
                                     <span style="color:red;font-size: 1vw;"><%= errors.userPasswordConfirm.msg %></span>
@@ -111,7 +111,7 @@
             
                             <div class="itemRegister">
                                 <label for="userAddress">Dirección 1</label>
-                                <input type="text" id="userAddress" name="userAddress" placeholder="Indicame tu dirección" required value="<%= locals.old && old.userAddress %>">
+                                <input type="text" id="userAddress" name="userAddress" placeholder="Indicame tu dirección" value="<%= locals.old && old.userAddress %>">
                             </div>
                         
                             <div class="itemRegister">

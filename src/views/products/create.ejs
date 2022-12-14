@@ -91,6 +91,9 @@
                                     <% } %>
                                 </select>
                             </div>
+                            <% if (locals.errors && errors.category) { %>
+                                <span style="color:red;font-size: 1vw;"><%= errors.category.msg %></span>
+                            <% } %>
                         </div>
                         
         
@@ -106,6 +109,9 @@
                                 </select>
                                 <%- include('../partials/modalCreateFeatures', {type: 'taste', name_modal: 'Sabor' }) %> 
                             </div>
+                            <% if (locals.errors && errors.taste) { %>
+                                <span style="color:red; font-size: 1vw;"><%= errors.taste.msg %></span>
+                            <% } %>
                         </div>
             
                         <!----Nivel de tostado---->
@@ -120,6 +126,9 @@
                                 </select>
                                 <%- include('../partials/modalCreateFeatures', {type: 'toast-level', name_modal: 'nivel de tostado' }) %>     
                             </div>
+                            <% if (locals.errors && errors.toastlevel) { %>
+                                <span style="color:red; font-size: 1vw;"><%= errors.toastlevel.msg %></span>
+                            <% } %>
                         </div>
         
                         <div class="itemFormCreateProduct2">
@@ -155,6 +164,7 @@
             </form>    
         </div>
     </div>
+    <%- include('../partials/scripts') %> 
     <script src="/Js/createFront.js"></script>
     <script src="/Js/createValidation.js"></script>
 </body>
