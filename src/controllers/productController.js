@@ -180,7 +180,7 @@ const productController = {
                 })
         } else {
             let oldData = req.body;
-            res.render('productCreateForm', { errors: errors.mapped(), oldData });
+            res.render('products/edit', { errors: errors.mapped(), oldData });
         }
 
     },

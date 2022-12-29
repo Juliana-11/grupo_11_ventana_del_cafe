@@ -6,8 +6,8 @@ const User = db.User;
 const usersControllerApi = {
     'listado': (req, res) => {
         User.findAll({
-            attributes: ['id', 'userName','userEmail']
-          })
+            attributes: ['id', 'userName','userEmail', 'userAvatar']
+            })
             .then(listUser =>{
                 let numero =listUser.length;
                 if (numero !== 0){
